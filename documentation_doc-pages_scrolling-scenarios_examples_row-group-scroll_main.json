@@ -1,0 +1,41 @@
+{
+  "eventHandlers": [
+    {
+      "name": "rowGroupOpened",
+      "handlerName": "onRowGroupOpened",
+      "handler": "function onRowGroupOpened(event) {\n    var rowNodeIndex = event.node.rowIndex;\n    // factor in child nodes so we can scroll to correct position\n    var childCount = event.node.childrenAfterSort\n        ? event.node.childrenAfterSort.length\n        : 0;\n    var newIndex = rowNodeIndex + childCount;\n    this.gridApi.ensureIndexVisible(newIndex);\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', width: 150, rowGroupIndex: 0 },\n    { field: 'age', width: 90, rowGroupIndex: 1 },\n    { field: 'country', width: 120, rowGroupIndex: 2 },\n    { field: 'year', width: 90 },\n    { field: 'date', width: 110, rowGroupIndex: 2 },\n]"
+    },
+    { "name": "rowData", "value": "null" },
+    { "name": "animateRows", "value": "false" },
+    { "name": "groupDisplayType", "value": "'groupRows'" },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    resizable: true,\n    filter: true,\n    flex: 1,\n    minWidth: 100,\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    resizable: true,\n    filter: true,\n    flex: 1,\n    minWidth: 100,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    width: 150,\n    rowGroupIndex: 0 },\n    {\n        field: 'age',\n    width: 90,\n    rowGroupIndex: 1 },\n    {\n        field: 'country',\n    width: 120,\n    rowGroupIndex: 2 },\n    {\n        field: 'year',\n    width: 90 },\n    {\n        field: 'date',\n    width: 110,\n    rowGroupIndex: 2 }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": { "onRowGroupOpened": ["gridOptions"] },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}

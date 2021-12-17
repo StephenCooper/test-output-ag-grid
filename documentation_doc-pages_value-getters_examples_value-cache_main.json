@@ -1,0 +1,58 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'q1', type: 'quarterFigure' },\n    { field: 'q2', type: 'quarterFigure' },\n    { field: 'q3', type: 'quarterFigure' },\n    { field: 'q4', type: 'quarterFigure' },\n    { field: 'year', rowGroup: true, hide: true },\n    {\n        headerName: 'Total',\n        colId: 'total',\n        cellClass: 'number-cell total-col',\n        aggFunc: 'sum',\n        valueFormatter: formatNumber,\n        valueGetter: function (params) {\n            var q1 = params.getValue('q1');\n            var q2 = params.getValue('q2');\n            var q3 = params.getValue('q3');\n            var q4 = params.getValue('q4');\n            var result = q1 + q2 + q3 + q4;\n            console.log(`Total Value Getter (${callCount}, ${params.column.getId()}): ${[q1, q2, q3, q4].join(', ')} =  ${result}`);\n            callCount++;\n            return result;\n        },\n    },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    resizable: true,\n}"
+    },
+    { "name": "autoGroupColumnDef", "value": "{\n    minWidth: 140,\n}" },
+    {
+      "name": "columnTypes",
+      "value": "{\n    quarterFigure: {\n        cellClass: 'number-cell',\n        aggFunc: 'sum',\n        valueFormatter: formatNumber,\n        valueParser: function numberParser(params) {\n            return Number(params.newValue);\n        },\n    },\n}"
+    },
+    { "name": "rowData", "value": "getData()" },
+    { "name": "suppressAggFuncInHeader", "value": "true" },
+    { "name": "enableCellChangeFlash", "value": "true" },
+    { "name": "enableRangeSelection", "value": "true" },
+    { "name": "groupDefaultExpanded", "value": "1" },
+    {
+      "name": "getRowNodeId",
+      "value": "function (data) {\n    return data.id;\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onValueCache",
+      "params": "true",
+      "body": "function onValueCache(valueCacheOn) {\n    destroyOldGridIfExists();\n    createGrid(valueCacheOn);\n}"
+    }
+  ],
+  "utils": [
+    "var callCount = 1;",
+    "function formatNumber(params) {\n    var number = params.value;\n    // this puts commas into the number eg 1000 goes to 1,000,\n    // i pulled this from stack overflow, i have no idea how it works\n    return Math.floor(number)\n        .toString()\n        .replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');\n}",
+    "function destroyOldGridIfExists() {\n    if (gridInstance.api) {\n        console.log('==========> destroying old grid');\n        gridInstance.api.destroy();\n    }\n}",
+    "function createGrid(valueCacheOn) {\n    console.log('==========> creating grid');\n    callCount = 1;\n    gridInstance.valueCache = valueCacheOn;\n    // then similar to all the other examples, create the grid\n    var gridDiv = document.querySelector('#myGrid');\n    new agGrid.Grid(gridDiv, gridInstance);\n}"
+  ],
+  "callbackDependencies": {
+    "formatNumber": ["Math"],
+    "onValueCache": ["destroyOldGridIfExists", "createGrid"],
+    "destroyOldGridIfExists": ["gridOptions"],
+    "createGrid": ["callCount", "gridOptions", "agGrid"]
+  },
+  "template": "<div class=\"example-wrapper\">\n    <div class=\"example-header\">\n        Value Cache:\n        <input type=\"radio\" name=\"valueCache\" onclick=\"onValueCache(true)\">On\n        <input type=\"radio\" name=\"valueCache\" onclick=\"onValueCache(false)\" checked=\"\">Off\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine-dark",
+    "enterprise": true
+  }
+}

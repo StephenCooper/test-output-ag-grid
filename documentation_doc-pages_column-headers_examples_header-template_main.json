@@ -1,0 +1,34 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { headerName: 'Athlete Name', field: 'athlete', suppressMenu: true },\n    { field: 'age', sortable: false },\n    { field: 'country', suppressMenu: true },\n    { field: 'year', sortable: false },\n    { field: 'date', suppressMenu: true, sortable: false },\n    { field: 'sport', sortable: false },\n    { field: 'gold' },\n    { field: 'silver', sortable: false },\n    { field: 'bronze', suppressMenu: true },\n    { field: 'total', sortable: false },\n]"
+    },
+    { "name": "rowData", "value": "null" },
+    { "name": "suppressMenuHide", "value": "true" },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    sortable: true,\n    resizable: true,\n    filter: true,\n    width: 150,\n    headerComponentParams: {\n        menuIcon: 'fa-bars',\n        template: `<div class=\"ag-cell-label-container\" role=\"presentation\">  \n                    <span ref=\"eMenu\" class=\"ag-header-icon ag-header-cell-menu-button\"></span>  \n                    <div ref=\"eLabel\" class=\"ag-header-cell-label\" role=\"presentation\">    \n                        <span ref=\"eSortOrder\" class=\"ag-header-icon ag-sort-order\" ></span>    \n                        <span ref=\"eSortAsc\" class=\"ag-header-icon ag-sort-ascending-icon\" ></span>    \n                        <span ref=\"eSortDesc\" class=\"ag-header-icon ag-sort-descending-icon\" ></span>    \n                        <span ref=\"eSortNone\" class=\"ag-header-icon ag-sort-none-icon\" ></span>    \n                        ** <span ref=\"eText\" class=\"ag-header-cell-text\" role=\"columnheader\"></span>    \n                        <span ref=\"eFilter\" class=\"ag-header-icon ag-filter-icon\"></span>  \n                    </div>\n                </div>`,\n    },\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "extras": ["fontawesome"]
+  }
+}

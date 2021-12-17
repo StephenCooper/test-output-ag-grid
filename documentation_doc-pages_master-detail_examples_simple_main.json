@@ -1,0 +1,42 @@
+{
+  "eventHandlers": [
+    {
+      "name": "firstDataRendered",
+      "handlerName": "onFirstDataRendered",
+      "handler": "function onFirstDataRendered(params) {\n    // arbitrarily expand a row for presentational purposes\n    setTimeout(function () {\n        params.api.getDisplayedRowAtIndex(1).setExpanded(true);\n    }, 0);\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    // group cell renderer needed for expand / collapse icons\n    { field: 'name', cellRenderer: 'agGroupCellRenderer' },\n    { field: 'account' },\n    { field: 'calls' },\n    { field: 'minutes', valueFormatter: \"x.toLocaleString() + 'm'\" },\n]"
+    },
+    { "name": "defaultColDef", "value": "{\n    flex: 1,\n}" },
+    { "name": "masterDetail", "value": "true" },
+    {
+      "name": "detailCellRendererParams",
+      "value": "{\n    detailGridOptions: {\n        columnDefs: [\n            { field: 'callId' },\n            { field: 'direction' },\n            { field: 'number', minWidth: 150 },\n            { field: 'duration', valueFormatter: \"x.toLocaleString() + 's'\" },\n            { field: 'switchCode', minWidth: 150 },\n        ],\n        defaultColDef: {\n            flex: 1,\n        },\n    },\n    getDetailRowData: function (params) {\n        params.successCallback(params.data.callRecords);\n    },\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'name',\n    cellRenderer: 'agGroupCellRenderer' },\n    { field: 'account' },\n    { field: 'calls' },\n    {\n        field: 'minutes',\n    valueFormatter: \"x.toLocaleString() + 'm'\" }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": { "onFirstDataRendered": ["setTimeout"] },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/master-detail-data.json'",
+    "callback": "{\n    params.api.setRowData(data);\n}"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "exampleHeight": 535,
+    "modules": ["clientside", "masterdetail", "menu", "columnpanel"]
+  }
+}

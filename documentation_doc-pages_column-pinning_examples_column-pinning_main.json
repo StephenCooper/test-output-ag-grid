@@ -1,0 +1,63 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    {\n        headerName: '#',\n        colId: 'rowNum',\n        valueGetter: 'node.id',\n        width: 80,\n        pinned: 'left',\n    },\n    { field: 'athlete', width: 150, pinned: 'left' },\n    { field: 'age', width: 90, pinned: 'left' },\n    { field: 'country', width: 150 },\n    { field: 'year', width: 90 },\n    { field: 'date', width: 110 },\n    { field: 'sport', width: 150 },\n    { field: 'gold', width: 100 },\n    { field: 'silver', width: 100 },\n    { field: 'bronze', width: 100 },\n    { field: 'total', width: 100, pinned: 'right' },\n]"
+    },
+    { "name": "defaultColDef", "value": "{\n    resizable: true,\n}" },
+    { "name": "debug", "value": "true" },
+    { "name": "rowData", "value": "null" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        headerName: '#',\n    colId: 'rowNum',\n    valueGetter: 'node.id',\n    width: 80,\n    pinned: 'left' },\n    {\n        field: 'athlete',\n    width: 150,\n    pinned: 'left' },\n    {\n        field: 'age',\n    width: 90,\n    pinned: 'left' },\n    {\n        field: 'country',\n    width: 150 },\n    {\n        field: 'year',\n    width: 90 },\n    {\n        field: 'date',\n    width: 110 },\n    {\n        field: 'sport',\n    width: 150 },\n    {\n        field: 'gold',\n    width: 100 },\n    {\n        field: 'silver',\n    width: 100 },\n    {\n        field: 'bronze',\n    width: 100 },\n    {\n        field: 'total',\n    width: 100,\n    pinned: 'right' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "clearPinned",
+      "params": "",
+      "body": "function clearPinned() {\n    this.gridColumnApi.applyColumnState({ defaultState: { pinned: null } });\n}"
+    },
+    {
+      "name": "resetPinned",
+      "params": "",
+      "body": "function resetPinned() {\n    this.gridColumnApi.applyColumnState({\n        state: [\n            { colId: 'rowNum', pinned: 'left' },\n            { colId: 'athlete', pinned: 'left' },\n            { colId: 'age', pinned: 'left' },\n            { colId: 'total', pinned: 'right' },\n        ],\n        defaultState: { pinned: null },\n    });\n}"
+    },
+    {
+      "name": "pinCountry",
+      "params": "",
+      "body": "function pinCountry() {\n    this.gridColumnApi.applyColumnState({\n        state: [{ colId: 'country', pinned: 'left' }],\n        defaultState: { pinned: null },\n    });\n}"
+    },
+    {
+      "name": "jumpToCol",
+      "params": "",
+      "body": "function jumpToCol() {\n    const value = (document.getElementById('col')).value;\n    if (typeof value !== 'string' || value === '') {\n        return;\n    }\n    const index = Number(value);\n    if (typeof index !== 'number' || isNaN(index)) {\n        return;\n    }\n    // it's actually a column the api needs, so look the column up\n    const allColumns = this.gridColumnApi.getAllColumns();\n    if (allColumns) {\n        const column = allColumns[index];\n        if (column) {\n            this.gridApi.ensureColumnVisible(column);\n        }\n    }\n}"
+    },
+    {
+      "name": "jumpToRow",
+      "params": "",
+      "body": "function jumpToRow() {\n    var value = (document.getElementById('row')).value;\n    const index = Number(value);\n    if (typeof index === 'number' && !isNaN(index)) {\n        this.gridApi.ensureIndexVisible(index);\n    }\n}"
+    }
+  ],
+  "utils": [],
+  "callbackDependencies": {
+    "clearPinned": ["gridOptions"],
+    "resetPinned": ["gridOptions"],
+    "pinCountry": ["gridOptions"],
+    "jumpToCol": ["Number", "isNaN", "gridOptions"],
+    "jumpToRow": ["Number", "isNaN", "gridOptions"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "<div class=\"example-wrapper\">\n    <div class=\"example-header\">\n        <div style=\"padding: 4px;\">\n            <button onclick=\"clearPinned()\">Clear Pinned</button>\n            <button onclick=\"resetPinned()\">Left = #, Athlete, Age; Right = Total</button>\n            <button onclick=\"pinCountry()\">Left = Country</button>\n        </div>\n    \n        <div style=\"padding: 4px;\">\n            Jump to:\n            <input placeholder=\"row\" type=\"text\" style=\"width: 40px\" id=\"row\" oninput=\"jumpToRow()\">\n            <input placeholder=\"col\" type=\"text\" style=\"width: 40px\" id=\"col\" oninput=\"jumpToCol()\">\n        </div>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 570
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete' },\n    { field: 'age' },\n    { field: 'country' },\n    { field: 'sport' },\n    { field: 'year' },\n    { field: 'date' },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    sortable: true,\n    resizable: true,\n    width: 150,\n    enableRowGroup: true,\n    enablePivot: true,\n    enableValue: true,\n}"
+    },
+    { "name": "sideBar", "value": "{\n    toolPanels: ['columns'],\n}" },
+    { "name": "rowGroupPanelShow", "value": "'always'" },
+    { "name": "pivotPanelShow", "value": "'always'" },
+    { "name": "debug", "value": "true" },
+    { "name": "rowData", "value": "null" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    sortable: true,\n    resizable: true,\n    width: 150,\n    enableRowGroup: true,\n    enablePivot: true,\n    enableValue: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{ field: 'athlete' },\n    { field: 'age' },\n    { field: 'country' },\n    { field: 'sport' },\n    { field: 'year' },\n    { field: 'date' },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onBtSortAthlete",
+      "params": "",
+      "body": "function onBtSortAthlete() {\n    this.gridColumnApi.applyColumnState({\n        state: [{ colId: 'athlete', sort: 'asc' }],\n    });\n}"
+    },
+    {
+      "name": "onBtSortCountryThenSportClearOthers",
+      "params": "",
+      "body": "function onBtSortCountryThenSportClearOthers() {\n    this.gridColumnApi.applyColumnState({\n        state: [\n            { colId: 'country', sort: 'asc', sortIndex: 0 },\n            { colId: 'sport', sort: 'asc', sortIndex: 1 },\n        ],\n        defaultState: { sort: null },\n    });\n}"
+    },
+    {
+      "name": "onBtClearAllSorting",
+      "params": "",
+      "body": "function onBtClearAllSorting() {\n    this.gridColumnApi.applyColumnState({\n        defaultState: { sort: null },\n    });\n}"
+    },
+    {
+      "name": "onBtRowGroupCountryThenSport",
+      "params": "",
+      "body": "function onBtRowGroupCountryThenSport() {\n    this.gridColumnApi.applyColumnState({\n        state: [\n            { colId: 'country', rowGroupIndex: 0 },\n            { colId: 'sport', rowGroupIndex: 1 },\n        ],\n        defaultState: { rowGroup: false },\n    });\n}"
+    },
+    {
+      "name": "onBtRemoveCountryRowGroup",
+      "params": "",
+      "body": "function onBtRemoveCountryRowGroup() {\n    this.gridColumnApi.applyColumnState({\n        state: [{ colId: 'country', rowGroup: false }],\n    });\n}"
+    },
+    {
+      "name": "onBtClearAllRowGroups",
+      "params": "",
+      "body": "function onBtClearAllRowGroups() {\n    this.gridColumnApi.applyColumnState({\n        defaultState: { rowGroup: false },\n    });\n}"
+    },
+    {
+      "name": "onBtOrderColsMedalsFirst",
+      "params": "",
+      "body": "function onBtOrderColsMedalsFirst() {\n    this.gridColumnApi.applyColumnState({\n        state: [\n            { colId: 'gold' },\n            { colId: 'silver' },\n            { colId: 'bronze' },\n            { colId: 'total' },\n            { colId: 'athlete' },\n            { colId: 'age' },\n            { colId: 'country' },\n            { colId: 'sport' },\n            { colId: 'year' },\n            { colId: 'date' },\n        ],\n        applyOrder: true,\n    });\n}"
+    },
+    {
+      "name": "onBtOrderColsMedalsLast",
+      "params": "",
+      "body": "function onBtOrderColsMedalsLast() {\n    this.gridColumnApi.applyColumnState({\n        state: [\n            { colId: 'athlete' },\n            { colId: 'age' },\n            { colId: 'country' },\n            { colId: 'sport' },\n            { colId: 'year' },\n            { colId: 'date' },\n            { colId: 'gold' },\n            { colId: 'silver' },\n            { colId: 'bronze' },\n            { colId: 'total' },\n        ],\n        applyOrder: true,\n    });\n}"
+    },
+    {
+      "name": "onBtHideMedals",
+      "params": "",
+      "body": "function onBtHideMedals() {\n    this.gridColumnApi.applyColumnState({\n        state: [\n            { colId: 'gold', hide: true },\n            { colId: 'silver', hide: true },\n            { colId: 'bronze', hide: true },\n            { colId: 'total', hide: true },\n        ],\n    });\n}"
+    },
+    {
+      "name": "onBtShowMedals",
+      "params": "",
+      "body": "function onBtShowMedals() {\n    this.gridColumnApi.applyColumnState({\n        state: [\n            { colId: 'gold', hide: false },\n            { colId: 'silver', hide: false },\n            { colId: 'bronze', hide: false },\n            { colId: 'total', hide: false },\n        ],\n    });\n}"
+    }
+  ],
+  "utils": [],
+  "callbackDependencies": {
+    "onBtSortAthlete": ["gridOptions"],
+    "onBtSortCountryThenSportClearOthers": ["gridOptions"],
+    "onBtClearAllSorting": ["gridOptions"],
+    "onBtRowGroupCountryThenSport": ["gridOptions"],
+    "onBtRemoveCountryRowGroup": ["gridOptions"],
+    "onBtClearAllRowGroups": ["gridOptions"],
+    "onBtOrderColsMedalsFirst": ["gridOptions"],
+    "onBtOrderColsMedalsLast": ["gridOptions"],
+    "onBtHideMedals": ["gridOptions"],
+    "onBtShowMedals": ["gridOptions"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "<div class=\"test-container\">\n    <div class=\"test-header\">\n        <table>\n            <tbody><tr>\n                <td>\n                    Sort:\n                </td>\n                <td>\n                    <button onclick=\"onBtSortAthlete()\">Sort Athlete</button>\n                    <button onclick=\"onBtSortCountryThenSportClearOthers()\">Sort Country, then Sport - Clear\n                        Others</button>\n                    <button onclick=\"onBtClearAllSorting()\">Clear All Sorting</button>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    Column Order:\n                </td>\n                <td>\n                    <button onclick=\"onBtOrderColsMedalsFirst()\">Show Medals First</button>\n                    <button onclick=\"onBtOrderColsMedalsLast()\">Show Medals Last</button>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    Column Visibility:\n                </td>\n                <td>\n                    <button onclick=\"onBtHideMedals()\">Hide Medals</button>\n                    <button onclick=\"onBtShowMedals()\">Show Medals</button>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    Row Group:\n                </td>\n                <td>\n                    <button onclick=\"onBtRowGroupCountryThenSport()\">Group Country then Sport</button>\n                    <button onclick=\"onBtRemoveCountryRowGroup()\">Remove Country</button>\n                    <button onclick=\"onBtClearAllRowGroups()\">Clear All Groups</button>\n                </td>\n            </tr>\n        </tbody></table>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}

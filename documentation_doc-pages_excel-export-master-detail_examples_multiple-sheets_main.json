@@ -1,0 +1,52 @@
+{
+  "eventHandlers": [
+    {
+      "name": "firstDataRendered",
+      "handlerName": "onFirstDataRendered",
+      "handler": "function onFirstDataRendered(params) {\n    params.api.forEachNode(function (node) {\n        node.setExpanded(true);\n    });\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    // group cell renderer needed for expand / collapse icons\n    { field: 'name', cellRenderer: 'agGroupCellRenderer' },\n    { field: 'account' },\n    { field: 'calls' },\n    { field: 'minutes', valueFormatter: \"x.toLocaleString() + 'm'\" },\n]"
+    },
+    { "name": "defaultColDef", "value": "{\n    flex: 1,\n}" },
+    {
+      "name": "getRowNodeId",
+      "value": "function (data) {\n    return data.name;\n}"
+    },
+    { "name": "groupDefaultExpanded", "value": "1" },
+    { "name": "rowBuffer", "value": "100" },
+    { "name": "masterDetail", "value": "true" },
+    {
+      "name": "detailCellRendererParams",
+      "value": "{\n    detailGridOptions: {\n        columnDefs: [\n            { field: 'callId' },\n            { field: 'direction' },\n            { field: 'number', minWidth: 150 },\n            { field: 'duration', valueFormatter: \"x.toLocaleString() + 's'\" },\n            { field: 'switchCode', minWidth: 150 },\n        ],\n        defaultColDef: {\n            flex: 1,\n        },\n    },\n    getDetailRowData: function (params) {\n        params.successCallback(params.data.callRecords);\n    },\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'name',\n    cellRenderer: 'agGroupCellRenderer' },\n    { field: 'account' },\n    { field: 'calls' },\n    {\n        field: 'minutes',\n    valueFormatter: \"x.toLocaleString() + 'm'\" }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onBtExport",
+      "params": "",
+      "body": "function onBtExport() {\n    var spreadsheets = [];\n    const mainSheet = this.gridApi.getSheetDataForExcel();\n    if (mainSheet) {\n        spreadsheets.push(mainSheet);\n    }\n    this.gridApi.forEachDetailGridInfo(function (node) {\n        const sheet = node.api.getSheetDataForExcel({\n            sheetName: node.id.replace('detail_', ''),\n        });\n        if (sheet) {\n            spreadsheets.push(sheet);\n        }\n    });\n    this.gridApi.exportMultipleSheetsAsExcel({\n        data: spreadsheets,\n        fileName: 'ag-grid.xlsx',\n    });\n}"
+    }
+  ],
+  "utils": [],
+  "callbackDependencies": { "onBtExport": ["gridOptions"] },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/master-detail-data.json'",
+    "callback": "{\n    params.api.setRowData(data);\n}"
+  },
+  "template": "<div class=\"container\">\n    <div>\n        <button onclick=\"onBtExport()\" style=\"margin-bottom: 5px; font-weight: bold;\">Export to Excel</button>\n    </div>\n    <div class=\"grid-wrapper\">\n        GRID_TEMPLATE_PLACEHOLDER\n    </div>\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}

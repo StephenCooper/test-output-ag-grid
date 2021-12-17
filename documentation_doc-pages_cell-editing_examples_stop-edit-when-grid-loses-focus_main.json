@@ -1,0 +1,39 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 160 },\n    { field: 'age' },\n    { field: 'country', minWidth: 140 },\n    { field: 'year', cellEditor: 'yearCellEditor' },\n    { field: 'date', minWidth: 140 },\n    { field: 'sport', minWidth: 160 },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    editable: true,\n}"
+    },
+    {
+      "name": "components",
+      "value": "{\n    yearCellEditor: getYearCellEditor(),\n}"
+    },
+    { "name": "stopEditingWhenCellsLoseFocus", "value": "true" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    editable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 160 },\n    { field: 'age' },\n    {\n        field: 'country',\n    minWidth: 140 },\n    {\n        field: 'year',\n    cellEditor: 'yearCellEditor' },\n    {\n        field: 'date',\n    minWidth: 140 },\n    {\n        field: 'sport',\n    minWidth: 160 },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "function getYearCellEditor() {\n    class YearCellEditor {\n        constructor() { }\n        getGui() {\n            return this.eGui;\n        }\n        getValue() {\n            return this.value;\n        }\n        isPopup() {\n            return true;\n        }\n        init(params) {\n            this.value = params.value;\n            const tempElement = document.createElement('div');\n            tempElement.innerHTML =\n                '<div class=\"yearSelect\">' +\n                    '<div>Clicking here does not close the popup!</div>' +\n                    '<button id=\"bt2006\" class=\"yearButton\">2006</button>' +\n                    '<button id=\"bt2008\" class=\"yearButton\">2008</button>' +\n                    '<button id=\"bt2010\" class=\"yearButton\">2010</button>' +\n                    '<button id=\"bt2012\" class=\"yearButton\">2012</button>' +\n                    '<div>' +\n                    '<input type=\"text\" style=\"width: 100%;\" placeholder=\"clicking on this text field does not close\"/>' +\n                    '</div>' +\n                    '</div>';\n            const that = this;\n            [2006, 2008, 2010, 2012].forEach(year => {\n                tempElement\n                    .querySelector('#bt' + year)\n                    .addEventListener('click', () => {\n                    that.value = year;\n                    params.stopEditing();\n                });\n            });\n            this.eGui = tempElement.firstChild;\n        }\n    }\n    return YearCellEditor;\n}"
+  ],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "<div class=\"example-wrapper\">\n    <div class=\"example-header\">\n        Clicking outside the grid will stop the editing <button style=\"font-size: 12px\">Dummy Save</button>\n        <input placeholder=\"click here, editing stops\">\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 510
+  }
+}

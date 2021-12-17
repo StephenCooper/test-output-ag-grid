@@ -1,0 +1,48 @@
+{
+  "eventHandlers": [
+    {
+      "name": "firstDataRendered",
+      "handlerName": "onFirstDataRendered",
+      "handler": "function onFirstDataRendered(params) {\n    updateRowHeight(params);\n}"
+    },
+    {
+      "name": "gridSizeChanged",
+      "handlerName": "onGridSizeChanged",
+      "handler": "function onGridSizeChanged(params) {\n    updateRowHeight(params);\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 150 },\n    { field: 'age', minWidth: 70, maxWidth: 90 },\n    { field: 'country', minWidth: 130 },\n    { field: 'year', minWidth: 70, maxWidth: 90 },\n    { field: 'date', minWidth: 120 },\n    { field: 'sport', minWidth: 120 },\n    { field: 'gold', minWidth: 80 },\n    { field: 'silver', minWidth: 80 },\n    { field: 'bronze', minWidth: 80 },\n    { field: 'total', minWidth: 80 },\n]"
+    },
+    { "name": "defaultColDef", "value": "{\n    resizable: true,\n}" },
+    { "name": "rowData", "value": "getData()" },
+    {
+      "name": "getRowHeight",
+      "value": "function () {\n    return currentRowHeight;\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 150 },\n    {\n        field: 'age',\n    minWidth: 70,\n    maxWidth: 90 },\n    {\n        field: 'country',\n    minWidth: 130 },\n    {\n        field: 'year',\n    minWidth: 70,\n    maxWidth: 90 },\n    {\n        field: 'date',\n    minWidth: 120 },\n    {\n        field: 'sport',\n    minWidth: 120 },\n    {\n        field: 'gold',\n    minWidth: 80 },\n    {\n        field: 'silver',\n    minWidth: 80 },\n    {\n        field: 'bronze',\n    minWidth: 80 },\n    {\n        field: 'total',\n    minWidth: 80 }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "var minRowHeight = 25;",
+    "var currentRowHeight;",
+    "const updateRowHeight = (params) => {\n    // get the height of the grid body - this excludes the height of the headers\n    const bodyViewport = document.querySelector('.ag-body-viewport');\n    if (!bodyViewport) {\n        return;\n    }\n    var gridHeight = bodyViewport.clientHeight;\n    // get the rendered rows\n    var renderedRowCount = params.api.getDisplayedRowCount();\n    // if the rendered rows * min height is greater than available height, just just set the height\n    // to the min and let the scrollbar do its thing\n    if (renderedRowCount * minRowHeight >= gridHeight) {\n        if (currentRowHeight !== minRowHeight) {\n            currentRowHeight = minRowHeight;\n            params.api.resetRowHeights();\n        }\n    }\n    else {\n        // set the height of the row to the grid height / number of rows available\n        currentRowHeight = Math.floor(gridHeight / renderedRowCount);\n        params.api.resetRowHeights();\n    }\n};"
+  ],
+  "callbackDependencies": {
+    "onFirstDataRendered": ["updateRowHeight"],
+    "onGridSizeChanged": ["updateRowHeight"]
+  },
+  "onGridReady": "{\n    minRowHeight = params.api.getSizesForCurrentTheme().rowHeight;\n    currentRowHeight = minRowHeight;\n    params.api.sizeColumnsToFit();\n}",
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine"
+  }
+}

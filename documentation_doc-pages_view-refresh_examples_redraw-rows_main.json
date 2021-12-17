@@ -1,0 +1,50 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { headerName: 'A', field: 'a' },\n    { headerName: 'B', field: 'b' },\n    { headerName: 'C', field: 'c' },\n    { headerName: 'D', field: 'd' },\n    { headerName: 'E', field: 'e' },\n    { headerName: 'F', field: 'f' },\n]"
+    },
+    { "name": "defaultColDef", "value": "{\n    flex: 1,\n}" },
+    { "name": "rowData", "value": "createData(12)" },
+    {
+      "name": "getRowStyle",
+      "value": "function () {\n    return {\n        backgroundColor: colors[colorIndex],\n    };\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        headerName: 'A',\n    field: 'a' },\n    {\n        headerName: 'B',\n    field: 'b' },\n    {\n        headerName: 'C',\n    field: 'c' },\n    {\n        headerName: 'D',\n    field: 'd' },\n    {\n        headerName: 'E',\n    field: 'e' },\n    {\n        headerName: 'F',\n    field: 'f' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "redrawAllRows",
+      "params": "",
+      "body": "function redrawAllRows() {\n    progressColor();\n    this.gridApi.redrawRows();\n}"
+    },
+    {
+      "name": "redrawTopRows",
+      "params": "",
+      "body": "function redrawTopRows() {\n    progressColor();\n    var rows = [];\n    for (var i = 0; i < 6; i++) {\n        var row = this.gridApi.getDisplayedRowAtIndex(i);\n        rows.push(row);\n    }\n    this.gridApi.redrawRows({ rowNodes: rows });\n}"
+    }
+  ],
+  "utils": [
+    "var colorIndex = 0;",
+    "var colors = ['#000000', '#000066', '#006600', '#660000'];",
+    "function createData(count) {\n    var result = [];\n    for (var i = 1; i <= count; i++) {\n        result.push({\n            a: (i * 863) % 100,\n            b: (i * 811) % 100,\n            c: (i * 743) % 100,\n            d: (i * 677) % 100,\n            e: (i * 619) % 100,\n            f: (i * 571) % 100,\n        });\n    }\n    return result;\n}",
+    "function progressColor() {\n    colorIndex++;\n    if (colorIndex === colors.length) {\n        colorIndex = 0;\n    }\n}"
+  ],
+  "callbackDependencies": {
+    "progressColor": ["colorIndex", "colors"],
+    "redrawAllRows": ["progressColor", "gridOptions"],
+    "redrawTopRows": ["progressColor", "gridOptions"]
+  },
+  "template": "<div class=\"example-wrapper\">\n    <div style=\"margin-bottom: 5px;\">\n        <button onclick=\"redrawAllRows()\">Redraw All Rows</button>\n        <button onclick=\"redrawTopRows()\">Redraw Top Rows</button>\n    </div>\n\n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine-dark",
+    "exampleHeight": 615
+  }
+}

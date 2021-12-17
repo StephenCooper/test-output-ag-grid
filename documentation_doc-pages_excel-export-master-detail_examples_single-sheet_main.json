@@ -1,0 +1,67 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "defaultCsvExportParams",
+      "value": "{\n    getCustomContentBelowRow: (params) => getCells(params),\n}"
+    },
+    {
+      "name": "defaultExportParams",
+      "value": "{\n    getCustomContentBelowRow: (params) => getCells(params),\n    columnWidth: 120,\n}"
+    },
+    {
+      "name": "columnDefs",
+      "value": "[\n    // group cell renderer needed for expand / collapse icons\n    { field: 'name', cellRenderer: 'agGroupCellRenderer' },\n    { field: 'account' },\n    { field: 'calls' },\n    { field: 'minutes', valueFormatter: \"x.toLocaleString() + 'm'\" },\n]"
+    },
+    { "name": "defaultColDef", "value": "{\n    flex: 1,\n}" },
+    { "name": "masterDetail", "value": "true" },
+    {
+      "name": "detailCellRendererParams",
+      "value": "{\n    detailGridOptions: {\n        columnDefs: [\n            { field: 'callId' },\n            { field: 'direction' },\n            { field: 'number', minWidth: 150 },\n            { field: 'duration', valueFormatter: \"x.toLocaleString() + 's'\" },\n            { field: 'switchCode', minWidth: 150 },\n        ],\n        defaultColDef: {\n            flex: 1,\n        },\n    },\n    getDetailRowData: function (params) {\n        params.successCallback(params.data.callRecords);\n    },\n}"
+    },
+    {
+      "name": "excelStyles",
+      "value": "[\n    {\n        id: 'header',\n        interior: {\n            color: '#aaaaaa',\n            pattern: 'Solid',\n        },\n    },\n    {\n        id: 'body',\n        interior: {\n            color: '#dddddd',\n            pattern: 'Solid',\n        },\n    },\n]"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'name',\n    cellRenderer: 'agGroupCellRenderer' },\n    { field: 'account' },\n    { field: 'calls' },\n    {\n        field: 'minutes',\n    valueFormatter: \"x.toLocaleString() + 'm'\" }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onBtExport",
+      "params": "",
+      "body": "function onBtExport() {\n    this.gridApi.exportDataAsExcel();\n}"
+    }
+  ],
+  "utils": [
+    "var getCells = (params) => {\n    const cells = [\n        [\n            cell(''),\n            cell('Call Id', 'header'),\n            cell('Direction', 'header'),\n            cell('Number', 'header'),\n            cell('Duration', 'header'),\n            cell('Switch Code', 'header'),\n        ],\n    ].concat(params.node.data.callRecords.map(function (record) {\n        return [\n            cell(''),\n            cell(record.callId, 'body'),\n            cell(record.direction, 'body'),\n            cell(record.number, 'body'),\n            cell(record.duration, 'body'),\n            cell(record.switchCode, 'body'),\n        ];\n    }), [[]]);\n    return cells;\n};",
+    "function cell(text, styleId) {\n    return {\n        styleId: styleId,\n        data: {\n            type: /^\\d+$/.test(text) ? 'Number' : 'String',\n            value: String(text),\n        },\n    };\n}"
+  ],
+  "callbackDependencies": {
+    "cell": ["/^\\d+$/", "String"],
+    "onBtExport": ["gridOptions"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/master-detail-data.json'",
+    "callback": "{\n    params.api.setRowData(data);\n}"
+  },
+  "template": "<div class=\"container\">\n    <div>\n        <button onclick=\"onBtExport()\" style=\"margin-bottom: 5px; font-weight: bold;\">Export to Excel</button>\n    </div>\n    <div class=\"grid-wrapper\">\n        GRID_TEMPLATE_PLACEHOLDER\n    </div>\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "exampleHeight": 550,
+    "modules": [
+      "clientside",
+      "masterdetail",
+      "menu",
+      "columnpanel",
+      "clipboard",
+      "excel"
+    ]
+  }
+}

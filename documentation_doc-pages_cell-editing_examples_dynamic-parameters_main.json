@@ -1,0 +1,46 @@
+{
+  "eventHandlers": [
+    {
+      "name": "cellValueChanged",
+      "handlerName": "onCellValueChanged",
+      "handler": "function onCellValueChanged(params) {\n    const colId = params.column.getId();\n    if (colId === 'country') {\n        const selectedCountry = params.data.country;\n        const selectedCity = params.data.city;\n        const allowedCities = countyToCityMap(selectedCountry);\n        const cityMismatch = allowedCities.indexOf(selectedCity) < 0;\n        if (cityMismatch) {\n            params.node.setDataValue('city', null);\n        }\n    }\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'name' },\n    {\n        field: 'gender',\n        cellRenderer: 'genderCellRenderer',\n        cellEditor: 'agRichSelectCellEditor',\n        cellEditorParams: {\n            values: ['Male', 'Female'],\n            cellRenderer: 'genderCellRenderer',\n        },\n    },\n    {\n        field: 'country',\n        cellEditor: 'agRichSelectCellEditor',\n        cellEditorParams: {\n            cellHeight: 50,\n            values: ['Ireland', 'USA'],\n        },\n    },\n    {\n        field: 'city',\n        cellEditor: 'agRichSelectCellEditor',\n        cellEditorParams: cellCellEditorParams,\n    },\n    { field: 'address', cellEditor: 'agLargeTextCellEditor', minWidth: 550 },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 130,\n    editable: true,\n    resizable: true,\n}"
+    },
+    {
+      "name": "components",
+      "value": "{\n    genderCellRenderer: GenderCellRenderer,\n}"
+    },
+    { "name": "rowData", "value": "getData()" }
+  ],
+  "components": [
+    { "name": "genderCellRenderer", "value": "GenderCellRenderer" }
+  ],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 130,\n    editable: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{ field: 'name' },\n    {\n        field: 'gender',\n    cellRenderer: 'genderCellRenderer',\n    cellEditor: 'agRichSelectCellEditor',\n    cellEditorParams : {\n    values: ['Male', 'Female'],\n    cellRenderer: 'genderCellRenderer'\n } },\n    {\n        field: 'country',\n    cellEditor: 'agRichSelectCellEditor',\n    cellEditorParams : {\n    cellHeight: 50,\n    values: ['Ireland', 'USA']\n } },\n    {\n        field: 'city',\n    cellEditor: 'agRichSelectCellEditor',\n    cellEditorParams: 'AG_LITERAL_cellCellEditorParams' },\n    {\n        field: 'address',\n    cellEditor: 'agLargeTextCellEditor',\n    minWidth: 550 }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "const cellCellEditorParams = (params) => {\n    const selectedCountry = params.data.country;\n    const allowedCities = countyToCityMap(selectedCountry);\n    return {\n        values: allowedCities,\n        formatValue: (value) => `${value} (${selectedCountry})`,\n    };\n};",
+    "function countyToCityMap(match) {\n    const map = {\n        Ireland: ['Dublin', 'Cork', 'Galway'],\n        USA: ['New York', 'Los Angeles', 'Chicago', 'Houston'],\n    };\n    return map[match];\n}"
+  ],
+  "callbackDependencies": { "onCellValueChanged": ["countyToCityMap"] },
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "exampleHeight": 520,
+    "modules": ["clientside", "richselect", "menu", "columnpanel"]
+  }
+}

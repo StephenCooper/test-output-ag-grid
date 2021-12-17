@@ -1,0 +1,53 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "defaultColDef",
+      "value": "{\n    initialWidth: 100,\n    sortable: true,\n    resizable: true,\n    filter: true,\n}"
+    },
+    { "name": "maintainColumnOrder", "value": "true" },
+    { "name": "columnDefs", "value": "getColumnDefsA()" }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "setColsA",
+      "params": "",
+      "body": "function setColsA() {\n    this.gridApi.setColumnDefs(getColumnDefsA());\n}"
+    },
+    {
+      "name": "setColsB",
+      "params": "",
+      "body": "function setColsB() {\n    this.gridApi.setColumnDefs(getColumnDefsB());\n}"
+    },
+    {
+      "name": "clearColDefs",
+      "params": "",
+      "body": "function clearColDefs() {\n    this.gridApi.setColumnDefs([]);\n}"
+    }
+  ],
+  "utils": [
+    "function getColumnDefsA() {\n    return [\n        { field: 'athlete', headerName: 'A Athlete' },\n        { field: 'age', headerName: 'A Age' },\n        { field: 'country', headerName: 'A Country' },\n        { field: 'sport', headerName: 'A Sport' },\n        { field: 'year', headerName: 'A Year' },\n        { field: 'date', headerName: 'A Date' },\n        { field: 'gold', headerName: 'A Gold' },\n        { field: 'silver', headerName: 'A Silver' },\n        { field: 'bronze', headerName: 'A Bronze' },\n        { field: 'total', headerName: 'A Total' },\n    ];\n}",
+    "function getColumnDefsB() {\n    return [\n        { field: 'gold', headerName: 'B Gold' },\n        { field: 'silver', headerName: 'B Silver' },\n        { field: 'bronze', headerName: 'B Bronze' },\n        { field: 'total', headerName: 'B Total' },\n        { field: 'athlete', headerName: 'B Athlete' },\n        { field: 'age', headerName: 'B Age' },\n        { field: 'country', headerName: 'B Country' },\n        { field: 'sport', headerName: 'B Sport' },\n        { field: 'year', headerName: 'B Year' },\n        { field: 'date', headerName: 'B Date' },\n    ];\n}"
+  ],
+  "callbackDependencies": {
+    "setColsA": ["gridOptions"],
+    "setColsB": ["gridOptions"],
+    "clearColDefs": ["gridOptions"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "<div class=\"test-container\">\n    <div class=\"test-header\">\n        <button onclick=\"setColsA()\">Column Set A</button>\n        <button onclick=\"setColsB()\">Column Set B</button>\n        <button onclick=\"clearColDefs()\">Clear</button>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "modules": true
+  }
+}

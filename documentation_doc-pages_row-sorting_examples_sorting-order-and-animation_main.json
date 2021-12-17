@@ -1,0 +1,34 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', sortingOrder: ['asc', 'desc'] },\n    { field: 'age', width: 90, sortingOrder: ['desc', 'asc'] },\n    { field: 'country', sortingOrder: ['desc', null] },\n    { field: 'year', width: 90, sortingOrder: ['asc'] },\n    { field: 'date' },\n    { field: 'sport' },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    width: 170,\n    sortable: true,\n}"
+    },
+    { "name": "rowData", "value": "null" },
+    { "name": "animateRows", "value": "true" },
+    { "name": "sortingOrder", "value": "['desc', 'asc', null]" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    width: 170,\n    sortable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    sortingOrder: ['asc', 'desc'] },\n    {\n        field: 'age',\n    width: 90,\n    sortingOrder: ['desc', 'asc'] },\n    {\n        field: 'country',\n    sortingOrder: ['desc', null] },\n    {\n        field: 'year',\n    width: 90,\n    sortingOrder: ['asc'] },\n    { field: 'date' },\n    { field: 'sport' },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine"
+  }
+}

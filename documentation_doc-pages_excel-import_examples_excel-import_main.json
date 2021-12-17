@@ -1,0 +1,46 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 180 },\n    { field: 'age' },\n    { field: 'country', minWidth: 150 },\n    { field: 'year' },\n    { field: 'date', minWidth: 130 },\n    { field: 'sport', minWidth: 100 },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    resizable: true,\n    minWidth: 80,\n    flex: 1,\n}"
+    },
+    { "name": "rowData", "value": "[]" }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "importExcel",
+      "params": "",
+      "body": "function importExcel() {\n    makeRequest('GET', 'https://www.ag-grid.com/example-assets/olympic-data.xlsx', \n    // success\n    function (data) {\n        var workbook = convertDataToWorkbook(data);\n        populateGrid(workbook);\n    }, \n    // error\n    function (error) {\n        throw error;\n    });\n}"
+    }
+  ],
+  "utils": [
+    "// XMLHttpRequest in promise format\nfunction makeRequest(method, url, success, error) {\n    var httpRequest = new XMLHttpRequest();\n    httpRequest.open('GET', url, true);\n    httpRequest.responseType = 'arraybuffer';\n    httpRequest.open(method, url);\n    httpRequest.onload = function () {\n        success(httpRequest.response);\n    };\n    httpRequest.onerror = function () {\n        error(httpRequest.response);\n    };\n    httpRequest.send();\n}",
+    "// read the raw data and convert it to a XLSX workbook\nfunction convertDataToWorkbook(dataRows) {\n    /* convert data to binary string */\n    var data = new Uint8Array(dataRows);\n    var arr = new Array();\n    for (var i = 0; i !== data.length; ++i) {\n        arr[i] = String.fromCharCode(data[i]);\n    }\n    var bstr = arr.join('');\n    return XLSX.read(bstr, { type: 'binary' });\n}",
+    "// pull out the values we're after, converting it into an array of rowData\nfunction populateGrid(workbook) {\n    // our data is in the first sheet\n    var firstSheetName = workbook.SheetNames[0];\n    var worksheet = workbook.Sheets[firstSheetName];\n    // we expect the following columns to be present\n    var columns = {\n        A: 'athlete',\n        B: 'age',\n        C: 'country',\n        D: 'year',\n        E: 'date',\n        F: 'sport',\n        G: 'gold',\n        H: 'silver',\n        I: 'bronze',\n        J: 'total',\n    };\n    var rowData = [];\n    // start at the 2nd row - the first row are the headers\n    var rowIndex = 2;\n    // iterate over the worksheet pulling out the columns we're expecting\n    while (worksheet['A' + rowIndex]) {\n        var row = {};\n        Object.keys(columns).forEach(function (column) {\n            row[columns[column]] = worksheet[column + rowIndex].w;\n        });\n        rowData.push(row);\n        rowIndex++;\n    }\n    // finally, set the imported rowData into the grid\n    gridInstance.api.setRowData(rowData);\n}"
+  ],
+  "callbackDependencies": {
+    "makeRequest": ["XMLHttpRequest"],
+    "convertDataToWorkbook": ["Uint8Array", "Array", "String"],
+    "populateGrid": ["Object", "gridOptions"],
+    "importExcel": ["makeRequest"]
+  },
+  "template": "<div class=\"example-wrapper\">\n    <button onclick=\"importExcel()\" style=\"margin-bottom: 5px\">Import Excel</button>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "exampleHeight": 500,
+    "extras": ["xlsx-style"]
+  }
+}

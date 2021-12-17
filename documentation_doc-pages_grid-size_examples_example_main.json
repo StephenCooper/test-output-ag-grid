@@ -1,0 +1,34 @@
+{
+  "eventHandlers": [
+    {
+      "name": "firstDataRendered",
+      "handlerName": "onFirstDataRendered",
+      "handler": "function onFirstDataRendered(params) {\n    params.api.sizeColumnsToFit();\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 150 },\n    { field: 'age', minWidth: 70, maxWidth: 90 },\n    { field: 'country', minWidth: 130 },\n    { field: 'year', minWidth: 70, maxWidth: 90 },\n    { field: 'date', minWidth: 120 },\n    { field: 'sport', minWidth: 120 },\n    { field: 'gold', minWidth: 80 },\n    { field: 'silver', minWidth: 80 },\n    { field: 'bronze', minWidth: 80 },\n    { field: 'total', minWidth: 80 },\n]"
+    },
+    { "name": "defaultColDef", "value": "{\n    resizable: true,\n}" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 150 },\n    {\n        field: 'age',\n    minWidth: 70,\n    maxWidth: 90 },\n    {\n        field: 'country',\n    minWidth: 130 },\n    {\n        field: 'year',\n    minWidth: 70,\n    maxWidth: 90 },\n    {\n        field: 'date',\n    minWidth: 120 },\n    {\n        field: 'sport',\n    minWidth: 120 },\n    {\n        field: 'gold',\n    minWidth: 80 },\n    {\n        field: 'silver',\n    minWidth: 80 },\n    {\n        field: 'bronze',\n    minWidth: 80 },\n    {\n        field: 'total',\n    minWidth: 80 }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine"
+  }
+}

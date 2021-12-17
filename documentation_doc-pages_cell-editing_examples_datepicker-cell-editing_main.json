@@ -1,0 +1,37 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete' },\n    { field: 'date', editable: true, cellEditor: 'datePicker' },\n    { field: 'age', maxWidth: 110 },\n    { field: 'country' },\n    { field: 'year', maxWidth: 120 },\n    { field: 'sport' },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 150,\n}"
+    },
+    { "name": "components", "value": "{\n    datePicker: getDatePicker(),\n}" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 150,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{ field: 'athlete' },\n    {\n        field: 'date',\n    editable: true,\n    cellEditor: 'datePicker' },\n    {\n        field: 'age',\n    maxWidth: 110 },\n    { field: 'country' },\n    {\n        field: 'year',\n    maxWidth: 120 },\n    { field: 'sport' },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "function getDatePicker() {\n    class Datepicker {\n        // gets called once before the renderer is used\n        init(params) {\n            // create the cell\n            this.eInput = document.createElement('input');\n            this.eInput.value = params.value;\n            this.eInput.classList.add('ag-input');\n            this.eInput.style.height = '100%';\n            // https://jqueryui.com/datepicker/\n            $(this.eInput).datepicker({\n                dateFormat: 'dd/mm/yy',\n            });\n        }\n        // gets called once when grid ready to insert the element\n        getGui() {\n            return this.eInput;\n        }\n        // focus and select can be done after the gui is attached\n        afterGuiAttached() {\n            this.eInput.focus();\n            this.eInput.select();\n        }\n        // returns the new value after editing\n        getValue() {\n            return this.eInput.value;\n        }\n        // any cleanup we need to be done here\n        destroy() {\n            // but this example is simple, no cleanup, we could\n            // even leave this method out as it's optional\n        }\n        // if true, then this editor will appear in a popup\n        isPopup() {\n            // and we could leave this method out also, false is the default\n            return false;\n        }\n    }\n    return Datepicker;\n}"
+  ],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "extras": ["jquery", "jqueryui", "bootstrap"],
+    "modules": ["clientside", "menu", "columnpanel"]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 180 },\n    { field: 'age' },\n    { field: 'country', minWidth: 160 },\n    { field: 'year' },\n    { field: 'date', minWidth: 160 },\n    { field: 'sport', minWidth: 180 },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 100,\n    editable: true,\n    // we use a cell renderer to include a button, so when the button\n    // gets clicked, the editing starts.\n    cellRenderer: 'singleClickEditRenderer',\n}"
+    },
+    { "name": "suppressClickEdit", "value": "true" },
+    {
+      "name": "components",
+      "value": "{\n    singleClickEditRenderer: getRenderer(),\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 100,\n    editable: true,\n    // we use a cell renderer to include a button, so when the button\n    // gets clicked, the editing starts.\n    cellRenderer: 'singleClickEditRenderer',\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 180 },\n    { field: 'age' },\n    {\n        field: 'country',\n    minWidth: 160 },\n    { field: 'year' },\n    {\n        field: 'date',\n    minWidth: 160 },\n    {\n        field: 'sport',\n    minWidth: 180 },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n    { field: 'total' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "function getRenderer() {\n    class CellRenderer {\n        createGui() {\n            const template = '<span><button id=\"theButton\" style=\"height: 39px\">#</button><span id=\"theValue\" style=\"padding-left: 4px;\"></span></span>';\n            const tempDiv = document.createElement('div');\n            tempDiv.innerHTML = template;\n            this.eGui = tempDiv.firstElementChild;\n        }\n        init(params) {\n            // create the gui\n            this.createGui();\n            // keep params, we use it in onButtonClicked\n            this.params = params;\n            // attach the value to the value span\n            const eValue = this.eGui.querySelector('#theValue');\n            eValue.innerHTML = params.value;\n            // setup the button, first get reference to it\n            this.eButton = this.eGui.querySelector('#theButton');\n            // bind the listener so 'this' is preserved, also keep reference to it for removal\n            this.buttonClickListener = this.onButtonClicked.bind(this);\n            // add the listener\n            this.eButton.addEventListener('click', this.buttonClickListener);\n        }\n        onButtonClicked() {\n            // start editing this cell. see the docs on the params that this method takes\n            const startEditingParams = {\n                rowIndex: this.params.rowIndex,\n                colKey: this.params.column.getId(),\n            };\n            this.params.api.startEditingCell(startEditingParams);\n        }\n        getGui() {\n            // returns our gui to the grid for this cell\n            return this.eGui;\n        }\n        refresh() {\n            return false;\n        }\n        destroy() {\n            // be good, clean up the listener\n            this.eButton.removeEventListener('click', this.buttonClickListener);\n        }\n    }\n    return CellRenderer;\n}"
+  ],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 520
+  }
+}

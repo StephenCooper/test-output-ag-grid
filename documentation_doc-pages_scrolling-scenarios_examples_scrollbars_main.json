@@ -1,0 +1,32 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'make' },\n    { field: 'model' },\n    { field: 'price' },\n]"
+    },
+    {
+      "name": "rowData",
+      "value": "[\n    { make: 'Toyota', model: 'Celica', price: 35000 },\n    { make: 'Ford', model: 'Mondeo', price: 32000 },\n    { make: 'Porsche', model: 'Boxter', price: 72000 },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    resizable: true,\n    filter: true,\n    flex: 1,\n    minWidth: 100,\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    resizable: true,\n    filter: true,\n    flex: 1,\n    minWidth: 100,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{ field: 'make' },\n    { field: 'model' },\n    { field: 'price' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "onGridReady": "{\n    params.api.sizeColumnsToFit();\n}",
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine"
+  }
+}

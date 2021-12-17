@@ -1,0 +1,37 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    // using default ColDef\n    { field: 'athlete' },\n    { field: 'sport' },\n    // using number column type\n    { field: 'age', type: 'numberColumn' },\n    { field: 'year', type: 'numberColumn' },\n    // using date and non-editable column types\n    { field: 'date', type: ['dateColumn', 'nonEditableColumn'], width: 220 },\n    {\n        headerName: 'Medals',\n        groupId: 'medalsGroup',\n        children: [\n            // using medal column type\n            { headerName: 'Gold', field: 'gold', type: 'medalColumn' },\n            { headerName: 'Silver', field: 'silver', type: 'medalColumn' },\n            { headerName: 'Bronze', field: 'bronze', type: 'medalColumn' },\n            { headerName: 'Total', field: 'total', type: 'medalColumn', columnGroupShow: 'closed' }\n        ]\n    }\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    // set the default column width\n    width: 150,\n    // make every column editable\n    editable: true,\n    // make every column use 'text' filter by default\n    filter: 'agTextColumnFilter',\n    // enable floating filters by default\n    floatingFilter: true,\n    // make columns resizable\n    resizable: true\n}"
+    },
+    { "name": "defaultColGroupDef", "value": "{\n    marryChildren: true\n}" },
+    {
+      "name": "columnTypes",
+      "value": "{\n    numberColumn: { width: 130, filter: 'agNumberColumnFilter' },\n    medalColumn: { width: 100, columnGroupShow: 'open', filter: false },\n    nonEditableColumn: { editable: false },\n    dateColumn: {\n        // specify we want to use the date filter\n        filter: 'agDateColumnFilter',\n        // add extra parameters for the date filter\n        filterParams: {\n            // provide comparator function\n            comparator: (filterLocalDateAtMidnight, cellValue) => {\n                // In the example application, dates are stored as dd/mm/yyyy\n                // We create a Date object for comparison against the filter date\n                const dateParts = cellValue.split('/');\n                const day = Number(dateParts[0]);\n                const month = Number(dateParts[1]) - 1;\n                const year = Number(dateParts[2]);\n                const cellDate = new Date(year, month, day);\n                // Now that both parameters are Date objects, we can compare\n                if (cellDate < filterLocalDateAtMidnight) {\n                    return -1;\n                }\n                else if (cellDate > filterLocalDateAtMidnight) {\n                    return 1;\n                }\n                else {\n                    return 0;\n                }\n            }\n        }\n    }\n}"
+    },
+    { "name": "rowData", "value": "null" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    // set the default column width\n    width: 150,\n    // make every column editable\n    editable: true,\n    // make every column use 'text' filter by default\n    filter: 'agTextColumnFilter',\n    // enable floating filters by default\n    floatingFilter: true,\n    // make columns resizable\n    resizable: true\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{ field: 'athlete' },\n    { field: 'sport' },\n    {\n        field: 'age',\n    type: 'numberColumn' },\n    {\n        field: 'year',\n    type: 'numberColumn' },\n    {\n        field: 'date',\n    type: ['dateColumn', 'nonEditableColumn'],\n    width: 220 },\n    {\n        headerName: 'Medals',\n    groupId: 'medalsGroup',\n    children: [{\n        headerName: 'Gold',\n    field: 'gold',\n    type: 'medalColumn' },\n    {\n        headerName: 'Silver',\n    field: 'silver',\n    type: 'medalColumn' },\n    {\n        headerName: 'Bronze',\n    field: 'bronze',\n    type: 'medalColumn' },\n    {\n        headerName: 'Total',\n    field: 'total',\n    type: 'medalColumn',\n    columnGroupShow: 'closed' }] }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "<div style=\"height: 100%; box-sizing: border-box;\">\n    GRID_TEMPLATE_PLACEHOLDER\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine"
+  }
+}

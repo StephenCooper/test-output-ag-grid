@@ -1,0 +1,51 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    {\n        field: 'row',\n    },\n    {\n        field: 'name',\n    },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+    },
+    {
+      "name": "rowData",
+      "value": "[\n    { row: 'Row 1', name: 'Michael Phelps' },\n    { row: 'Row 2', name: 'Natalie Coughlin' },\n    { row: 'Row 3', name: 'Aleksey Nemov' },\n    { row: 'Row 4', name: 'Alicia Coutts' },\n    { row: 'Row 5', name: 'Missy Franklin' },\n    { row: 'Row 6', name: 'Ryan Lochte' },\n    { row: 'Row 7', name: 'Allison Schmitt' },\n    { row: 'Row 8', name: 'Natalie Coughlin' },\n    { row: 'Row 9', name: 'Ian Thorpe' },\n    { row: 'Row 10', name: 'Bob Mill' },\n    { row: 'Row 11', name: 'Willy Walsh' },\n    { row: 'Row 12', name: 'Sarah McCoy' },\n    { row: 'Row 13', name: 'Jane Jack' },\n    { row: 'Row 14', name: 'Tina Wills' },\n]"
+    },
+    { "name": "enableRangeSelection", "value": "true" },
+    { "name": "rowSelection", "value": "'multiple'" },
+    {
+      "name": "components",
+      "value": "{\n    statusBarComponent: ClickableStatusBarComponent,\n}"
+    },
+    {
+      "name": "statusBar",
+      "value": "{\n    statusPanels: [\n        {\n            statusPanel: 'statusBarComponent',\n            key: 'statusBarCompKey',\n        },\n        {\n            statusPanel: 'agAggregationComponent',\n            statusPanelParams: {\n                aggFuncs: ['count', 'sum'],\n            },\n        },\n    ],\n}"
+    }
+  ],
+  "components": [
+    { "name": "statusBarComponent", "value": "ClickableStatusBarComponent" }
+  ],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{ field: 'row' },\n    { field: 'name' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "toggleStatusBarComp",
+      "params": "",
+      "body": "function toggleStatusBarComp() {\n    const statusBarComponent = this.gridApi.getStatusPanel('statusBarCompKey');\n    statusBarComponent.setVisible(!statusBarComponent.isVisible());\n}"
+    }
+  ],
+  "utils": [],
+  "callbackDependencies": { "toggleStatusBarComp": ["gridOptions"] },
+  "resizeToFit": true,
+  "template": "<button onclick=\"toggleStatusBarComp()\" style=\"margin-bottom: 10px\">Toggle Status Bar Component</button>\nGRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "90%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}

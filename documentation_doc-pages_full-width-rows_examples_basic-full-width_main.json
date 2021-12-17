@@ -1,0 +1,43 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    { "name": "rowData", "value": "createData(100, 'body')" },
+    { "name": "pinnedTopRowData", "value": "createData(3, 'pinned')" },
+    { "name": "pinnedBottomRowData", "value": "createData(3, 'pinned')" },
+    { "name": "columnDefs", "value": "getColumnDefs()" },
+    {
+      "name": "isFullWidthCell",
+      "value": "function (rowNode) {\n    // in this example, we check the fullWidth attribute that we set\n    // while creating the data. what check you do to decide if you\n    // want a row full width is up to you, as long as you return a boolean\n    // for this method.\n    return rowNode.data.fullWidth;\n}"
+    },
+    {
+      "name": "fullWidthCellRenderer",
+      "value": "function (params) {\n    // pinned rows will have node.rowPinned set to either 'top' or 'bottom' - see docs for row pinning\n    let cssClass;\n    let message;\n    if (params.node.rowPinned) {\n        cssClass = 'example-full-width-pinned-row';\n        message = 'Pinned full width row at index ' + params.rowIndex;\n    }\n    else {\n        cssClass = 'example-full-width-row';\n        message = 'Normal full width row at index' + params.rowIndex;\n    }\n    const eDiv = document.createElement('div');\n    eDiv.innerHTML =\n        '<div class=\"' +\n            cssClass +\n            '\"><button>Click</button> ' +\n            message +\n            '</div>';\n    const eButton = eDiv.querySelector('button');\n    eButton.addEventListener('click', function () {\n        alert('button clicked');\n    });\n    return eDiv.firstChild;\n}"
+    },
+    {
+      "name": "getRowHeight",
+      "value": "function (params) {\n    // you can have normal rows and full width rows any height that you want\n    const isBodyRow = params.node.rowPinned === undefined;\n    const isFullWidth = params.node.data.fullWidth;\n    if (isBodyRow && isFullWidth) {\n        return 75;\n    }\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "function getColumnDefs() {\n    const columnDefs = [];\n    alphabet().forEach(function (letter) {\n        const colDef = {\n            headerName: letter,\n            field: letter,\n            width: 150,\n        };\n        if (letter === 'A') {\n            colDef.pinned = 'left';\n        }\n        if (letter === 'Z') {\n            colDef.pinned = 'right';\n        }\n        columnDefs.push(colDef);\n    });\n    return columnDefs;\n}",
+    "function alphabet() {\n    return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');\n}",
+    "function createData(count, prefix) {\n    const rowData = [];\n    for (let i = 0; i < count; i++) {\n        const item = {};\n        // mark every third row as full width. how you mark the row is up to you,\n        // in this example the example code (not the grid code) looks at the\n        // fullWidth attribute in the isFullWidthCell() callback. how you determine\n        // if a row is full width or not is totally up to you.\n        item.fullWidth = i % 3 === 2;\n        // put in a column for each letter of the alphabet\n        alphabet().forEach(function (letter) {\n            item[letter] = prefix + ' (' + letter + ',' + i + ')';\n        });\n        rowData.push(item);\n    }\n    return rowData;\n}"
+  ],
+  "callbackDependencies": {
+    "getColumnDefs": ["alphabet"],
+    "createData": ["alphabet"]
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 595
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 220 },\n    { field: 'country', minWidth: 200 },\n    { field: 'year' },\n    { field: 'sport', minWidth: 200 },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 100,\n}"
+    },
+    { "name": "rowModelType", "value": "'serverSide'" },
+    { "name": "serverSideStoreType", "value": "'partial'" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 100,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 220 },\n    {\n        field: 'country',\n    minWidth: 200 },\n    { field: 'year' },\n    {\n        field: 'sport',\n    minWidth: 200 },\n    { field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "function createServerSideDatasource(server) {\n    return {\n        getRows: function (params) {\n            console.log('[Datasource] - rows requested by grid: startRow = ' +\n                params.request.startRow +\n                ', endRow = ' +\n                params.request.endRow);\n            // get data for request from our fake server\n            var response = server.getData(params.request);\n            // simulating real server call with a 500ms delay\n            setTimeout(function () {\n                if (response.success) {\n                    // supply rows for requested block to grid\n                    params.success({ rowData: response.rows, rowCount: response.lastRow });\n                }\n                else {\n                    params.fail();\n                }\n            }, 1000);\n        },\n    };\n}",
+    "function createFakeServer(allData) {\n    return {\n        getData: function (request) {\n            // in this simplified fake server all rows are contained in an array\n            var requestedRows = allData.slice(request.startRow, request.endRow);\n            // here we are pretending we don't know the last row until we reach it!\n            var lastRow = getLastRowIndex(request, requestedRows);\n            return {\n                success: true,\n                rows: requestedRows,\n                lastRow: lastRow,\n            };\n        },\n    };\n}",
+    "function getLastRowIndex(request, results) {\n    if (!results)\n        return undefined;\n    var currentLastRow = (request.startRow || 0) + results.length;\n    // if on or after the last block, work out the last row, otherwise return 'undefined'\n    return currentLastRow < (request.endRow || 0) ? currentLastRow : undefined;\n}"
+  ],
+  "callbackDependencies": {
+    "createServerSideDatasource": ["params", "setTimeout"],
+    "createFakeServer": ["request", "getLastRowIndex"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "{\n    // setup the fake server with entire dataset\n    var fakeServer = createFakeServer(data);\n    // create datasource with a reference to the fake server\n    var datasource = createServerSideDatasource(fakeServer);\n    // register the datasource with the grid\n    params.api.setServerSideDatasource(datasource);\n}"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine-dark",
+    "enterprise": true,
+    "modules": ["serverside"]
+  }
+}

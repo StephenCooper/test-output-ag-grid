@@ -1,0 +1,45 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "defaultColDef",
+      "value": "{\n    initialWidth: 100,\n    sortable: true,\n    resizable: true,\n}"
+    },
+    { "name": "columnDefs", "value": "getColumnDefs()" }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onBtWithDefault",
+      "params": "",
+      "body": "function onBtWithDefault() {\n    this.gridApi.setColumnDefs(getColumnDefs());\n}"
+    },
+    {
+      "name": "onBtRemove",
+      "params": "",
+      "body": "function onBtRemove() {\n    this.gridApi.setColumnDefs([]);\n}"
+    }
+  ],
+  "utils": [
+    "function getColumnDefs() {\n    return [\n        { field: 'athlete', initialWidth: 100, initialSort: 'asc' },\n        { field: 'age' },\n        { field: 'country', initialPinned: 'left' },\n        { field: 'sport' },\n        { field: 'year' },\n        { field: 'date' },\n        { field: 'gold' },\n        { field: 'silver' },\n        { field: 'bronze' },\n        { field: 'total' },\n    ];\n}"
+  ],
+  "callbackDependencies": {
+    "onBtWithDefault": ["gridOptions"],
+    "onBtRemove": ["gridOptions"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "<div class=\"test-container\">\n    <div class=\"test-header\">\n        <button onclick=\"onBtWithDefault()\">Set Columns with Initials</button>\n        <button onclick=\"onBtRemove()\">Remove Columns</button>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "modules": true
+  }
+}

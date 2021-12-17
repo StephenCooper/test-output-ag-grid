@@ -1,0 +1,38 @@
+{
+  "eventHandlers": [],
+  "properties": [],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onNewNumber",
+      "params": "this.value",
+      "body": "// tell Left grid to refresh when number changes\nfunction onNewNumber(value) {\n    gridOptionsLeft.context.theNumber = new Number(value);\n    gridOptionsLeft.api.redrawRows();\n}"
+    }
+  ],
+  "utils": [
+    "///// left table\nvar columnDefsLeft = [\n    { headerName: 'Function', field: 'function', minWidth: 150 },\n    { headerName: 'Value', field: 'value' },\n    { headerName: 'Times 10', valueGetter: 'getValue(\"value\") * 10' },\n];",
+    "var rowDataLeft = [\n    { function: 'Number Squared', value: '=ctx.theNumber * ctx.theNumber' },\n    { function: 'Number x 2', value: '=ctx.theNumber * 2' },\n    { function: \"Today's Date\", value: '=new Date().toLocaleDateString()' },\n    { function: 'Sum A', value: '=ctx.sum(\"a\")' },\n    { function: 'Sum B', value: '=ctx.sum(\"b\")' },\n];",
+    "var gridOptionsLeft = {\n    columnDefs: columnDefsLeft,\n    defaultColDef: {\n        flex: 1,\n    },\n    enableCellExpressions: true,\n    rowData: rowDataLeft,\n    context: {\n        theNumber: 4,\n    },\n};",
+    "///// Right table\nvar columnDefsRight = [\n    {\n        headerName: 'A',\n        field: 'a',\n        width: 150,\n        editable: true,\n        valueSetter: numberNewValueHandler,\n        onCellValueChanged: cellValueChanged,\n    },\n    {\n        headerName: 'B',\n        field: 'b',\n        width: 150,\n        editable: true,\n        newValueHandler: numberNewValueHandler,\n        onCellValueChanged: cellValueChanged,\n    },\n];",
+    "var rowDataRight = [\n    { a: 1, b: 22 },\n    { a: 2, b: 33 },\n    { a: 3, b: 44 },\n    { a: 4, b: 55 },\n    { a: 5, b: 66 },\n    { a: 6, b: 77 },\n    { a: 7, b: 88 },\n];",
+    "var gridOptionsRight = {\n    columnDefs: columnDefsRight,\n    defaultColDef: {\n        flex: 1,\n    },\n    rowData: rowDataRight,\n};",
+    "// we want to convert the strings to numbers\nfunction numberNewValueHandler(params) {\n    var valueAsNumber = parseFloat(params.newValue);\n    var field = params.colDef.field;\n    var data = params.data;\n    data[field] = valueAsNumber;\n    return true;\n}",
+    "// we want to tell the Left grid to refresh when the Right grid values change\nfunction cellValueChanged(params) {\n    gridInstanceLeft.api.redrawRows();\n}"
+  ],
+  "callbackDependencies": {
+    "onNewNumber": ["gridOptionsLeft", "Number"],
+    "numberNewValueHandler": ["parseFloat"],
+    "cellValueChanged": ["gridOptionsLeft"]
+  },
+  "template": "<div style=\"float: left; width: 60%;\">\n    <div class=\"test-header\">\n        Enter a number to analyse:\n        <input type=\"text\" oninput=\"onNewNumber(this.value)\">\n    </div>\n    <div style=\"height: 400px; padding: 10px; box-sizing: border-box;\" id=\"myGridLeft\" class=\"ag-theme-alpine-dark\"></div>\n</div>\n<div style=\"float: left; width: 40%;\">\n    <div class=\"test-header\">\n        Edit data on RHS, table updates on LHS\n    </div>\n    <div style=\"height: 400px; padding: 10px; box-sizing: border-box;\" id=\"myGridRight\" class=\"ag-theme-alpine-dark\"></div>\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 455
+  }
+}

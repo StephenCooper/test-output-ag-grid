@@ -1,0 +1,53 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    // simple column, easy to understand\n    { headerName: 'A', field: 'a' },\n    // the grid works with embedded fields\n    { headerName: 'B', field: 'b.name' },\n    // or use value getter, all works with quick filter\n    { headerName: 'C', valueGetter: \"'zz' + data.c.name\" },\n    // or use the object value, so value passed around is an object\n    {\n        headerName: 'D',\n        field: 'd',\n        cellRenderer: 'boldRenderer',\n        // this is needed to avoid toString=[object,object] result with objects\n        getQuickFilterText: function (params) {\n            return params.value.name;\n        },\n    },\n    // this fails filter - it's working with a complex object, so the quick filter\n    // text gets [object,object]\n    {\n        headerName: 'E',\n        field: 'e',\n        cellRenderer: 'boldRenderer',\n    },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    editable: true,\n}"
+    },
+    { "name": "rowData", "value": "getData()" },
+    {
+      "name": "components",
+      "value": "{\n    boldRenderer: function (params) {\n        return '<b>' + params.value.name + '</b>';\n    },\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onFilterTextBoxChanged",
+      "params": "",
+      "body": "function onFilterTextBoxChanged() {\n    this.gridApi.setQuickFilter((document.getElementById('filter-text-box')).value);\n}"
+    },
+    {
+      "name": "onPrintQuickFilterTexts",
+      "params": "",
+      "body": "function onPrintQuickFilterTexts() {\n    this.gridApi.forEachNode(function (rowNode, index) {\n        console.log('Row ' +\n            index +\n            ' quick filter text is ' +\n            rowNode.quickFilterAggregateText);\n    });\n}"
+    },
+    {
+      "name": "onQuickFilterTypeChanged",
+      "params": "",
+      "body": "function onQuickFilterTypeChanged() {\n    var rbCache = document.querySelector('#cbCache');\n    var cacheActive = rbCache.checked;\n    console.log('using cache = ' + cacheActive);\n    gridOptions.cacheQuickFilter = cacheActive;\n    // set row data again, so to clear out any cache that might of existed\n    this.gridApi.setRowData(getData());\n}"
+    }
+  ],
+  "utils": [],
+  "callbackDependencies": {
+    "onFilterTextBoxChanged": ["gridOptions"],
+    "onPrintQuickFilterTexts": ["gridOptions"],
+    "onQuickFilterTypeChanged": ["gridOptions"]
+  },
+  "template": "<div class=\"example-wrapper\">\n    <div class=\"example-header\">\n        <input type=\"text\" id=\"filter-text-box\" placeholder=\"Filter...\" oninput=\"onFilterTextBoxChanged()\">\n        <button style=\"margin-left: 20px;\" onclick=\"onPrintQuickFilterTexts()\">Print Quick Filter Texts</button>\n        <span style=\"margin-left: 50px\">\n            <label>\n                <input type=\"radio\" onchange=\"onQuickFilterTypeChanged()\" id=\"cbNormal\" checked=\"\" name=\"cache\">\n                Normal Quick Filter\n            </label>\n            <label>\n                <input type=\"radio\" onchange=\"onQuickFilterTypeChanged()\" id=\"cbCache\" name=\"cache\">\n                Cache Quick Filter\n            </label>\n        </span>\n    </div>            \n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 580
+  }
+}

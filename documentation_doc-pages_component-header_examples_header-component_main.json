@@ -1,0 +1,38 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', suppressMenu: true, minWidth: 120 },\n    {\n        field: 'age',\n        sortable: false,\n        headerComponentParams: { menuIcon: 'fa-external-link-alt' },\n    },\n    { field: 'country', suppressMenu: true, minWidth: 120 },\n    { field: 'year', sortable: false },\n    { field: 'date', suppressMenu: true },\n    { field: 'sport', sortable: false },\n    {\n        field: 'gold',\n        headerComponentParams: { menuIcon: 'fa-cog' },\n        minWidth: 120,\n    },\n    { field: 'silver', sortable: false },\n    { field: 'bronze', suppressMenu: true, minWidth: 120 },\n    { field: 'total', sortable: false },\n]"
+    },
+    { "name": "rowData", "value": "null" },
+    { "name": "suppressMenuHide", "value": "true" },
+    {
+      "name": "components",
+      "value": "{\n    agColumnHeader: CustomHeader,\n}"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n    headerComponentParams: {\n        menuIcon: 'fa-bars',\n    },\n}"
+    }
+  ],
+  "components": [{ "name": "agColumnHeader", "value": "CustomHeader" }],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n    headerComponentParams: {\n        menuIcon: 'fa-bars',\n    },\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    suppressMenu: true,\n    minWidth: 120 },\n    {\n        field: 'age',\n    sortable: false,\n    headerComponentParams : { menuIcon: 'fa-external-link-alt' } },\n    {\n        field: 'country',\n    suppressMenu: true,\n    minWidth: 120 },\n    {\n        field: 'year',\n    sortable: false },\n    {\n        field: 'date',\n    suppressMenu: true },\n    {\n        field: 'sport',\n    sortable: false },\n    {\n        field: 'gold',\n    headerComponentParams : { menuIcon: 'fa-cog' },\n    minWidth: 120 },\n    {\n        field: 'silver',\n    sortable: false },\n    {\n        field: 'bronze',\n    suppressMenu: true,\n    minWidth: 120 },\n    {\n        field: 'total',\n    sortable: false }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "{\n    params.api.setRowData(data);\n}"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n\n\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "extras": ["fontawesome"]
+  }
+}

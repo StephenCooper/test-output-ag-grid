@@ -1,0 +1,39 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 200 },\n    { field: 'age' },\n    { field: 'country', minWidth: 200 },\n    { field: 'year' },\n    {\n        field: 'date',\n        minWidth: 180,\n        menuTabs: ['filterMenuTab', 'generalMenuTab', 'columnsMenuTab'],\n    },\n    {\n        field: 'sport',\n        minWidth: 200,\n        menuTabs: ['filterMenuTab', 'columnsMenuTab'],\n    },\n    {\n        field: 'gold',\n        menuTabs: ['generalMenuTab', 'gibberishMenuTab'],\n    },\n    { field: 'silver', menuTabs: [] },\n    { field: 'bronze' },\n    { field: 'total' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n}"
+    },
+    {
+      "name": "postProcessPopup",
+      "value": "(params) => {\n    // check callback is for menu\n    if (params.type !== 'columnMenu') {\n        return;\n    }\n    const columnId = params.column ? params.column.getId() : undefined;\n    if (columnId === 'gold') {\n        const ePopup = params.ePopup;\n        let oldTopStr = ePopup.style.top;\n        // remove 'px' from the string (AG Grid uses px positioning)\n        oldTopStr = oldTopStr.substring(0, oldTopStr.indexOf('px'));\n        const oldTop = parseInt(oldTopStr);\n        const newTop = oldTop + 25;\n        ePopup.style.top = newTop + 'px';\n    }\n}"
+    },
+    { "name": "getMainMenuItems", "value": null }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 200 },\n    { field: 'age' },\n    {\n        field: 'country',\n    minWidth: 200 },\n    { field: 'year' },\n    {\n        field: 'date',\n    minWidth: 180,\n    menuTabs: ['filterMenuTab', 'generalMenuTab', 'columnsMenuTab'] },\n    {\n        field: 'sport',\n    minWidth: 200,\n    menuTabs: ['filterMenuTab', 'columnsMenuTab'] },\n    {\n        field: 'gold',\n    menuTabs: ['generalMenuTab', 'gibberishMenuTab'] },\n    {\n        field: 'silver',\n    menuTabs: [] },\n    { field: 'bronze' },\n    { field: 'total' }]",
+  "instanceMethods": [
+    "function getMainMenuItems(params) {\n    // you don't need to switch, we switch below to just demonstrate some different options\n    // you have on how to build up the menu to return\n    switch (params.column.getId()) {\n        // return the defaults, put add some extra items at the end\n        case 'athlete':\n            const athleteMenuItems = params.defaultItems.slice(0);\n            athleteMenuItems.push({\n                name: 'AG Grid Is Great',\n                action: () => {\n                    console.log('AG Grid is great was selected');\n                },\n            });\n            athleteMenuItems.push({\n                name: 'Casio Watch',\n                action: () => {\n                    console.log('People who wear casio watches are cool');\n                },\n            });\n            athleteMenuItems.push({\n                name: 'Custom Sub Menu',\n                subMenu: [\n                    {\n                        name: 'Black',\n                        action: () => {\n                            console.log('Black was pressed');\n                        },\n                    },\n                    {\n                        name: 'White',\n                        action: () => {\n                            console.log('White was pressed');\n                        },\n                    },\n                    {\n                        name: 'Grey',\n                        action: () => {\n                            console.log('Grey was pressed');\n                        },\n                    },\n                ],\n            });\n            return athleteMenuItems;\n        // return some dummy items\n        case 'age':\n            return [\n                {\n                    // our own item with an icon\n                    name: 'Joe Abercrombie',\n                    action: () => {\n                        console.log('He wrote a book');\n                    },\n                    icon: '<img src=\"https://www.ag-grid.com/example-assets/lab.png\" style=\"width: 14px;\" />',\n                },\n                {\n                    // our own icon with a check box\n                    name: 'Larsson',\n                    action: () => {\n                        console.log('He also wrote a book');\n                    },\n                    checked: true,\n                },\n                'resetColumns', // a built in item\n            ];\n        // return all the default items, but remove app separators and the two sub menus\n        case 'country':\n            const countryMenuItems = [];\n            const itemsToExclude = ['separator', 'pinSubMenu', 'valueAggSubMenu'];\n            params.defaultItems.forEach(item => {\n                if (itemsToExclude.indexOf(item) < 0) {\n                    countryMenuItems.push(item);\n                }\n            });\n            return countryMenuItems;\n        default:\n            // make no changes, just accept the defaults\n            return params.defaultItems;\n    }\n}"
+  ],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}

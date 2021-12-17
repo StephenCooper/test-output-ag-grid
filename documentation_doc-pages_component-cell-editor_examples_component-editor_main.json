@@ -1,0 +1,36 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    {\n        headerName: 'Doubling',\n        field: 'number',\n        cellEditor: 'doublingEditor',\n        editable: true,\n        width: 300,\n    },\n    {\n        field: 'mood',\n        cellRenderer: 'moodRenderer',\n        cellEditor: 'moodEditor',\n        editable: true,\n        width: 300,\n    },\n    {\n        headerName: 'Numeric',\n        field: 'number',\n        cellEditor: 'numericEditor',\n        editable: true,\n        width: 280,\n    },\n]"
+    },
+    {
+      "name": "rowData",
+      "value": "[\n    { name: 'Bob', mood: 'Happy', number: 10 },\n    { name: 'Harry', mood: 'Sad', number: 3 },\n    { name: 'Sally', mood: 'Happy', number: 20 },\n    { name: 'Mary', mood: 'Sad', number: 5 },\n    { name: 'John', mood: 'Happy', number: 15 },\n    { name: 'Jack', mood: 'Happy', number: 25 },\n    { name: 'Sue', mood: 'Sad', number: 43 },\n    { name: 'Sean', mood: 'Sad', number: 1335 },\n    { name: 'Niall', mood: 'Happy', number: 2 },\n    { name: 'Alberto', mood: 'Happy', number: 123 },\n    { name: 'Fred', mood: 'Sad', number: 532 },\n    { name: 'Jenny', mood: 'Happy', number: 34 },\n    { name: 'Larry', mood: 'Happy', number: 13 },\n]"
+    },
+    {
+      "name": "components",
+      "value": "{\n    doublingEditor: DoublingEditor,\n    moodRenderer: MoodRenderer,\n    moodEditor: MoodEditor,\n    numericEditor: NumericEditor,\n}"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": null,
+  "globalComponents": [],
+  "parsedColDefs": "",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "template": "<div style=\"height: 100%; box-sizing: border-box;\">\n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 370
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    {\n        groupId: 'athleteGroupId',\n        headerName: 'Athlete',\n        children: [\n            {\n                headerName: 'Name',\n                field: 'athlete',\n                minWidth: 200,\n                columnsMenuParams: {\n                    // hides the Column Filter section\n                    suppressColumnFilter: true,\n                    // hides the Select / Un-select all widget\n                    suppressColumnSelectAll: true,\n                    // hides the Expand / Collapse all widget\n                    suppressColumnExpandAll: true,\n                },\n            },\n            {\n                field: 'age',\n                minWidth: 200,\n                columnsMenuParams: {\n                    // contracts all column groups\n                    contractColumnSelection: true,\n                },\n            },\n        ],\n    },\n    {\n        groupId: 'medalsGroupId',\n        headerName: 'Medals',\n        children: [{ field: 'gold' }, { field: 'silver' }, { field: 'bronze' }],\n    },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    resizable: true,\n    menuTabs: ['columnsMenuTab'],\n    columnsMenuParams: {\n        // suppresses updating the layout of columns as they are rearranged in the grid\n        suppressSyncLayoutWithGrid: true,\n    },\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    resizable: true,\n    menuTabs: ['columnsMenuTab'],\n    columnsMenuParams: {\n        // suppresses updating the layout of columns as they are rearranged in the grid\n        suppressSyncLayoutWithGrid: true,\n    },\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        groupId: 'athleteGroupId',\n    headerName: 'Athlete',\n    children: [{\n        headerName: 'Name',\n    field: 'athlete',\n    minWidth: 200,\n    columnsMenuParams : {\n    // hides the Column Filter section\nsuppressColumnFilter: true,\n    // hides the Select / Un-select all widget\nsuppressColumnSelectAll: true,\n    // hides the Expand / Collapse all widget\nsuppressColumnExpandAll: true\n } },\n    {\n        field: 'age',\n    minWidth: 200,\n    columnsMenuParams : { // contracts all column groups\ncontractColumnSelection: true } }] },\n    {\n        groupId: 'medalsGroupId',\n    headerName: 'Medals',\n    children: [{ field: 'gold' },\n    { field: 'silver' },\n    { field: 'bronze' }] }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}

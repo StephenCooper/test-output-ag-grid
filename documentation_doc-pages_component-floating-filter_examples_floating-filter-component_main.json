@@ -1,0 +1,37 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'country', filter: false },\n    { field: 'language', filter: false },\n    { field: 'name', filter: false },\n    {\n        field: 'gold',\n        floatingFilterComponent: 'sliderFloatingFilter',\n        floatingFilterComponentParams: {\n            maxValue: 7,\n            suppressFilterButton: true,\n        },\n        filter: 'agNumberColumnFilter',\n        suppressMenu: false,\n    },\n    {\n        field: 'silver',\n        filter: 'agNumberColumnFilter',\n        floatingFilterComponent: 'sliderFloatingFilter',\n        floatingFilterComponentParams: {\n            maxValue: 5,\n            suppressFilterButton: true,\n        },\n        suppressMenu: false,\n    },\n    {\n        field: 'bronze',\n        filter: 'agNumberColumnFilter',\n        floatingFilterComponent: 'sliderFloatingFilter',\n        floatingFilterComponentParams: {\n            maxValue: 10,\n            suppressFilterButton: true,\n        },\n        suppressMenu: false,\n    },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    floatingFilter: true,\n    resizable: true,\n}"
+    },
+    { "name": "rowData", "value": "getData()" },
+    {
+      "name": "components",
+      "value": "{\n    sliderFloatingFilter: SliderFloatingFilter,\n}"
+    }
+  ],
+  "components": [
+    { "name": "sliderFloatingFilter", "value": "SliderFloatingFilter" }
+  ],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    floatingFilter: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'country',\n    filter: false },\n    {\n        field: 'language',\n    filter: false },\n    {\n        field: 'name',\n    filter: false },\n    {\n        field: 'gold',\n    floatingFilterComponent: 'sliderFloatingFilter',\n    floatingFilterComponentParams : {\n    maxValue: 7,\n    suppressFilterButton: true\n },\n    filter: 'agNumberColumnFilter',\n    suppressMenu: false },\n    {\n        field: 'silver',\n    filter: 'agNumberColumnFilter',\n    floatingFilterComponent: 'sliderFloatingFilter',\n    floatingFilterComponentParams : {\n    maxValue: 5,\n    suppressFilterButton: true\n },\n    suppressMenu: false },\n    {\n        field: 'bronze',\n    filter: 'agNumberColumnFilter',\n    floatingFilterComponent: 'sliderFloatingFilter',\n    floatingFilterComponentParams : {\n    maxValue: 10,\n    suppressFilterButton: true\n },\n    suppressMenu: false }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "resizeToFit": true,
+  "template": "\n\n<div style=\"height: 100%; box-sizing: border-box;\">\n    GRID_TEMPLATE_PLACEHOLDER\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 370,
+    "extras": ["bootstrap"]
+  }
+}

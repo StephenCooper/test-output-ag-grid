@@ -1,0 +1,87 @@
+{
+  "eventHandlers": [
+    {
+      "name": "paginationChanged",
+      "handlerName": "onPaginationChanged",
+      "handler": "function onPaginationChanged() {\n    console.log('onPaginationPageLoaded');\n    // Workaround for bug in events order\n    if (this.gridApi) {\n        setText('#lbLastPageFound', this.gridApi.paginationIsLastPageFound());\n        setText('#lbPageSize', this.gridApi.paginationGetPageSize());\n        // we +1 to current page, as pages are zero based\n        setText('#lbCurrentPage', this.gridApi.paginationGetCurrentPage() + 1);\n        setText('#lbTotalPages', this.gridApi.paginationGetTotalPages());\n        setLastButtonDisabled(!this.gridApi.paginationIsLastPageFound());\n    }\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    // this row just shows the row index, doesn't use any data from the row\n    {\n        headerName: '#',\n        width: 50,\n        cellRenderer: cellRenderer,\n    },\n    { headerName: 'Athlete', field: 'athlete', width: 150 },\n    { headerName: 'Age', field: 'age', width: 90 },\n    { headerName: 'Country', field: 'country', width: 120 },\n    { headerName: 'Year', field: 'year', width: 90 },\n    { headerName: 'Date', field: 'date', width: 110 },\n    { headerName: 'Sport', field: 'sport', width: 110 },\n    { headerName: 'Gold', field: 'gold', width: 100 },\n    { headerName: 'Silver', field: 'silver', width: 100 },\n    { headerName: 'Bronze', field: 'bronze', width: 100 },\n    { headerName: 'Total', field: 'total', width: 100 },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    resizable: true,\n    filter: true,\n}"
+    },
+    { "name": "debug", "value": "true" },
+    { "name": "rowSelection", "value": "'multiple'" },
+    { "name": "paginationPageSize", "value": "500" },
+    { "name": "pagination", "value": "true" },
+    { "name": "suppressPaginationPanel", "value": "true" },
+    { "name": "suppressScrollOnNewData", "value": "true" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    resizable: true,\n    filter: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        headerName: '#',\n    width: 50,\n    cellRenderer: 'AG_LITERAL_cellRenderer' },\n    {\n        headerName: 'Athlete',\n    field: 'athlete',\n    width: 150 },\n    {\n        headerName: 'Age',\n    field: 'age',\n    width: 90 },\n    {\n        headerName: 'Country',\n    field: 'country',\n    width: 120 },\n    {\n        headerName: 'Year',\n    field: 'year',\n    width: 90 },\n    {\n        headerName: 'Date',\n    field: 'date',\n    width: 110 },\n    {\n        headerName: 'Sport',\n    field: 'sport',\n    width: 110 },\n    {\n        headerName: 'Gold',\n    field: 'gold',\n    width: 100 },\n    {\n        headerName: 'Silver',\n    field: 'silver',\n    width: 100 },\n    {\n        headerName: 'Bronze',\n    field: 'bronze',\n    width: 100 },\n    {\n        headerName: 'Total',\n    field: 'total',\n    width: 100 }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [
+    {
+      "name": "onBtFirst",
+      "params": "",
+      "body": "function onBtFirst() {\n    this.gridApi.paginationGoToFirstPage();\n}"
+    },
+    {
+      "name": "onBtLast",
+      "params": "",
+      "body": "function onBtLast() {\n    this.gridApi.paginationGoToLastPage();\n}"
+    },
+    {
+      "name": "onBtNext",
+      "params": "",
+      "body": "function onBtNext() {\n    this.gridApi.paginationGoToNextPage();\n}"
+    },
+    {
+      "name": "onBtPrevious",
+      "params": "",
+      "body": "function onBtPrevious() {\n    this.gridApi.paginationGoToPreviousPage();\n}"
+    },
+    {
+      "name": "onBtPageFive",
+      "params": "",
+      "body": "function onBtPageFive() {\n    // we say page 4, as the first page is zero\n    this.gridApi.paginationGoToPage(4);\n}"
+    },
+    {
+      "name": "onBtPageFifty",
+      "params": "",
+      "body": "function onBtPageFifty() {\n    // we say page 49, as the first page is zero\n    this.gridApi.paginationGoToPage(49);\n}"
+    }
+  ],
+  "utils": [
+    "var cellRenderer = function (params) {\n    return (parseInt(params.node.id) + 1) + '';\n};",
+    "function setText(selector, text) {\n    (document.querySelector(selector)).innerHTML = text;\n}",
+    "function setLastButtonDisabled(disabled) {\n    (document.querySelector('#btLast')).disabled = disabled;\n}"
+  ],
+  "callbackDependencies": {
+    "onPaginationChanged": ["gridOptions", "setText", "setLastButtonDisabled"],
+    "onBtFirst": ["gridOptions"],
+    "onBtLast": ["gridOptions"],
+    "onBtNext": ["gridOptions"],
+    "onBtPrevious": ["gridOptions"],
+    "onBtPageFive": ["gridOptions"],
+    "onBtPageFifty": ["gridOptions"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "<div class=\"example-wrapper\">\n    <div class=\"example-header\">\n        <div>\n            <button onclick=\"onBtFirst()\">To First</button>\n            <button onclick=\"onBtLast()\" id=\"btLast\">To Last</button>\n            <button onclick=\"onBtPrevious()\">To Previous</button>\n            <button onclick=\"onBtNext()\">To Next</button>\n            <button onclick=\"onBtPageFive()\">To Page 5</button>\n            <button onclick=\"onBtPageFifty()\">To Page 50</button>\n        </div>\n\n        <div style=\"margin-top: 6px\">\n            <span class=\"label\">Last Page Found:</span>\n            <span class=\"value\" id=\"lbLastPageFound\">-</span>\n            <span class=\"label\">Page Size:</span>\n            <span class=\"value\" id=\"lbPageSize\">-</span>\n            <span class=\"label\">Total Pages:</span>\n            <span class=\"value\" id=\"lbTotalPages\">-</span>\n            <span class=\"label\">Current Page:</span>\n            <span class=\"value\" id=\"lbCurrentPage\">-</span>\n        </div>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}

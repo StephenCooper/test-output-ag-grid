@@ -1,0 +1,34 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    {\n        headerName: 'Athlete Details',\n        marryChildren: true,\n        children: [\n            { field: 'athlete', colId: 'athlete' },\n            { field: 'country', colId: 'country' },\n        ],\n    },\n    { field: 'age', colId: 'age' },\n    {\n        headerName: 'Sports Results',\n        marryChildren: true,\n        children: [\n            { field: 'sport', colId: 'sport' },\n            { field: 'total', colId: 'total' },\n            { field: 'gold', colId: 'gold' },\n            { field: 'silver', colId: 'silver' },\n            { field: 'bronze', colId: 'bronze' },\n        ],\n    },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    resizable: true,\n    width: 160,\n}"
+    },
+    { "name": "debug", "value": "true" },
+    { "name": "rowData", "value": "null" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    resizable: true,\n    width: 160,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        headerName: 'Athlete Details',\n    marryChildren: true,\n    children: [{\n        field: 'athlete',\n    colId: 'athlete' },\n    {\n        field: 'country',\n    colId: 'country' }] },\n    {\n        field: 'age',\n    colId: 'age' },\n    {\n        headerName: 'Sports Results',\n    marryChildren: true,\n    children: [{\n        field: 'sport',\n    colId: 'sport' },\n    {\n        field: 'total',\n    colId: 'total' },\n    {\n        field: 'gold',\n    colId: 'gold' },\n    {\n        field: 'silver',\n    colId: 'silver' },\n    {\n        field: 'bronze',\n    colId: 'bronze' }] }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 560
+  }
+}

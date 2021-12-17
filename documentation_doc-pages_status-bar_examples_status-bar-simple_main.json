@@ -1,0 +1,43 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 200 },\n    { field: 'age', filter: 'agNumberColumnFilter' },\n    { field: 'country', enableRowGroup: true, minWidth: 200 },\n    { field: 'year', enableRowGroup: true },\n    { field: 'date', minWidth: 180 },\n    { field: 'sport', minWidth: 200 },\n    { field: 'gold', enableValue: true },\n    { field: 'silver', enableValue: true },\n    { field: 'bronze', enableValue: true },\n    { field: 'total', enableValue: true },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+    },
+    { "name": "enableRangeSelection", "value": "true" },
+    { "name": "rowSelection", "value": "'multiple'" },
+    {
+      "name": "statusBar",
+      "value": "{\n    statusPanels: [\n        { statusPanel: 'agTotalAndFilteredRowCountComponent', align: 'left' },\n        { statusPanel: 'agTotalRowCountComponent', align: 'center' },\n        { statusPanel: 'agFilteredRowCountComponent' },\n        { statusPanel: 'agSelectedRowCountComponent' },\n        { statusPanel: 'agAggregationComponent' },\n    ],\n}"
+    },
+    {
+      "name": "sideBar",
+      "value": "{\n    toolPanels: [\n        {\n            id: 'columns',\n            labelDefault: 'Columns',\n            labelKey: 'columns',\n            iconKey: 'columns',\n            toolPanel: 'agColumnsToolPanel',\n        },\n        {\n            id: 'filters',\n            labelDefault: 'Filters',\n            labelKey: 'filters',\n            iconKey: 'filter',\n            toolPanel: 'agFiltersToolPanel',\n        },\n    ],\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 200 },\n    {\n        field: 'age',\n    filter: 'agNumberColumnFilter' },\n    {\n        field: 'country',\n    enableRowGroup: true,\n    minWidth: 200 },\n    {\n        field: 'year',\n    enableRowGroup: true },\n    {\n        field: 'date',\n    minWidth: 180 },\n    {\n        field: 'sport',\n    minWidth: 200 },\n    {\n        field: 'gold',\n    enableValue: true },\n    {\n        field: 'silver',\n    enableValue: true },\n    {\n        field: 'bronze',\n    enableValue: true },\n    {\n        field: 'total',\n    enableValue: true }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "params.api.setRowData(data)"
+  },
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "exampleHeight": 640
+  }
+}

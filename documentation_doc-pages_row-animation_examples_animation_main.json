@@ -1,0 +1,55 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'athlete', minWidth: 150 },\n    { field: 'country', minWidth: 150 },\n    { field: 'year', minWidth: 120 },\n    { field: 'gold', aggFunc: 'sum' },\n    { field: 'silver', aggFunc: 'sum' },\n    { field: 'bronze', aggFunc: 'sum' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    sortable: true,\n    filter: true,\n}"
+    },
+    { "name": "enableRangeSelection", "value": "true" },
+    { "name": "animateRows", "value": "true" },
+    { "name": "suppressAggFuncInHeader", "value": "true" },
+    {
+      "name": "autoGroupColumnDef",
+      "value": "{\n    // to get 'athlete' showing in the leaf level in this column\n    cellRenderer: 'agGroupCellRenderer',\n    headerName: 'Athlete',\n    minWidth: 200,\n    field: 'athlete',\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    sortable: true,\n    filter: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    minWidth: 150 },\n    {\n        field: 'country',\n    minWidth: 150 },\n    {\n        field: 'year',\n    minWidth: 120 },\n    {\n        field: 'gold',\n    aggFunc: 'sum' },\n    {\n        field: 'silver',\n    aggFunc: 'sum' },\n    {\n        field: 'bronze',\n    aggFunc: 'sum' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "var countDownDirection = true;",
+    "// the code below executes an action every 2,000 milliseconds.\n// it's an interval, and each time it runs, it takes the next action\n// from the 'actions' list below\nfunction startInterval(api, columnApi) {\n    var actionIndex = 0;\n    resetCountdown();\n    executeAfterXSeconds();\n    function executeAfterXSeconds() {\n        setTimeout(function () {\n            var action = getActions()[actionIndex];\n            action(api, columnApi);\n            actionIndex++;\n            if (actionIndex >= getActions().length) {\n                actionIndex = 0;\n            }\n            resetCountdown();\n            executeAfterXSeconds();\n        }, 3000);\n    }\n    setTitleFormatted(null);\n}",
+    "function resetCountdown() {\n    (document.querySelector('#animationCountdown')).style.width = countDownDirection\n        ? '100%'\n        : '0%';\n    countDownDirection = !countDownDirection;\n}",
+    "function setTitleFormatted(apiName, methodName, paramsName) {\n    var html;\n    if (apiName === null) {\n        html = '<span class=\"code-highlight-yellow\">command:> </span>';\n    }\n    else {\n        html =\n            '<span class=\"code-highlight-yellow\">command:> </span> ' +\n                '<span class=\"code-highlight-blue\">' +\n                apiName +\n                '</span>' +\n                '<span class=\"code-highlight-blue\">.</span>' +\n                '<span class=\"code-highlight-yellow\">' +\n                methodName +\n                '</span>' +\n                '<span class=\"code-highlight-blue\"></span>' +\n                '<span class=\"code-highlight-blue\">(</span>' +\n                '<span class=\"code-highlight-green\">' +\n                paramsName +\n                '</span>' +\n                '<span class=\"code-highlight-blue\">)</span>';\n    }\n    document.querySelector('#animationAction').innerHTML = html;\n}",
+    "function getActions() {\n    return [\n        function (api, columnApi) {\n            columnApi.applyColumnState({\n                state: [{ colId: 'country', sort: 'asc' }],\n                defaultState: { sort: null },\n            });\n            setTitleFormatted('api', 'applyColumnState', \"country: 'asc'\");\n        },\n        function (api, columnApi) {\n            columnApi.applyColumnState({\n                state: [\n                    { colId: 'year', sort: 'asc' },\n                    { colId: 'country', sort: 'asc' },\n                ],\n                defaultState: { sort: null },\n            });\n            setTitleFormatted('api', 'applyColumnState', \"year: 'asc', country 'asc'\");\n        },\n        function (api, columnApi) {\n            columnApi.applyColumnState({\n                state: [\n                    { colId: 'year', sort: 'asc' },\n                    { colId: 'country', sort: 'desc' },\n                ],\n                defaultState: { sort: null },\n            });\n            setTitleFormatted('api', 'applyColumnState', \"year: 'asc', country: 'desc'\");\n        },\n        function (api, columnApi) {\n            columnApi.applyColumnState({\n                defaultState: { sort: null },\n            });\n            setTitleFormatted('api', 'applyColumnState', 'clear sort');\n        },\n    ];\n}"
+  ],
+  "callbackDependencies": {
+    "startInterval": [
+      "resetCountdown",
+      "executeAfterXSeconds",
+      "setTimeout",
+      "setTitleFormatted"
+    ],
+    "resetCountdown": ["countDownDirection"],
+    "getActions": ["api", "columnApi", "setTitleFormatted"]
+  },
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/olympic-winners.json'",
+    "callback": "{\n    params.api.setRowData(data.slice(0, 50));\n    startInterval(params.api, params.columnApi);\n}"
+  },
+  "template": "<div class=\"example-wrapper\">\n    <div class=\"example-header\">\n        <div style=\"display: inline-block; height: 10px; margin-top: 5px; margin-right: 10px; width: 100px; border: 1px solid grey;\">\n            <div id=\"animationCountdown\" class=\"transition-width\" style=\"background-color: grey; height: 100%; width: 0%;\"></div>\n        </div>\n        <span id=\"animationAction\"></span>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine-dark",
+    "enterprise": true,
+    "modules": ["clientside", "rowgrouping", "menu", "setfilter", "columnpanel"]
+  }
+}

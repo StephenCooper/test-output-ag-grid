@@ -1,0 +1,36 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'assignee', rowGroup: true, hide: true },\n    { field: 'priority', rowGroup: true, hide: true },\n    { field: 'task' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    flex: 1,\n    minWidth: 100,\n    sortable: true,\n    resizable: true,\n}"
+    },
+    { "name": "autoGroupColumnDef", "value": "{\n    minWidth: 200,\n}" },
+    { "name": "groupDisplayType", "value": "'multipleColumns'" },
+    { "name": "groupMaintainOrder", "value": "true" },
+    { "name": "groupDefaultExpanded", "value": "-1" },
+    { "name": "animateRows", "value": "true" },
+    { "name": "rowData", "value": "getData()" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    flex: 1,\n    minWidth: 100,\n    sortable: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'assignee',\n    rowGroup: true,\n    hide: true },\n    {\n        field: 'priority',\n    rowGroup: true,\n    hide: true },\n    { field: 'task' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "exampleHeight": 515,
+    "modules": ["clientside", "rowgrouping", "menu", "columnpanel", "setfilter"]
+  }
+}

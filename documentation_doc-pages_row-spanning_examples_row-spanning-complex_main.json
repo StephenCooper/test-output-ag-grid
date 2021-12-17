@@ -1,0 +1,37 @@
+{
+  "eventHandlers": [],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'localTime' },\n    {\n        field: 'show',\n        cellRenderer: 'showCellRenderer',\n        rowSpan: rowSpan,\n        cellClassRules: {\n            'show-cell': 'value !== undefined',\n        },\n        width: 200,\n    },\n    { field: 'a' },\n    { field: 'b' },\n    { field: 'c' },\n    { field: 'd' },\n    { field: 'e' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    resizable: true,\n    width: 170,\n}"
+    },
+    { "name": "rowData", "value": "getData()" },
+    {
+      "name": "components",
+      "value": "{\n    showCellRenderer: createShowCellRenderer(),\n}"
+    },
+    { "name": "suppressRowTransform", "value": "true" }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    resizable: true,\n    width: 170,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{ field: 'localTime' },\n    {\n        field: 'show',\n    cellRenderer: 'showCellRenderer',\n    rowSpan: 'AG_LITERAL_rowSpan',\n    cellClassRules : { 'show-cell': 'value !== undefined' },\n    width: 200 },\n    { field: 'a' },\n    { field: 'b' },\n    { field: 'c' },\n    { field: 'd' },\n    { field: 'e' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [
+    "function rowSpan(params) {\n    if (params.data.show) {\n        return 4;\n    }\n    else {\n        return 1;\n    }\n}",
+    "function createShowCellRenderer() {\n    class ShowCellRenderer {\n        init(params) {\n            var cellBlank = !params.value;\n            if (cellBlank) {\n                return null;\n            }\n            this.ui = document.createElement('div');\n            this.ui.innerHTML =\n                '<div class=\"show-name\">' +\n                    params.value.name +\n                    '' +\n                    '</div>' +\n                    '<div class=\"show-presenter\">' +\n                    params.value.presenter +\n                    '</div>';\n        }\n        getGui() {\n            return this.ui;\n        }\n    }\n    return ShowCellRenderer;\n}"
+  ],
+  "callbackDependencies": {},
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 580
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "eventHandlers": [
+    {
+      "name": "firstDataRendered",
+      "handlerName": "onFirstDataRendered",
+      "handler": "function onFirstDataRendered(params) {\n    var cellRange = {\n        rowStartIndex: 0,\n        rowEndIndex: 4,\n        columns: ['country', 'total', 'gold', 'silver', 'bronze'],\n    };\n    var createRangeChartParams = {\n        cellRange: cellRange,\n        chartType: 'scatter',\n    };\n    params.api.createRangeChart(createRangeChartParams);\n}"
+    }
+  ],
+  "properties": [
+    {
+      "name": "columnDefs",
+      "value": "[\n    { field: 'country', width: 150, chartDataType: 'category' },\n    { field: 'total', chartDataType: 'series' },\n    { field: 'gold', chartDataType: 'series' },\n    { field: 'silver', chartDataType: 'series' },\n    { field: 'bronze', chartDataType: 'series' },\n]"
+    },
+    {
+      "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+    },
+    { "name": "popupParent", "value": "document.body" },
+    { "name": "rowData", "value": "getData()" },
+    { "name": "enableRangeSelection", "value": "true" },
+    { "name": "enableCharts", "value": "true" },
+    {
+      "name": "chartThemeOverrides",
+      "value": "{\n    scatter: {\n        series: {\n            fillOpacity: 0.7,\n            strokeOpacity: 0.6,\n            strokeWidth: 2,\n            highlightStyle: {\n                item: {\n                    fill: 'red',\n                    stroke: 'yellow',\n                },\n            },\n            marker: {\n                enabled: true,\n                shape: 'square',\n                size: 5,\n                maxSize: 12,\n                strokeWidth: 4,\n            },\n            tooltip: {\n                renderer: function (params) {\n                    var label = params.datum[params.labelKey];\n                    var size = params.datum[params.sizeKey];\n                    return {\n                        content: (label != null\n                            ? '<b>' +\n                                params.labelName.toUpperCase() +\n                                ':</b> ' +\n                                label +\n                                '<br/>'\n                            : '') +\n                            '<b>' +\n                            params.xName.toUpperCase() +\n                            ':</b> ' +\n                            params.xValue +\n                            '<br/>' +\n                            '<b>' +\n                            params.yName.toUpperCase() +\n                            ':</b> ' +\n                            params.yValue +\n                            (size != null\n                                ? '<br/><b>' + params.sizeName.toUpperCase() + ':</b> ' + size\n                                : ''),\n                    };\n                },\n            },\n        },\n    },\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'country',\n    width: 150,\n    chartDataType: 'category' },\n    {\n        field: 'total',\n    chartDataType: 'series' },\n    {\n        field: 'gold',\n    chartDataType: 'series' },\n    {\n        field: 'silver',\n    chartDataType: 'series' },\n    {\n        field: 'bronze',\n    chartDataType: 'series' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true
+  }
+}
