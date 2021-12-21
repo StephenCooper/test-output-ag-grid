@@ -3,17 +3,17 @@
     {
       "name": "firstDataRendered",
       "handlerName": "onFirstDataRendered",
-      "handler": "function onFirstDataRendered(params) {\n    var cellRange = {\n        rowStartIndex: 0,\n        rowEndIndex: 4,\n        columns: ['country', 'gold', 'silver', 'bronze'],\n    };\n    var createRangeChartParams = {\n        cellRange: cellRange,\n        chartType: 'stackedArea',\n    };\n    params.api.createRangeChart(createRangeChartParams);\n}"
+      "handler": "function onFirstDataRendered(params) {var cellRange = {rowStartIndex: 0,rowEndIndex: 4,columns: ['country', 'gold', 'silver', 'bronze'],};var createRangeChartParams = {cellRange: cellRange,chartType: 'stackedArea',};params.api.createRangeChart(createRangeChartParams);}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'country', width: 150, chartDataType: 'category' },\n    { field: 'gold', chartDataType: 'series' },\n    { field: 'silver', chartDataType: 'series' },\n    { field: 'bronze', chartDataType: 'series' },\n    {\n        headerName: 'A',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n    {\n        headerName: 'B',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n    {\n        headerName: 'C',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n    {\n        headerName: 'D',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n]"
+      "value": "[{ field: 'country', width: 150, chartDataType: 'category' },{ field: 'gold', chartDataType: 'series' },{ field: 'silver', chartDataType: 'series' },{ field: 'bronze', chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
     { "name": "popupParent", "value": "document.body" },
     { "name": "rowData", "value": "getData()" },
@@ -21,18 +21,18 @@
     { "name": "enableCharts", "value": "true" },
     {
       "name": "chartThemeOverrides",
-      "value": "{\n    area: {\n        series: {\n            fillOpacity: 0.5,\n            strokeOpacity: 0.5,\n            strokeWidth: 2,\n            highlightStyle: {\n                item: {\n                    fill: 'red',\n                    stroke: 'yellow',\n                },\n            },\n            marker: {\n                enabled: true,\n                shape: 'triangle',\n                size: 12,\n                strokeWidth: 4,\n            },\n            shadow: {\n                color: 'rgba(0, 0, 0, 0.3)',\n                xOffset: 5,\n                yOffset: 5,\n                blur: 8,\n            },\n            tooltip: {\n                renderer: function (params) {\n                    return {\n                        content: '<b>' +\n                            params.xName.toUpperCase() +\n                            ':</b> ' +\n                            params.xValue +\n                            '<br/>' +\n                            '<b>' +\n                            params.yName.toUpperCase() +\n                            ':</b> ' +\n                            params.yValue,\n                    };\n                },\n            },\n        },\n    },\n}"
+      "value": "{area: {series: {fillOpacity: 0.5,strokeOpacity: 0.5,strokeWidth: 2,highlightStyle: {item: {fill: 'red',stroke: 'yellow',},},marker: {enabled: true,shape: 'triangle',size: 12,strokeWidth: 4,},shadow: {color: 'rgba(0, 0, 0, 0.3)',xOffset: 5,yOffset: 5,blur: 8,},tooltip: {renderer: function (params) {return {content: '<b>' +params.xName.toUpperCase() +':</b> ' +params.xValue +'<br/>' +'<b>' +params.yName.toUpperCase() +':</b> ' +params.yValue,};},},},},}"
     }
   ],
   "components": [],
-  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
   "globalComponents": [],
-  "parsedColDefs": "[{\n        field: 'country',\n    width: 150,\n    chartDataType: 'category' },\n    {\n        field: 'gold',\n    chartDataType: 'series' },\n    {\n        field: 'silver',\n    chartDataType: 'series' },\n    {\n        field: 'bronze',\n    chartDataType: 'series' },\n    {\n        headerName: 'A',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' },\n    {\n        headerName: 'B',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' },\n    {\n        headerName: 'C',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' },\n    {\n        headerName: 'D',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' }]",
+  "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' }]",
   "instanceMethods": [],
   "externalEventHandlers": [],
   "utils": [],
   "callbackDependencies": {},
-  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
   "gridSettings": {
     "width": "100%",
     "height": "100%",

@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        title: { text: 'Internet Explorer Market Share' },\n        subtitle: { text: '2009-2019 (aka \"good times\")' },\n        data: getData(),\n        series: [{\n                type: 'area',\n                xKey: 'year',\n                yKeys: ['ie'],\n                yNames: ['IE'],\n                marker: { enabled: true },\n                tooltip: {\n                    renderer: function (params) {\n                        return { content: params.yName + ' - ' + params.yValue + '% - Jan ' + params.xValue };\n                    }\n                }\n            }],\n        legend: { enabled: false }\n    }"
+      "value": "{title: { text: 'Internet Explorer Market Share' },subtitle: { text: '2009-2019 (aka \"good times\")' },data: getData(),series: [{type: 'area',xKey: 'year',yKeys: ['ie'],yNames: ['IE'],marker: { enabled: true },tooltip: {renderer: function (params) {return { content: params.yName + ' - ' + params.yValue + '% - Jan ' + params.xValue };}}}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

@@ -3,35 +3,35 @@
     {
       "name": "firstDataRendered",
       "handlerName": "onFirstDataRendered",
-      "handler": "function onFirstDataRendered(event) {\n    var chartContainer = document.querySelector('#chart');\n    var params = {\n        chartType: 'groupedColumn',\n        chartContainer: chartContainer,\n        chartThemeName: 'ag-vivid',\n        chartThemeOverrides: {\n            common: {\n                padding: {\n                    top: 20,\n                    left: 10,\n                    bottom: 30,\n                    right: 10,\n                },\n                legend: {\n                    enabled: true,\n                    position: 'bottom',\n                },\n                navigator: {\n                    enabled: true,\n                    height: 10,\n                },\n            },\n        },\n    };\n    event.api.createPivotChart(params);\n    // expand one row for demonstration purposes\n    setTimeout(function () {\n        event.api.getDisplayedRowAtIndex(2).setExpanded(true);\n    }, 0);\n}"
+      "handler": "function onFirstDataRendered(event) {var chartContainer = document.querySelector('#chart');var params = {chartType: 'groupedColumn',chartContainer: chartContainer,chartThemeName: 'ag-vivid',chartThemeOverrides: {common: {padding: {top: 20,left: 10,bottom: 30,right: 10,},legend: {enabled: true,position: 'bottom',},navigator: {enabled: true,height: 10,},},},};event.api.createPivotChart(params);// expand one row for demonstration purposessetTimeout(function () {event.api.getDisplayedRowAtIndex(2).setExpanded(true);}, 0);}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'country', pivot: true },\n    { field: 'year', rowGroup: true },\n    { field: 'sport', rowGroup: true },\n    { field: 'total', aggFunc: 'sum' },\n    { field: 'gold', aggFunc: 'sum' },\n]"
+      "value": "[{ field: 'country', pivot: true },{ field: 'year', rowGroup: true },{ field: 'sport', rowGroup: true },{ field: 'total', aggFunc: 'sum' },{ field: 'gold', aggFunc: 'sum' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 130,\n    filter: true,\n    resizable: true,\n}"
+      "value": "{editable: true,sortable: true,flex: 1,minWidth: 130,filter: true,resizable: true,}"
     },
-    { "name": "autoGroupColumnDef", "value": "{\n    minWidth: 200,\n}" },
+    { "name": "autoGroupColumnDef", "value": "{minWidth: 200,}" },
     { "name": "pivotMode", "value": "true" },
     { "name": "popupParent", "value": "document.body" }
   ],
   "components": [],
-  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 130,\n    filter: true,\n    resizable: true,\n}",
+  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 130,filter: true,resizable: true,}",
   "globalComponents": [],
-  "parsedColDefs": "[{\n        field: 'country',\n    pivot: true },\n    {\n        field: 'year',\n    rowGroup: true },\n    {\n        field: 'sport',\n    rowGroup: true },\n    {\n        field: 'total',\n    aggFunc: 'sum' },\n    {\n        field: 'gold',\n    aggFunc: 'sum' }]",
+  "parsedColDefs": "[{field: 'country',pivot: true },{field: 'year',rowGroup: true },{field: 'sport',rowGroup: true },{field: 'total',aggFunc: 'sum' },{field: 'gold',aggFunc: 'sum' }]",
   "instanceMethods": [],
   "externalEventHandlers": [],
   "utils": [],
   "callbackDependencies": { "onFirstDataRendered": ["setTimeout"] },
   "data": {
     "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
-    "callback": "{\n    params.api.setRowData(data);\n}"
+    "callback": "{params.api.setRowData(data);}"
   },
-  "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">\n    GRID_TEMPLATE_PLACEHOLDER\n    <div id=\"chart\" style=\"flex: 1 1 auto; overflow: hidden; height: 60%;\"></div>\n</div>\n    ",
+  "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">GRID_TEMPLATE_PLACEHOLDER<div id=\"chart\" style=\"flex: 1 1 auto; overflow: hidden; height: 60%;\"></div></div>",
   "gridSettings": {
     "width": "100%",
     "height": "40%",

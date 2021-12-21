@@ -2,14 +2,14 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData().sort(function (a, b) {\n            return getTotal(b) - getTotal(a);\n        }),\n        title: {\n            text: 'UK Housing Stock (2016)',\n            fontSize: 18\n        },\n        subtitle: { text: 'Source: Ministry of Housing, Communities & Local Government' },\n        series: [{\n                type: 'bar',\n                xKey: 'type',\n                yKeys: [\n                    'ownerOccupied',\n                    'privateRented',\n                    'localAuthority',\n                    'housingAssociation'\n                ],\n                yNames: [\n                    'Owner occupied',\n                    'Private rented',\n                    'Local authority',\n                    'Housing association'\n                ],\n                highlightStyle: {\n                    series: {\n                        strokeWidth: 3,\n                        dimOpacity: 0.3\n                    }\n                }\n            }],\n        axes: [\n            {\n                type: 'category',\n                position: 'left'\n            },\n            {\n                type: 'number',\n                position: 'top'\n            }\n        ],\n        legend: { position: 'bottom' }\n    }"
+      "value": "{autoSize: true,data: getData().sort(function (a, b) {return getTotal(b) - getTotal(a);}),title: {text: 'UK Housing Stock (2016)',fontSize: 18},subtitle: { text: 'Source: Ministry of Housing, Communities & Local Government' },series: [{type: 'bar',xKey: 'type',yKeys: ['ownerOccupied','privateRented','localAuthority','housingAssociation'],yNames: ['Owner occupied','Private rented','Local authority','Housing association'],highlightStyle: {series: {strokeWidth: 3,dimOpacity: 0.3}}}],axes: [{type: 'category',position: 'left'},{type: 'number',position: 'top'}],legend: { position: 'bottom' }}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [
-    "function getTotal(datum) {\n    return datum.ownerOccupied + datum.privateRented + datum.localAuthority + datum.housingAssociation;\n}"
+    "function getTotal(datum) {return datum.ownerOccupied + datum.privateRented + datum.localAuthority + datum.housingAssociation;}"
   ],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

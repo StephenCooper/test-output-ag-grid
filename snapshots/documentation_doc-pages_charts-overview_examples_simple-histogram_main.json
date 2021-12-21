@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: {\n            text: 'Engine size distribution (USA 1987)',\n            fontSize: 18\n        },\n        subtitle: { text: 'Source: UCI' },\n        series: [{\n                type: 'histogram',\n                xKey: 'engine-size',\n                xName: 'Engine Size',\n                fillOpacity: 0.5\n            }],\n        axes: [\n            {\n                position: 'bottom',\n                type: 'number',\n                title: { text: 'Engine Size (Cubic inches)' }\n            },\n            {\n                position: 'left',\n                type: 'number',\n                title: { text: 'Frequency' }\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{autoSize: true,data: getData(),title: {text: 'Engine size distribution (USA 1987)',fontSize: 18},subtitle: { text: 'Source: UCI' },series: [{type: 'histogram',xKey: 'engine-size',xName: 'Engine Size',fillOpacity: 0.5}],axes: [{position: 'bottom',type: 'number',title: { text: 'Engine Size (Cubic inches)' }},{position: 'left',type: 'number',title: { text: 'Frequency' }}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

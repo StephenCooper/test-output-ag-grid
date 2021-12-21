@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        title: { text: 'Race demographics' },\n        data: getData(),\n        series: [{\n                type: 'histogram',\n                xKey: 'age',\n                xName: 'Participant Age'\n            }],\n        legend: { enabled: false },\n        axes: [\n            {\n                type: 'number',\n                position: 'bottom',\n                title: { text: 'Age band (years)' }\n            },\n            {\n                type: 'number',\n                position: 'left',\n                title: { text: 'Number of participants' }\n            }\n        ]\n    }"
+      "value": "{title: { text: 'Race demographics' },data: getData(),series: [{type: 'histogram',xKey: 'age',xName: 'Participant Age'}],legend: { enabled: false },axes: [{type: 'number',position: 'bottom',title: { text: 'Age band (years)' }},{type: 'number',position: 'left',title: { text: 'Number of participants' }}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

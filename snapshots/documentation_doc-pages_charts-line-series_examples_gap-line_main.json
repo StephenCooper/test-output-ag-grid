@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: { text: 'People Born' },\n        subtitle: { text: '2008-2020' },\n        series: [{\n                xKey: 'year',\n                yKey: 'visitors'\n            }],\n        legend: { enabled: false }\n    }"
+      "value": "{autoSize: true,data: getData(),title: { text: 'People Born' },subtitle: { text: '2008-2020' },series: [{xKey: 'year',yKey: 'visitors'}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

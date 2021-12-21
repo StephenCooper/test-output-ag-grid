@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: [\n            {\n                os: 'Android',\n                share: 56.9\n            },\n            {\n                os: 'iOS',\n                share: 22.5\n            },\n            {\n                os: 'BlackBerry',\n                share: 6.8\n            },\n            {\n                os: 'Symbian',\n                share: 8.5\n            },\n            {\n                os: 'Bada',\n                share: 2.6\n            },\n            {\n                os: 'Windows',\n                share: 1.9\n            }\n        ],\n        series: [{\n                type: 'pie',\n                labelKey: 'os',\n                angleKey: 'share',\n                innerRadiusOffset: -70\n            }]\n    }"
+      "value": "{data: [{os: 'Android',share: 56.9},{os: 'iOS',share: 22.5},{os: 'BlackBerry',share: 6.8},{os: 'Symbian',share: 8.5},{os: 'Bada',share: 2.6},{os: 'Windows',share: 1.9}],series: [{type: 'pie',labelKey: 'os',angleKey: 'share',innerRadiusOffset: -70}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

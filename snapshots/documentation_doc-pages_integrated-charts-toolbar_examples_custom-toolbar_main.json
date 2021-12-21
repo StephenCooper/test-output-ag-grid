@@ -3,17 +3,17 @@
     {
       "name": "firstDataRendered",
       "handlerName": "onFirstDataRendered",
-      "handler": "function onFirstDataRendered(params) {\n    var createRangeChartParams = {\n        cellRange: {\n            rowStartIndex: 0,\n            rowEndIndex: 5,\n            columns: ['country', 'gold'],\n        },\n        chartType: 'pie',\n    };\n    params.api.createRangeChart(createRangeChartParams);\n}"
+      "handler": "function onFirstDataRendered(params) {var createRangeChartParams = {cellRange: {rowStartIndex: 0,rowEndIndex: 5,columns: ['country', 'gold'],},chartType: 'pie',};params.api.createRangeChart(createRangeChartParams);}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'country', width: 150, chartDataType: 'category' },\n    { field: 'gold', chartDataType: 'series' },\n    { field: 'silver', chartDataType: 'series' },\n    { field: 'bronze', chartDataType: 'series' },\n    {\n        headerName: 'A',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n    {\n        headerName: 'B',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n    {\n        headerName: 'C',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n    {\n        headerName: 'D',\n        valueGetter: 'Math.floor(Math.random()*1000)',\n        chartDataType: 'series',\n    },\n]"
+      "value": "[{ field: 'country', width: 150, chartDataType: 'category' },{ field: 'gold', chartDataType: 'series' },{ field: 'silver', chartDataType: 'series' },{ field: 'bronze', chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
     { "name": "rowData", "value": "getData()" },
     { "name": "popupParent", "value": "document.body" },
@@ -21,21 +21,21 @@
     { "name": "enableCharts", "value": "true" },
     {
       "name": "chartThemeOverrides",
-      "value": "{\n    pie: {\n        title: {\n            enabled: true,\n            text: 'Precious Metals Production',\n            fontWeight: 'bold',\n            fontSize: 20,\n            color: 'rgb(100, 100, 100)',\n        },\n        subtitle: {\n            enabled: true,\n            text: 'by country',\n            fontStyle: 'italic',\n            fontWeight: 'bold',\n            fontSize: 14,\n            color: 'rgb(100, 100, 100)',\n        },\n        padding: {\n            top: 25,\n            right: 20,\n            bottom: 55,\n            left: 20,\n        },\n        legend: {\n            enabled: false,\n        },\n        series: {\n            label: {\n                enabled: true,\n            },\n            callout: {\n                length: 20,\n            },\n        },\n    },\n}"
+      "value": "{pie: {title: {enabled: true,text: 'Precious Metals Production',fontWeight: 'bold',fontSize: 20,color: 'rgb(100, 100, 100)',},subtitle: {enabled: true,text: 'by country',fontStyle: 'italic',fontWeight: 'bold',fontSize: 14,color: 'rgb(100, 100, 100)',},padding: {top: 25,right: 20,bottom: 55,left: 20,},legend: {enabled: false,},series: {label: {enabled: true,},callout: {length: 20,},},},}"
     },
     { "name": "getChartToolbarItems", "value": null }
   ],
   "components": [],
-  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
   "globalComponents": [],
-  "parsedColDefs": "[{\n        field: 'country',\n    width: 150,\n    chartDataType: 'category' },\n    {\n        field: 'gold',\n    chartDataType: 'series' },\n    {\n        field: 'silver',\n    chartDataType: 'series' },\n    {\n        field: 'bronze',\n    chartDataType: 'series' },\n    {\n        headerName: 'A',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' },\n    {\n        headerName: 'B',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' },\n    {\n        headerName: 'C',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' },\n    {\n        headerName: 'D',\n    valueGetter: 'Math.floor(Math.random()*1000)',\n    chartDataType: 'series' }]",
+  "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' }]",
   "instanceMethods": [
-    "function getChartToolbarItems() {\n    return ['chartDownload', 'chartData', 'chartSettings'];\n}"
+    "function getChartToolbarItems() {return ['chartDownload', 'chartData', 'chartSettings'];}"
   ],
   "externalEventHandlers": [],
   "utils": [],
   "callbackDependencies": {},
-  "template": "GRID_TEMPLATE_PLACEHOLDER\n",
+  "template": "GRID_TEMPLATE_PLACEHOLDER",
   "gridSettings": {
     "width": "100%",
     "height": "100%",

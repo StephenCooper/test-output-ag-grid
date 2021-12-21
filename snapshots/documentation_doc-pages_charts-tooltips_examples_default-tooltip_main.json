@@ -2,23 +2,23 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: [\n            {\n                month: 'Jun',\n                value1: 50,\n                hats_made: 40\n            },\n            {\n                month: 'Jul',\n                value1: 70,\n                hats_made: 50\n            },\n            {\n                month: 'Aug',\n                value1: 60,\n                hats_made: 30\n            }\n        ],\n        series: [{\n                type: 'column',\n                xKey: 'month',\n                yKeys: [\n                    'value1',\n                    'hats_made'\n                ]\n            }]\n    }"
+      "value": "{data: [{month: 'Jun',value1: 50,hats_made: 40},{month: 'Jul',value1: 70,hats_made: 50},{month: 'Aug',value1: 60,hats_made: 30}],series: [{type: 'column',xKey: 'month',yKeys: ['value1','hats_made']}]}"
     }
   ],
   "externalEventHandlers": [
     {
       "name": "setYNames",
       "params": "",
-      "body": "function setYNames() {\n    options.series[0].yNames = {\n        value1: 'Sweaters Made',\n        hats_made: 'Hats Made'\n    };\n    \n}"
+      "body": "function setYNames() {options.series[0].yNames = {value1: 'Sweaters Made',hats_made: 'Hats Made'};}"
     },
     {
       "name": "resetYNames",
       "params": "",
-      "body": "function resetYNames() {\n    options.series[0].yNames = {};\n    \n}"
+      "body": "function resetYNames() {options.series[0].yNames = {};}"
     }
   ],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "<div class=\"wrapper\">\n    <div id=\"toolPanel\">\n        <button onclick=\"setYNames()\">Set yNames</button>\n        <span class=\"spacer\"></span>\n        <button onclick=\"resetYNames()\">Reset yNames</button>\n        <span class=\"spacer\"></span>\n    </div>\n    $$CHART$$\n</div>"
+  "template": "<div class=\"wrapper\"><div id=\"toolPanel\"><button onclick=\"setYNames()\">Set yNames</button><span class=\"spacer\"></span><button onclick=\"resetYNames()\">Reset yNames</button><span class=\"spacer\"></span></div>$$CHART$$</div>"
 }

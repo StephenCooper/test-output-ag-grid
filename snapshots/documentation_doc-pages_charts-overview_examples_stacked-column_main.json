@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: {\n            text: 'Average Station Entries: Victoria Line (2010)',\n            fontSize: 18\n        },\n        subtitle: { text: 'Source: Transport for London' },\n        series: [{\n                type: 'column',\n                xKey: 'station',\n                yKeys: [\n                    'early',\n                    'morningPeak',\n                    'interPeak',\n                    'afternoonPeak',\n                    'evening'\n                ],\n                yNames: [\n                    'Early',\n                    'Morning peak',\n                    'Between peak',\n                    'Afternoon peak',\n                    'Evening'\n                ],\n                fills: [\n                    '#5BC0EB',\n                    '#FDE74C',\n                    '#9BC53D',\n                    '#E55934',\n                    '#FA7921'\n                ],\n                strokes: [\n                    '#4086a4',\n                    '#b1a235',\n                    '#6c8a2b',\n                    '#a03e24',\n                    '#af5517'\n                ]\n            }],\n        axes: [\n            {\n                type: 'category',\n                position: 'bottom',\n                label: { rotation: 30 }\n            },\n            {\n                type: 'number',\n                position: 'left',\n                label: {\n                    formatter: function (params) {\n                        return params.value / 1000 + 'k';\n                    }\n                }\n            }\n        ],\n        legend: {\n            spacing: 40,\n            position: 'bottom'\n        }\n    }"
+      "value": "{autoSize: true,data: getData(),title: {text: 'Average Station Entries: Victoria Line (2010)',fontSize: 18},subtitle: { text: 'Source: Transport for London' },series: [{type: 'column',xKey: 'station',yKeys: ['early','morningPeak','interPeak','afternoonPeak','evening'],yNames: ['Early','Morning peak','Between peak','Afternoon peak','Evening'],fills: ['#5BC0EB','#FDE74C','#9BC53D','#E55934','#FA7921'],strokes: ['#4086a4','#b1a235','#6c8a2b','#a03e24','#af5517']}],axes: [{type: 'category',position: 'bottom',label: { rotation: 30 }},{type: 'number',position: 'left',label: {formatter: function (params) {return params.value / 1000 + 'k';}}}],legend: {spacing: 40,position: 'bottom'}}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

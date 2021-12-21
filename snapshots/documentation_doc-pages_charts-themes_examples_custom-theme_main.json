@@ -2,15 +2,15 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        theme: myTheme,\n        \n        autoSize: true,\n        padding: {\n            left: 70,\n            right: 70\n        },\n        title: {\n            enabled: true,\n            text: 'Custom Chart Theme Example'\n        },\n        data: [\n            {\n                label: 'Android',\n                v1: 5.67,\n                v2: 8.63,\n                v3: 8.14,\n                v4: 6.45,\n                v5: 1.37\n            },\n            {\n                label: 'iOS',\n                v1: 7.01,\n                v2: 8.04,\n                v3: 1.338,\n                v4: 6.78,\n                v5: 5.45\n            },\n            {\n                label: 'BlackBerry',\n                v1: 7.54,\n                v2: 1.98,\n                v3: 9.88,\n                v4: 1.38,\n                v5: 4.44\n            },\n            {\n                label: 'Symbian',\n                v1: 9.27,\n                v2: 4.21,\n                v3: 2.53,\n                v4: 6.31,\n                v5: 4.44\n            },\n            {\n                label: 'Windows',\n                v1: 2.8,\n                v2: 1.908,\n                v3: 7.48,\n                v4: 5.29,\n                v5: 8.8\n            }\n        ],\n        series: [{\n                type: 'column',\n                xKey: 'label',\n                yKeys: [\n                    'v1',\n                    'v2',\n                    'v3',\n                    'v4',\n                    'v5'\n                ],\n                yNames: [\n                    'Reliability',\n                    'Ease of use',\n                    'Performance',\n                    'Price',\n                    'Market share'\n                ]\n            }]\n    }"
+      "value": "{theme: myTheme,autoSize: true,padding: {left: 70,right: 70},title: {enabled: true,text: 'Custom Chart Theme Example'},data: [{label: 'Android',v1: 5.67,v2: 8.63,v3: 8.14,v4: 6.45,v5: 1.37},{label: 'iOS',v1: 7.01,v2: 8.04,v3: 1.338,v4: 6.78,v5: 5.45},{label: 'BlackBerry',v1: 7.54,v2: 1.98,v3: 9.88,v4: 1.38,v5: 4.44},{label: 'Symbian',v1: 9.27,v2: 4.21,v3: 2.53,v4: 6.31,v5: 4.44},{label: 'Windows',v1: 2.8,v2: 1.908,v3: 7.48,v4: 5.29,v5: 8.8}],series: [{type: 'column',xKey: 'label',yKeys: ['v1','v2','v3','v4','v5'],yNames: ['Reliability','Ease of use','Performance','Price','Market share']}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [
-    "var myTheme = {\n    baseTheme: 'ag-default-dark',\n    palette: {\n        fills: [\n            '#5C2983',\n            '#0076C5',\n            '#21B372',\n            '#FDDE02',\n            '#F76700',\n            '#D30018'\n        ],\n        strokes: ['black']\n    },\n    overrides: {\n        cartesian: {\n            title: { fontSize: 24 },\n            series: {\n                column: {\n                    label: {\n                        enabled: true,\n                        color: 'black'\n                    }\n                }\n            }\n        }\n    }\n};",
-    "function applyTheme(theme) {\n    options.theme = theme;\n    agCharts.AgChart.update(chart, options);\n}"
+    "var myTheme = {baseTheme: 'ag-default-dark',palette: {fills: ['#5C2983','#0076C5','#21B372','#FDDE02','#F76700','#D30018'],strokes: ['black']},overrides: {cartesian: {title: { fontSize: 24 },series: {column: {label: {enabled: true,color: 'black'}}}}}};",
+    "function applyTheme(theme) {options.theme = theme;agCharts.AgChart.update(chart, options);}"
   ],
   "init": [],
-  "template": "<div class=\"wrapper\">\n    $$CHART$$\n</div>"
+  "template": "<div class=\"wrapper\">$$CHART$$</div>"
 }

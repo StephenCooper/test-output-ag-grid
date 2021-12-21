@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: [\n            {\n                os: 'Windows',\n                share: 88.07\n            },\n            {\n                os: 'macOS',\n                share: 9.44\n            },\n            {\n                os: 'Linux',\n                share: 1.87\n            }\n        ],\n        series: [{\n                type: 'column',\n                xKey: 'os',\n                yKeys: ['share']\n            }],\n        axes: [\n            {\n                type: 'category',\n                position: 'bottom',\n                title: {\n                    text: 'Desktop Operating Systems',\n                    enabled: false\n                }\n            },\n            {\n                type: 'number',\n                position: 'left',\n                title: {\n                    text: 'Market Share (%)',\n                    enabled: false\n                },\n                label: {\n                    formatter: function (params) {\n                        return params.value + '%';\n                    }\n                }\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{data: [{os: 'Windows',share: 88.07},{os: 'macOS',share: 9.44},{os: 'Linux',share: 1.87}],series: [{type: 'column',xKey: 'os',yKeys: ['share']}],axes: [{type: 'category',position: 'bottom',title: {text: 'Desktop Operating Systems',enabled: false}},{type: 'number',position: 'left',title: {text: 'Market Share (%)',enabled: false},label: {formatter: function (params) {return params.value + '%';}}}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "<div class=\"wrapper\">\n    $$CHART$$\n</div>"
+  "template": "<div class=\"wrapper\">$$CHART$$</div>"
 }

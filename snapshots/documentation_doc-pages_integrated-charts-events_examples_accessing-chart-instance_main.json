@@ -3,41 +3,41 @@
     {
       "name": "chartCreated",
       "handlerName": "onChartCreated",
-      "handler": "function onChartCreated(event) {\n    console.log('Created chart with ID ' + event.chartId);\n    const chartRef = this.gridApi.getChartRef(event.chartId);\n    chart = chartRef.chart;\n    updateTitle(this.gridApi, chart);\n}"
+      "handler": "function onChartCreated(event) {console.log('Created chart with ID ' + event.chartId);const chartRef = this.gridApi.getChartRef(event.chartId);chart = chartRef.chart;updateTitle(this.gridApi, chart);}"
     },
     {
       "name": "chartRangeSelectionChanged",
       "handlerName": "onChartRangeSelectionChanged",
-      "handler": "function onChartRangeSelectionChanged(event) {\n    console.log('Changed range selection of chart with ID ' + event.chartId);\n    updateTitle(this.gridApi, chart);\n}"
+      "handler": "function onChartRangeSelectionChanged(event) {console.log('Changed range selection of chart with ID ' + event.chartId);updateTitle(this.gridApi, chart);}"
     },
     {
       "name": "chartDestroyed",
       "handlerName": "onChartDestroyed",
-      "handler": "function onChartDestroyed(event) {\n    console.log('Destroyed chart with ID ' + event.chartId);\n    chart = null;\n}"
+      "handler": "function onChartDestroyed(event) {console.log('Destroyed chart with ID ' + event.chartId);chart = null;}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'Month', width: 150, chartDataType: 'category' },\n    { field: 'Sunshine (hours)', chartDataType: 'series' },\n    { field: 'Rainfall (mm)', chartDataType: 'series' },\n]"
+      "value": "[{ field: 'Month', width: 150, chartDataType: 'category' },{ field: 'Sunshine (hours)', chartDataType: 'series' },{ field: 'Rainfall (mm)', chartDataType: 'series' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
     { "name": "popupParent", "value": "document.body" },
     { "name": "enableRangeSelection", "value": "true" },
     { "name": "enableCharts", "value": "true" }
   ],
   "components": [],
-  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
   "globalComponents": [],
-  "parsedColDefs": "[{\n        field: 'Month',\n    width: 150,\n    chartDataType: 'category' },\n    {\n        field: 'Sunshine (hours)',\n    chartDataType: 'series' },\n    {\n        field: 'Rainfall (mm)',\n    chartDataType: 'series' }]",
+  "parsedColDefs": "[{field: 'Month',width: 150,chartDataType: 'category' },{field: 'Sunshine (hours)',chartDataType: 'series' },{field: 'Rainfall (mm)',chartDataType: 'series' }]",
   "instanceMethods": [],
   "externalEventHandlers": [],
   "utils": [
     "var chart = null;",
-    "function updateTitle(api, chart) {\n    var cellRange = api.getCellRanges()[1];\n    if (!cellRange)\n        return;\n    var columnCount = cellRange.columns.length;\n    var rowCount = cellRange.endRow.rowIndex - cellRange.startRow.rowIndex + 1;\n    chart.title.enabled = true;\n    chart.title.text = 'Monthly Weather';\n    chart.subtitle.enabled = true;\n    chart.subtitle.text =\n        'Using series data from ' +\n            columnCount +\n            ' column(s) and ' +\n            rowCount +\n            ' row(s)';\n}"
+    "function updateTitle(api, chart) {var cellRange = api.getCellRanges()[1];if (!cellRange)return;var columnCount = cellRange.columns.length;var rowCount = cellRange.endRow.rowIndex - cellRange.startRow.rowIndex + 1;chart.title.enabled = true;chart.title.text = 'Monthly Weather';chart.subtitle.enabled = true;chart.subtitle.text ='Using series data from ' +columnCount +' column(s) and ' +rowCount +' row(s)';}"
   ],
   "callbackDependencies": {
     "onChartCreated": ["gridOptions", "chart", "updateTitle"],
@@ -46,7 +46,7 @@
   },
   "data": {
     "url": "'https://www.ag-grid.com/example-assets/weather-se-england.json'",
-    "callback": "{\n    params.api.setRowData(data);\n}"
+    "callback": "{params.api.setRowData(data);}"
   },
   "template": "GRID_TEMPLATE_PLACEHOLDER",
   "gridSettings": {

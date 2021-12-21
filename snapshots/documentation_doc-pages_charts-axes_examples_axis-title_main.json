@@ -2,23 +2,23 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: [\n            {\n                os: 'Windows',\n                share: 88.07\n            },\n            {\n                os: 'macOS',\n                share: 9.44\n            },\n            {\n                os: 'Linux',\n                share: 1.87\n            }\n        ],\n        series: [{\n                type: 'column',\n                xKey: 'os',\n                yKeys: ['share']\n            }],\n        axes: [\n            {\n                type: 'category',\n                position: 'bottom',\n                title: {\n                    text: 'Desktop Operating Systems',\n                    enabled: false\n                }\n            },\n            {\n                type: 'number',\n                position: 'left',\n                title: {\n                    text: 'Market Share (%)',\n                    enabled: false\n                }\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{data: [{os: 'Windows',share: 88.07},{os: 'macOS',share: 9.44},{os: 'Linux',share: 1.87}],series: [{type: 'column',xKey: 'os',yKeys: ['share']}],axes: [{type: 'category',position: 'bottom',title: {text: 'Desktop Operating Systems',enabled: false}},{type: 'number',position: 'left',title: {text: 'Market Share (%)',enabled: false}}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [
     {
       "name": "showAxisTitles",
       "params": "",
-      "body": "function showAxisTitles() {\n    options.axes[0].title.enabled = true;\n    options.axes[1].title.enabled = true;\n    \n}"
+      "body": "function showAxisTitles() {options.axes[0].title.enabled = true;options.axes[1].title.enabled = true;}"
     },
     {
       "name": "hideAxisTitles",
       "params": "",
-      "body": "function hideAxisTitles() {\n    options.axes[0].title.enabled = false;\n    options.axes[1].title.enabled = false;\n    \n}"
+      "body": "function hideAxisTitles() {options.axes[0].title.enabled = false;options.axes[1].title.enabled = false;}"
     }
   ],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "<div class=\"wrapper\">\n    <div id=\"toolPanel\">\n        <button onclick=\"showAxisTitles()\">Show axis titles</button>\n        <span class=\"spacer\"></span>\n        <button onclick=\"hideAxisTitles()\">Hide axis titles</button>\n    </div>\n    $$CHART$$\n</div>"
+  "template": "<div class=\"wrapper\"><div id=\"toolPanel\"><button onclick=\"showAxisTitles()\">Show axis titles</button><span class=\"spacer\"></span><button onclick=\"hideAxisTitles()\">Hide axis titles</button></div>$$CHART$$</div>"
 }

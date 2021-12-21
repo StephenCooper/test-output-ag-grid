@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: {\n            text: 'Dwelling Fires (UK)',\n            fontSize: 18\n        },\n        subtitle: { text: 'Source: Home Office' },\n        series: [{\n                type: 'pie',\n                labelKey: 'type',\n                fillOpacity: 0.9,\n                strokeWidth: 0,\n                angleKey: '2018/19',\n                label: { enabled: false },\n                title: { text: '2018/19' },\n                innerRadiusOffset: -100\n            }]\n    }"
+      "value": "{autoSize: true,data: getData(),title: {text: 'Dwelling Fires (UK)',fontSize: 18},subtitle: { text: 'Source: Home Office' },series: [{type: 'pie',labelKey: 'type',fillOpacity: 0.9,strokeWidth: 0,angleKey: '2018/19',label: { enabled: false },title: { text: '2018/19' },innerRadiusOffset: -100}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: {\n            text: 'Ethnic Diversity of School Pupils (2019)',\n            fontSize: 18\n        },\n        subtitle: { text: 'Source: Department for Education' },\n        series: [{\n                type: 'column',\n                xKey: 'type',\n                yKeys: [\n                    'white',\n                    'mixed',\n                    'asian',\n                    'black',\n                    'chinese',\n                    'other'\n                ],\n                yNames: [\n                    'White',\n                    'Mixed',\n                    'Asian',\n                    'Black',\n                    'Chinese',\n                    'Other'\n                ],\n                normalizedTo: 100,\n                fills: [\n                    '#f1c40f',\n                    '#e67e22',\n                    '#2ecc71',\n                    '#3498db',\n                    '#9b59b6',\n                    '#34495e'\n                ],\n                strokes: [\n                    '#f39c12',\n                    '#d35400',\n                    '#27ae60',\n                    '#2980b9',\n                    '#8e44ad',\n                    '#2c3e50'\n                ]\n            }],\n        axes: [\n            {\n                type: 'category',\n                position: 'bottom'\n            },\n            {\n                type: 'number',\n                position: 'left',\n                label: { format: '#{.0f}%' }\n            }\n        ]\n    }"
+      "value": "{autoSize: true,data: getData(),title: {text: 'Ethnic Diversity of School Pupils (2019)',fontSize: 18},subtitle: { text: 'Source: Department for Education' },series: [{type: 'column',xKey: 'type',yKeys: ['white','mixed','asian','black','chinese','other'],yNames: ['White','Mixed','Asian','Black','Chinese','Other'],normalizedTo: 100,fills: ['#f1c40f','#e67e22','#2ecc71','#3498db','#9b59b6','#34495e'],strokes: ['#f39c12','#d35400','#27ae60','#2980b9','#8e44ad','#2c3e50']}],axes: [{type: 'category',position: 'bottom'},{type: 'number',position: 'left',label: { format: '#{.0f}%' }}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

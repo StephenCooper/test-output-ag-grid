@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        title: { text: 'Fuel Spending (2019)' },\n        data: getData(),\n        series: [\n            {\n                xKey: 'quarter',\n                yKey: 'petrol',\n                title: 'Petrol',\n                marker: {\n                    shape: 'square',\n                    size: 10\n                }\n            },\n            {\n                xKey: 'quarter',\n                yKey: 'diesel',\n                title: 'Diesel',\n                stroke: 'black',\n                marker: {\n                    size: 15,\n                    fill: 'gray',\n                    stroke: 'black'\n                }\n            },\n            {\n                xKey: 'quarter',\n                yKey: 'electric',\n                title: 'Electric',\n                stroke: '#8bc24a',\n                marker: {\n                    shape: 'cross',\n                    size: 20,\n                    fill: '#8bc24a',\n                    stroke: '#658d36'\n                }\n            }\n        ]\n    }"
+      "value": "{title: { text: 'Fuel Spending (2019)' },data: getData(),series: [{xKey: 'quarter',yKey: 'petrol',title: 'Petrol',marker: {shape: 'square',size: 10}},{xKey: 'quarter',yKey: 'diesel',title: 'Diesel',stroke: 'black',marker: {size: 15,fill: 'gray',stroke: 'black'}},{xKey: 'quarter',yKey: 'electric',title: 'Electric',stroke: '#8bc24a',marker: {shape: 'cross',size: 20,fill: '#8bc24a',stroke: '#658d36'}}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

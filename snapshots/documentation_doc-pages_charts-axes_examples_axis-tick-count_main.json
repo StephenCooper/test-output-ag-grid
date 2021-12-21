@@ -2,25 +2,25 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: generateSpiralData(),\n        series: [{\n                type: 'line',\n                xKey: 'x',\n                yKey: 'y',\n                marker: { enabled: false }\n            }],\n        axes: [\n            {\n                type: 'number',\n                position: 'bottom',\n                tick: { count: 10 }\n            },\n            {\n                type: 'number',\n                position: 'left',\n                tick: { count: 10 }\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{data: generateSpiralData(),series: [{type: 'line',xKey: 'x',yKey: 'y',marker: { enabled: false }}],axes: [{type: 'number',position: 'bottom',tick: { count: 10 }},{type: 'number',position: 'left',tick: { count: 10 }}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [
     {
       "name": "setTickCountTo5",
       "params": "",
-      "body": "function setTickCountTo5() {\n    options.axes[0].tick.count = 5;\n    options.axes[1].tick.count = 5;\n    \n}"
+      "body": "function setTickCountTo5() {options.axes[0].tick.count = 5;options.axes[1].tick.count = 5;}"
     },
     {
       "name": "setTickCountTo10",
       "params": "",
-      "body": "function setTickCountTo10() {\n    options.axes[0].tick.count = 10;\n    options.axes[1].tick.count = 10;\n    \n}"
+      "body": "function setTickCountTo10() {options.axes[0].tick.count = 10;options.axes[1].tick.count = 10;}"
     }
   ],
   "instanceMethods": [],
   "globals": [
-    "function generateSpiralData() {\n    var a = 1;\n    var b = 1;\n    var data = [];\n    var step = 0.1;\n    for (var th = 1; th < 50; th += step) {\n        var r = a + b * th;\n        var datum = {\n            x: r * Math.cos(th),\n            y: r * Math.sin(th)\n        };\n        data.push(datum);\n    }\n    return data;\n}"
+    "function generateSpiralData() {var a = 1;var b = 1;var data = [];var step = 0.1;for (var th = 1; th < 50; th += step) {var r = a + b * th;var datum = {x: r * Math.cos(th),y: r * Math.sin(th)};data.push(datum);}return data;}"
   ],
   "init": [],
-  "template": "<div class=\"wrapper\">\n    <div id=\"toolPanel\">\n        <button onclick=\"setTickCountTo5()\">Set tick count to 5</button>\n        <span class=\"spacer\"></span>\n        <button onclick=\"setTickCountTo10()\">Set tick count to 10 (default)</button>\n    </div>\n    $$CHART$$\n</div>"
+  "template": "<div class=\"wrapper\"><div id=\"toolPanel\"><button onclick=\"setTickCountTo5()\">Set tick count to 5</button><span class=\"spacer\"></span><button onclick=\"setTickCountTo10()\">Set tick count to 10 (default)</button></div>$$CHART$$</div>"
 }

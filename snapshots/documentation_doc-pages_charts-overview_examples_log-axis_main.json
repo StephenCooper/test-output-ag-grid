@@ -2,23 +2,23 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: getData(),\n        title: { text: 'World Population Over Time' },\n        subtitle: { text: 'log scale' },\n        series: [{\n                type: 'line',\n                xKey: 'year',\n                yKey: 'population'\n            }],\n        axes: [\n            {\n                type: 'log',\n                position: 'left',\n                title: {\n                    enabled: true,\n                    text: 'Population'\n                },\n                label: {\n                    format: ',.0f',\n                    fontSize: 10\n                }\n            },\n            {\n                type: 'number',\n                position: 'bottom',\n                title: {\n                    enabled: true,\n                    text: 'Year'\n                },\n                label: { fontSize: 10 }\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{data: getData(),title: { text: 'World Population Over Time' },subtitle: { text: 'log scale' },series: [{type: 'line',xKey: 'year',yKey: 'population'}],axes: [{type: 'log',position: 'left',title: {enabled: true,text: 'Population'},label: {format: ',.0f',fontSize: 10}},{type: 'number',position: 'bottom',title: {enabled: true,text: 'Year'},label: { fontSize: 10 }}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [
     {
       "name": "useNumberAxis",
       "params": "",
-      "body": "function useNumberAxis() {\n    options.subtitle = { text: 'linear scale' };\n    options.axes[0] = {\n        type: 'number',\n        position: 'left',\n        title: {\n            enabled: true,\n            text: 'Population'\n        },\n        label: {\n            format: ',.0f',\n            fontSize: 10\n        }\n    };\n    \n}"
+      "body": "function useNumberAxis() {options.subtitle = { text: 'linear scale' };options.axes[0] = {type: 'number',position: 'left',title: {enabled: true,text: 'Population'},label: {format: ',.0f',fontSize: 10}};}"
     },
     {
       "name": "useLogAxis",
       "params": "",
-      "body": "function useLogAxis() {\n    options.subtitle = { text: 'log scale' };\n    options.axes[0] = {\n        type: 'log',\n        position: 'left',\n        title: {\n            enabled: true,\n            text: 'Population'\n        },\n        label: {\n            format: ',.0f',\n            fontSize: 10\n        }\n    };\n    \n}"
+      "body": "function useLogAxis() {options.subtitle = { text: 'log scale' };options.axes[0] = {type: 'log',position: 'left',title: {enabled: true,text: 'Population'},label: {format: ',.0f',fontSize: 10}};}"
     }
   ],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "<div class=\"wrapper\">\n    <div id=\"toolPanel\">\n        <button onclick=\"useNumberAxis()\">Number axis</button>\n        <span class=\"spacer\"></span>\n        <button onclick=\"useLogAxis()\">Log axis</button>\n    </div>\n    $$CHART$$\n</div>"
+  "template": "<div class=\"wrapper\"><div id=\"toolPanel\"><button onclick=\"useNumberAxis()\">Number axis</button><span class=\"spacer\"></span><button onclick=\"useLogAxis()\">Log axis</button></div>$$CHART$$</div>"
 }

@@ -2,14 +2,14 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        title: { text: 'Number of Cars Sold' },\n        subtitle: { text: '(click a column for details)' },\n        data: [\n            {\n                month: 'March',\n                units: 25,\n                brands: {\n                    BMW: 10,\n                    Toyota: 15\n                }\n            },\n            {\n                month: 'April',\n                units: 27,\n                brands: {\n                    Ford: 17,\n                    BMW: 10\n                }\n            },\n            {\n                month: 'May',\n                units: 42,\n                brands: {\n                    Nissan: 20,\n                    Toyota: 22\n                }\n            }\n        ],\n        series: [{\n                type: 'column',\n                xKey: 'month',\n                yKeys: ['units'],\n                listeners: {\n                    nodeClick: function (event) {\n                        var datum = event.datum;\n                        window.alert('Cars sold in ' + datum[event.xKey] + ': ' + String(datum[event.yKey]) + '\\n' + listUnitsSoldByBrand(datum['brands']));\n                    }\n                }\n            }],\n        axes: [\n            {\n                type: 'category',\n                position: 'bottom'\n            },\n            {\n                type: 'number',\n                position: 'left'\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{title: { text: 'Number of Cars Sold' },subtitle: { text: '(click a column for details)' },data: [{month: 'March',units: 25,brands: {BMW: 10,Toyota: 15}},{month: 'April',units: 27,brands: {Ford: 17,BMW: 10}},{month: 'May',units: 42,brands: {Nissan: 20,Toyota: 22}}],series: [{type: 'column',xKey: 'month',yKeys: ['units'],listeners: {nodeClick: function (event) {var datum = event.datum;window.alert('Cars sold in ' + datum[event.xKey] + ': ' + String(datum[event.yKey]) + '' + listUnitsSoldByBrand(datum['brands']));}}}],axes: [{type: 'category',position: 'bottom'},{type: 'number',position: 'left'}],legend: { enabled: false }}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [
-    "function listUnitsSoldByBrand(brands) {\n    var result = '';\n    for (var key in brands) {\n        result += key + ': ' + brands[key] + '\\n';\n    }\n    return result;\n}"
+    "function listUnitsSoldByBrand(brands) {var result = '';for (var key in brands) {result += key + ': ' + brands[key] + '';}return result;}"
   ],
   "init": [],
-  "template": "<div class=\"wrapper\">\n    $$CHART$$\n</div>"
+  "template": "<div class=\"wrapper\">$$CHART$$</div>"
 }

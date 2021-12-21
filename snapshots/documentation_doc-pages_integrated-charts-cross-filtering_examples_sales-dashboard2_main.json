@@ -3,36 +3,36 @@
     {
       "name": "firstDataRendered",
       "handlerName": "onFirstDataRendered",
-      "handler": "function onFirstDataRendered(params) {\n    createQuarterlySalesChart(params.api);\n    createSalesByRefChart(params.api);\n    createHandsetSalesChart(params.api);\n}"
+      "handler": "function onFirstDataRendered(params) {createQuarterlySalesChart(params.api);createSalesByRefChart(params.api);createHandsetSalesChart(params.api);}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'salesRep', chartDataType: 'category' },\n    { field: 'handset', chartDataType: 'category' },\n    {\n        headerName: 'Sale Price',\n        field: 'sale',\n        maxWidth: 160,\n        aggFunc: 'sum',\n        chartDataType: 'series',\n    },\n    { field: 'saleDate', chartDataType: 'category' },\n    {\n        field: 'quarter',\n        maxWidth: 160,\n        filter: 'agSetColumnFilter',\n        chartDataType: 'category',\n    },\n]"
+      "value": "[{ field: 'salesRep', chartDataType: 'category' },{ field: 'handset', chartDataType: 'category' },{headerName: 'Sale Price',field: 'sale',maxWidth: 160,aggFunc: 'sum',chartDataType: 'series',},{ field: 'saleDate', chartDataType: 'category' },{field: 'quarter',maxWidth: 160,filter: 'agSetColumnFilter',chartDataType: 'category',},]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    flex: 1,\n    editable: true,\n    sortable: true,\n    filter: 'agMultiColumnFilter',\n    floatingFilter: true,\n    resizable: true,\n}"
+      "value": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}"
     },
     { "name": "rowData", "value": "getData()" },
     { "name": "enableCharts", "value": "true" },
     { "name": "chartThemes", "value": "['ag-default-dark']" },
     {
       "name": "chartThemeOverrides",
-      "value": "{\n    common: {\n        padding: {\n            top: 20,\n            right: 40,\n            bottom: 20,\n            left: 30,\n        },\n    },\n    cartesian: {\n        axes: {\n            category: {\n                label: {\n                    rotation: 0,\n                },\n            },\n        },\n    },\n}"
+      "value": "{common: {padding: {top: 20,right: 40,bottom: 20,left: 30,},},cartesian: {axes: {category: {label: {rotation: 0,},},},},}"
     }
   ],
   "components": [],
-  "defaultColDef": "{\n    flex: 1,\n    editable: true,\n    sortable: true,\n    filter: 'agMultiColumnFilter',\n    floatingFilter: true,\n    resizable: true,\n}",
+  "defaultColDef": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}",
   "globalComponents": [],
-  "parsedColDefs": "[{\n        field: 'salesRep',\n    chartDataType: 'category' },\n    {\n        field: 'handset',\n    chartDataType: 'category' },\n    {\n        headerName: 'Sale Price',\n    field: 'sale',\n    maxWidth: 160,\n    aggFunc: 'sum',\n    chartDataType: 'series' },\n    {\n        field: 'saleDate',\n    chartDataType: 'category' },\n    {\n        field: 'quarter',\n    maxWidth: 160,\n    filter: 'agSetColumnFilter',\n    chartDataType: 'category' }]",
+  "parsedColDefs": "[{field: 'salesRep',chartDataType: 'category' },{field: 'handset',chartDataType: 'category' },{headerName: 'Sale Price',field: 'sale',maxWidth: 160,aggFunc: 'sum',chartDataType: 'series' },{field: 'saleDate',chartDataType: 'category' },{field: 'quarter',maxWidth: 160,filter: 'agSetColumnFilter',chartDataType: 'category' }]",
   "instanceMethods": [],
   "externalEventHandlers": [],
   "utils": [
-    "function createQuarterlySalesChart(gridApi) {\n    gridApi.createCrossFilterChart({\n        chartType: 'line',\n        cellRange: {\n            columns: ['quarter', 'sale'],\n        },\n        aggFunc: 'sum',\n        chartThemeOverrides: {\n            common: {\n                title: {\n                    enabled: true,\n                    text: 'Quarterly Sales ($)',\n                },\n                legend: {\n                    enabled: false,\n                },\n                axes: {\n                    category: {\n                        label: {\n                            rotation: 0,\n                        },\n                    },\n                    number: {\n                        label: {\n                            formatter: function (params) {\n                                return params.value / 1000 + 'k';\n                            },\n                        },\n                    },\n                },\n            },\n        },\n        chartContainer: document.querySelector('#lineChart'),\n    });\n}",
-    "function createSalesByRefChart(gridApi) {\n    gridApi.createCrossFilterChart({\n        chartType: 'doughnut',\n        cellRange: {\n            columns: ['salesRep', 'sale'],\n        },\n        aggFunc: 'sum',\n        chartThemeOverrides: {\n            common: {\n                title: {\n                    enabled: true,\n                    text: 'Sales by Representative ($)',\n                },\n            },\n            pie: {\n                series: {\n                    title: {\n                        enabled: false,\n                    },\n                    label: {\n                        enabled: false,\n                    },\n                },\n            },\n        },\n        chartContainer: document.querySelector('#doughnutChart'),\n    });\n}",
-    "function createHandsetSalesChart(gridApi) {\n    gridApi.createCrossFilterChart({\n        chartType: 'area',\n        cellRange: {\n            columns: ['handset', 'sale'],\n        },\n        aggFunc: 'count',\n        chartThemeOverrides: {\n            common: {\n                title: {\n                    enabled: true,\n                    text: 'Handsets Sold (Units)',\n                },\n                legend: {\n                    enabled: false,\n                },\n                padding: {\n                    top: 20,\n                    right: 60,\n                    bottom: 20,\n                    left: 50,\n                },\n            }\n        },\n        chartContainer: document.querySelector('#areaChart'),\n    });\n}"
+    "function createQuarterlySalesChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'line',cellRange: {columns: ['quarter', 'sale'],},aggFunc: 'sum',chartThemeOverrides: {common: {title: {enabled: true,text: 'Quarterly Sales ($)',},legend: {enabled: false,},axes: {category: {label: {rotation: 0,},},number: {label: {formatter: function (params) {return params.value / 1000 + 'k';},},},},},},chartContainer: document.querySelector('#lineChart'),});}",
+    "function createSalesByRefChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'doughnut',cellRange: {columns: ['salesRep', 'sale'],},aggFunc: 'sum',chartThemeOverrides: {common: {title: {enabled: true,text: 'Sales by Representative ($)',},},pie: {series: {title: {enabled: false,},label: {enabled: false,},},},},chartContainer: document.querySelector('#doughnutChart'),});}",
+    "function createHandsetSalesChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'area',cellRange: {columns: ['handset', 'sale'],},aggFunc: 'count',chartThemeOverrides: {common: {title: {enabled: true,text: 'Handsets Sold (Units)',},legend: {enabled: false,},padding: {top: 20,right: 60,bottom: 20,left: 50,},}},chartContainer: document.querySelector('#areaChart'),});}"
   ],
   "callbackDependencies": {
     "onFirstDataRendered": [
@@ -41,7 +41,7 @@
       "createHandsetSalesChart"
     ]
   },
-  "template": "<div id=\"wrapper\">\n    <div id=\"top\">\n        <div id=\"lineChart\" class=\"ag-theme-alpine-dark\"></div>\n        <div id=\"doughnutChart\" class=\"ag-theme-alpine-dark\"></div>\n    </div>\n    <div id=\"areaChart\" class=\"ag-theme-alpine-dark\"></div>\n    GRID_TEMPLATE_PLACEHOLDER\n</div>",
+  "template": "<div id=\"wrapper\"><div id=\"top\"><div id=\"lineChart\" class=\"ag-theme-alpine-dark\"></div><div id=\"doughnutChart\" class=\"ag-theme-alpine-dark\"></div></div><div id=\"areaChart\" class=\"ag-theme-alpine-dark\"></div>GRID_TEMPLATE_PLACEHOLDER</div>",
   "gridSettings": {
     "width": "100%",
     "height": "100%",

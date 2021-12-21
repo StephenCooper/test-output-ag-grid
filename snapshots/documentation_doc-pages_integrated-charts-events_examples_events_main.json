@@ -3,48 +3,48 @@
     {
       "name": "chartCreated",
       "handlerName": "onChartCreated",
-      "handler": "function onChartCreated(event) {\n    console.log('Created chart with ID ' + event.chartId, event);\n}"
+      "handler": "function onChartCreated(event) {console.log('Created chart with ID ' + event.chartId, event);}"
     },
     {
       "name": "chartRangeSelectionChanged",
       "handlerName": "onChartRangeSelectionChanged",
-      "handler": "function onChartRangeSelectionChanged(event) {\n    console.log('Changed range selection of chart with ID ' + event.chartId, event);\n}"
+      "handler": "function onChartRangeSelectionChanged(event) {console.log('Changed range selection of chart with ID ' + event.chartId, event);}"
     },
     {
       "name": "chartOptionsChanged",
       "handlerName": "onChartOptionsChanged",
-      "handler": "function onChartOptionsChanged(event) {\n    console.log('Changed options of chart with ID ' + event.chartId, event);\n}"
+      "handler": "function onChartOptionsChanged(event) {console.log('Changed options of chart with ID ' + event.chartId, event);}"
     },
     {
       "name": "chartDestroyed",
       "handlerName": "onChartDestroyed",
-      "handler": "function onChartDestroyed(event) {\n    console.log('Destroyed chart with ID ' + event.chartId, event);\n}"
+      "handler": "function onChartDestroyed(event) {console.log('Destroyed chart with ID ' + event.chartId, event);}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'Month', width: 150, chartDataType: 'category' },\n    { field: 'Sunshine (hours)', chartDataType: 'series' },\n    { field: 'Rainfall (mm)', chartDataType: 'series' },\n]"
+      "value": "[{ field: 'Month', width: 150, chartDataType: 'category' },{ field: 'Sunshine (hours)', chartDataType: 'series' },{ field: 'Rainfall (mm)', chartDataType: 'series' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
     { "name": "popupParent", "value": "document.body" },
     { "name": "enableRangeSelection", "value": "true" },
     { "name": "enableCharts", "value": "true" }
   ],
   "components": [],
-  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
   "globalComponents": [],
-  "parsedColDefs": "[{\n        field: 'Month',\n    width: 150,\n    chartDataType: 'category' },\n    {\n        field: 'Sunshine (hours)',\n    chartDataType: 'series' },\n    {\n        field: 'Rainfall (mm)',\n    chartDataType: 'series' }]",
+  "parsedColDefs": "[{field: 'Month',width: 150,chartDataType: 'category' },{field: 'Sunshine (hours)',chartDataType: 'series' },{field: 'Rainfall (mm)',chartDataType: 'series' }]",
   "instanceMethods": [],
   "externalEventHandlers": [],
   "utils": [],
   "callbackDependencies": {},
   "data": {
     "url": "'https://www.ag-grid.com/example-assets/weather-se-england.json'",
-    "callback": "{\n    params.api.setRowData(data);\n}"
+    "callback": "{params.api.setRowData(data);}"
   },
   "template": "GRID_TEMPLATE_PLACEHOLDER",
   "gridSettings": {

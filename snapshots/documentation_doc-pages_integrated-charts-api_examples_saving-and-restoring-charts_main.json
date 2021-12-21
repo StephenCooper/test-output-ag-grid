@@ -3,11 +3,11 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'country', chartDataType: 'category' },\n    { field: 'sugar', chartDataType: 'series' },\n    { field: 'fat', chartDataType: 'series' },\n    { field: 'weight', chartDataType: 'series' },\n]"
+      "value": "[{ field: 'country', chartDataType: 'category' },{ field: 'sugar', chartDataType: 'series' },{ field: 'fat', chartDataType: 'series' },{ field: 'weight', chartDataType: 'series' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
+      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
     { "name": "rowData", "value": "getData()" },
     { "name": "enableRangeSelection", "value": "true" },
@@ -16,27 +16,27 @@
     { "name": "createChartContainer", "value": null }
   ],
   "components": [],
-  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
   "globalComponents": [],
-  "parsedColDefs": "[{\n        field: 'country',\n    chartDataType: 'category' },\n    {\n        field: 'sugar',\n    chartDataType: 'series' },\n    {\n        field: 'fat',\n    chartDataType: 'series' },\n    {\n        field: 'weight',\n    chartDataType: 'series' }]",
+  "parsedColDefs": "[{field: 'country',chartDataType: 'category' },{field: 'sugar',chartDataType: 'series' },{field: 'fat',chartDataType: 'series' },{field: 'weight',chartDataType: 'series' }]",
   "instanceMethods": [
-    "function createChartContainer(chartRef) {\n    // destroy existing chart\n    if (currentChartRef) {\n        currentChartRef.destroyChart();\n    }\n    var eChart = chartRef.chartElement;\n    var eParent = document.querySelector('#myChart');\n    eParent.appendChild(eChart);\n    currentChartRef = chartRef;\n}"
+    "function createChartContainer(chartRef) {// destroy existing chartif (currentChartRef) {currentChartRef.destroyChart();}var eChart = chartRef.chartElement;var eParent = document.querySelector('#myChart');eParent.appendChild(eChart);currentChartRef = chartRef;}"
   ],
   "externalEventHandlers": [
     {
       "name": "saveChart",
       "params": "",
-      "body": "function saveChart() {\n    var chartModels = this.gridApi.getChartModels() || [];\n    if (chartModels.length > 0) {\n        chartModel = chartModels[0];\n    }\n    alert('Chart saved!');\n}"
+      "body": "function saveChart() {var chartModels = this.gridApi.getChartModels() || [];if (chartModels.length > 0) {chartModel = chartModels[0];}alert('Chart saved!');}"
     },
     {
       "name": "clearChart",
       "params": "",
-      "body": "function clearChart() {\n    if (currentChartRef) {\n        currentChartRef.destroyChart();\n        currentChartRef = null;\n    }\n}"
+      "body": "function clearChart() {if (currentChartRef) {currentChartRef.destroyChart();currentChartRef = null;}}"
     },
     {
       "name": "restoreChart",
       "params": "",
-      "body": "function restoreChart() {\n    if (!chartModel)\n        return;\n    currentChartRef = this.gridApi.restoreChart(chartModel);\n}"
+      "body": "function restoreChart() {if (!chartModel)return;currentChartRef = this.gridApi.restoreChart(chartModel);}"
     }
   ],
   "utils": ["var chartModel;", "var currentChartRef;"],
@@ -46,7 +46,7 @@
     "restoreChart": ["chartModel", "currentChartRef", "gridOptions"],
     "createChartContainer": ["currentChartRef"]
   },
-  "template": "<div class=\"wrapper\">\n    <div id=\"buttons\">\n        <button onclick=\"saveChart()\">Save chart</button>\n        <button onclick=\"clearChart()\">Clear chart</button>\n        <button onclick=\"restoreChart()\">Restore chart</button>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n    <div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div>\n</div>",
+  "template": "<div class=\"wrapper\"><div id=\"buttons\"><button onclick=\"saveChart()\">Save chart</button><button onclick=\"clearChart()\">Clear chart</button><button onclick=\"restoreChart()\">Restore chart</button></div>GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div></div>",
   "gridSettings": {
     "width": "100%",
     "height": "100%",

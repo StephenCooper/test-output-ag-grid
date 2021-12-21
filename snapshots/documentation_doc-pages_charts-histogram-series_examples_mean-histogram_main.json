@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        title: { text: 'Race results' },\n        data: getData(),\n        series: [{\n                type: 'histogram',\n                aggregation: 'mean',\n                xKey: 'age',\n                xName: 'Participant Age',\n                yKey: 'time',\n                yName: 'Race time'\n            }],\n        legend: { enabled: false },\n        axes: [\n            {\n                type: 'number',\n                position: 'bottom',\n                title: { text: 'Age band (years)' }\n            },\n            {\n                type: 'number',\n                position: 'left',\n                title: { text: 'Mean race time (seconds)' }\n            }\n        ]\n    }"
+      "value": "{title: { text: 'Race results' },data: getData(),series: [{type: 'histogram',aggregation: 'mean',xKey: 'age',xName: 'Participant Age',yKey: 'time',yName: 'Race time'}],legend: { enabled: false },axes: [{type: 'number',position: 'bottom',title: { text: 'Age band (years)' }},{type: 'number',position: 'left',title: { text: 'Mean race time (seconds)' }}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

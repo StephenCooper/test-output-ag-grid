@@ -3,31 +3,28 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[\n    { field: 'product', chartDataType: 'category' },\n    { field: 'book', chartDataType: 'category' },\n    { field: 'current', type: 'measure' },\n    { field: 'previous', type: 'measure' },\n    { headerName: 'PL 1', field: 'pl1', type: 'measure' },\n    { headerName: 'PL 2', field: 'pl2', type: 'measure' },\n    { headerName: 'Gain-DX', field: 'gainDx', type: 'measure' },\n    { headerName: 'SX / PX', field: 'sxPx', type: 'measure' },\n    { field: 'trade', type: 'measure' },\n    { field: 'submitterID', type: 'measure' },\n    { field: 'submitterDealID', type: 'measure', minWidth: 170 },\n    { field: 'portfolio' },\n    { field: 'dealType' },\n    { headerName: 'Bid', field: 'bidFlag' },\n]"
+      "value": "[{ field: 'product', chartDataType: 'category' },{ field: 'book', chartDataType: 'category' },{ field: 'current', type: 'measure' },{ field: 'previous', type: 'measure' },{ headerName: 'PL 1', field: 'pl1', type: 'measure' },{ headerName: 'PL 2', field: 'pl2', type: 'measure' },{ headerName: 'Gain-DX', field: 'gainDx', type: 'measure' },{ headerName: 'SX / PX', field: 'sxPx', type: 'measure' },{ field: 'trade', type: 'measure' },{ field: 'submitterID', type: 'measure' },{ field: 'submitterDealID', type: 'measure', minWidth: 170 },{ field: 'portfolio' },{ field: 'dealType' },{ headerName: 'Bid', field: 'bidFlag' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 150,\n    filter: true,\n    resizable: true,\n}"
+      "value": "{editable: true,sortable: true,flex: 1,minWidth: 150,filter: true,resizable: true,}"
     },
     {
       "name": "columnTypes",
-      "value": "{\n    measure: {\n        chartDataType: 'series',\n        cellClass: 'number',\n        valueFormatter: numberCellFormatter,\n        cellRenderer: 'agAnimateShowChangeCellRenderer',\n    },\n}"
+      "value": "{measure: {chartDataType: 'series',cellClass: 'number',valueFormatter: numberCellFormatter,cellRenderer: 'agAnimateShowChangeCellRenderer',},}"
     },
     { "name": "animateRows", "value": "true" },
     { "name": "enableCharts", "value": "true" },
     { "name": "suppressAggFuncInHeader", "value": "true" },
-    {
-      "name": "getRowNodeId",
-      "value": "function (data) {\n    return data.trade;\n}"
-    },
+    { "name": "getRowNodeId", "value": "function (data) {return data.trade;}" },
     { "name": "chartThemes", "value": "['ag-pastel-dark']" },
     {
       "name": "chartThemeOverrides",
-      "value": "{\n    common: {\n        legend: {\n            position: 'bottom',\n        },\n    },\n    column: {\n        axes: {\n            number: {\n                label: {\n                    formatter: yAxisLabelFormatter,\n                },\n            },\n            category: {\n                label: {\n                    rotation: 0,\n                },\n            },\n        },\n        series: {\n            tooltip: {\n                renderer: tooltipRenderer,\n            },\n        },\n    },\n    line: {\n        series: {\n            tooltip: {\n                renderer: tooltipRenderer,\n            },\n        },\n    },\n}"
+      "value": "{common: {legend: {position: 'bottom',},},column: {axes: {number: {label: {formatter: yAxisLabelFormatter,},},category: {label: {rotation: 0,},},},series: {tooltip: {renderer: tooltipRenderer,},},},line: {series: {tooltip: {renderer: tooltipRenderer,},},},}"
     },
     {
       "name": "getChartToolbarItems",
-      "value": "function () {\n    return []; // hide toolbar items\n}"
+      "value": "function () {return []; // hide toolbar items}"
     }
   ],
   "components": [],
@@ -39,24 +36,24 @@
     {
       "name": "createChart",
       "params": "'stackedColumn'",
-      "body": "function createChart(type) {\n    // destroy existing chart\n    if (chartRef) {\n        chartRef.destroyChart();\n    }\n    var params = {\n        cellRange: {\n            columns: [\n                'product',\n                'current',\n                'previous',\n                'pl1',\n                'pl2',\n                'gainDx',\n                'sxPx',\n            ]\n        },\n        chartContainer: document.querySelector('#myChart'),\n        chartType: type,\n        suppressChartRanges: true,\n        aggFunc: 'sum',\n    };\n    chartRef = this.gridApi.createRangeChart(params);\n}"
+      "body": "function createChart(type) {// destroy existing chartif (chartRef) {chartRef.destroyChart();}var params = {cellRange: {columns: ['product','current','previous','pl1','pl2','gainDx','sxPx',]},chartContainer: document.querySelector('#myChart'),chartType: type,suppressChartRanges: true,aggFunc: 'sum',};chartRef = this.gridApi.createRangeChart(params);}"
     },
     {
       "name": "onStartLoad",
       "params": "",
-      "body": "function onStartLoad() {\n    worker.postMessage('start');\n}"
+      "body": "function onStartLoad() {worker.postMessage('start');}"
     },
     {
       "name": "onStopMessages",
       "params": "",
-      "body": "function onStopMessages() {\n    worker.postMessage('stop');\n}"
+      "body": "function onStopMessages() {worker.postMessage('stop');}"
     }
   ],
   "utils": [
     "var chartRef;",
-    "function numberCellFormatter(params) {\n    return Math.floor(params.value)\n        .toString()\n        .replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');\n}",
-    "function yAxisLabelFormatter(params) {\n    var n = params.value;\n    if (n < 1e3)\n        return n;\n    if (n >= 1e3 && n < 1e6)\n        return +(n / 1e3).toFixed(1) + 'K';\n    if (n >= 1e6 && n < 1e9)\n        return +(n / 1e6).toFixed(1) + 'M';\n    if (n >= 1e9 && n < 1e12)\n        return +(n / 1e9).toFixed(1) + 'B';\n    if (n >= 1e12)\n        return +(n / 1e12).toFixed(1) + 'T';\n}",
-    "function tooltipRenderer(params) {\n    var value = '$' +\n        params.datum[params.yKey]\n            .toString()\n            .replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');\n    var title = params.title || params.yName;\n    return '<div style=\"padding: 5px\"><b>' + title + '</b>: ' + value + '</div>';\n}",
+    "function numberCellFormatter(params) {return Math.floor(params.value).toString().replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');}",
+    "function yAxisLabelFormatter(params) {var n = params.value;if (n < 1e3)return n;if (n >= 1e3 && n < 1e6)return +(n / 1e3).toFixed(1) + 'K';if (n >= 1e6 && n < 1e9)return +(n / 1e6).toFixed(1) + 'M';if (n >= 1e9 && n < 1e12)return +(n / 1e9).toFixed(1) + 'B';if (n >= 1e12)return +(n / 1e12).toFixed(1) + 'T';}",
+    "function tooltipRenderer(params) {var value = '$' +params.datum[params.yKey].toString().replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');var title = params.title || params.yName;return '<div style=\"padding: 5px\"><b>' + title + '</b>: ' + value + '</div>';}",
     "var worker;"
   ],
   "callbackDependencies": {
@@ -66,7 +63,7 @@
     "onStartLoad": ["worker"],
     "onStopMessages": ["worker"]
   },
-  "template": "<div id=\"myApp\" class=\"wrapper\">\n    <div style=\"padding-bottom: 4px\">\n        <span>\n            <button onclick=\"onStopMessages()\">■ Stop</button>\n            <button onclick=\"onStartLoad()\">► Start</button>\n        </span>\n        <span style=\"margin-left: 30px;\">\n            <button onclick=\"createChart('stackedColumn')\">Stacked Column Chart</button>\n            <button onclick=\"createChart('groupedColumn')\">Grouped Column Chart</button>\n            <button onclick=\"createChart('line')\">Line Chart</button>\n        </span>\n    </div>\n    GRID_TEMPLATE_PLACEHOLDER\n    <div id=\"myChart\" class=\"ag-theme-balham-dark my-chart\"></div>\n</div>",
+  "template": "<div id=\"myApp\" class=\"wrapper\"><div style=\"padding-bottom: 4px\"><span><button onclick=\"onStopMessages()\">■ Stop</button><button onclick=\"onStartLoad()\">► Start</button></span><span style=\"margin-left: 30px;\"><button onclick=\"createChart('stackedColumn')\">Stacked Column Chart</button><button onclick=\"createChart('groupedColumn')\">Grouped Column Chart</button><button onclick=\"createChart('line')\">Line Chart</button></span></div>GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"ag-theme-balham-dark my-chart\"></div></div>",
   "gridSettings": {
     "width": "100%",
     "height": "100%",

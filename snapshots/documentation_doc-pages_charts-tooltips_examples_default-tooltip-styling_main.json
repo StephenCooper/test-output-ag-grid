@@ -2,7 +2,7 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: [\n            {\n                month: 'Jun',\n                sweaters: 50\n            },\n            {\n                month: 'Jul',\n                sweaters: 70\n            },\n            {\n                month: 'Aug',\n                sweaters: 60\n            }\n        ],\n        series: [{\n                type: 'column',\n                xKey: 'month',\n                yKeys: ['sweaters'],\n                yNames: ['Sweaters Made']\n            }],\n        tooltip: { class: 'my-tooltip' }\n    }"
+      "value": "{data: [{month: 'Jun',sweaters: 50},{month: 'Jul',sweaters: 70},{month: 'Aug',sweaters: 60}],series: [{type: 'column',xKey: 'month',yKeys: ['sweaters'],yNames: ['Sweaters Made']}],tooltip: { class: 'my-tooltip' }}"
     }
   ],
   "externalEventHandlers": [],

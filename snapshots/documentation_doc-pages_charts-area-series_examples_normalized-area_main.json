@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        title: { text: 'Browser Wars' },\n        subtitle: { text: '2009-2019' },\n        data: getData(),\n        series: [{\n                type: 'area',\n                xKey: 'year',\n                yKeys: [\n                    'ie',\n                    'firefox',\n                    'safari',\n                    'chrome'\n                ],\n                yNames: [\n                    'IE',\n                    'Firefox',\n                    'Safari',\n                    'Chrome'\n                ],\n                normalizedTo: 1,\n                marker: { enabled: true }\n            }],\n        axes: [\n            {\n                type: 'number',\n                position: 'left',\n                label: { format: '.0%' }\n            },\n            {\n                type: 'category',\n                position: 'bottom'\n            }\n        ]\n    }"
+      "value": "{title: { text: 'Browser Wars' },subtitle: { text: '2009-2019' },data: getData(),series: [{type: 'area',xKey: 'year',yKeys: ['ie','firefox','safari','chrome'],yNames: ['IE','Firefox','Safari','Chrome'],normalizedTo: 1,marker: { enabled: true }}],axes: [{type: 'number',position: 'left',label: { format: '.0%' }},{type: 'category',position: 'bottom'}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }

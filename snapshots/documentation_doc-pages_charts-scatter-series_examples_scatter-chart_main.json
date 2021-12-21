@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        autoSize: true,\n        title: { text: 'Mean Sea Level (mm)' },\n        \n        data: getData(),\n        series: [{\n                type: 'scatter',\n                xKey: 'time',\n                yKey: 'mm',\n                showInLegend: false\n            }],\n        axes: [\n            {\n                type: 'number',\n                position: 'bottom'\n            },\n            {\n                type: 'number',\n                position: 'left'\n            }\n        ]\n    }"
+      "value": "{autoSize: true,title: { text: 'Mean Sea Level (mm)' },data: getData(),series: [{type: 'scatter',xKey: 'time',yKey: 'mm',showInLegend: false}],axes: [{type: 'number',position: 'bottom'},{type: 'number',position: 'left'}]}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$\n"
+  "template": "$$CHART$$"
 }
