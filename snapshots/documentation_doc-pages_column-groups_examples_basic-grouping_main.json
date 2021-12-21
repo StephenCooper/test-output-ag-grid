@@ -29,6 +29,7 @@
     "width": "100%",
     "height": "100%",
     "theme": "ag-theme-alpine",
+    "enterprise": true,
     "exampleHeight": 550
   }
 }

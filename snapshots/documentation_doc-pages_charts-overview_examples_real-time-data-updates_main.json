@@ -7,7 +7,7 @@
   ],
   "externalEventHandlers": [],
   "instanceMethods": [
-    "function updateData() {\n        var now = Date.now();\n        options.data = getData();\n        options.axes[0].min = now - millisecondsOfData;\n        options.axes[0].max = now;\n        \n    }"
+    "function updateData() {\n        var now = Date.now();\n        options.data = getData();\n        \n    }"
   ],
   "globals": [
     "var systemLoad = 0;",

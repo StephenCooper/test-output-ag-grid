@@ -9,7 +9,7 @@
     {
       "name": "setYNames",
       "params": "",
-      "body": "function setYNames() {\n    options.series[0].yNames = {\n        'value1': 'Sweaters Made',\n        'hats_made': 'Hats Made'\n    };\n    \n}"
+      "body": "function setYNames() {\n    options.series[0].yNames = {\n        value1: 'Sweaters Made',\n        hats_made: 'Hats Made'\n    };\n    \n}"
     },
     {
       "name": "resetYNames",

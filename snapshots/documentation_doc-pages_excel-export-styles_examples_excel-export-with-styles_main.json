@@ -40,7 +40,7 @@
     "function getNumericValue(cssSelector) {\n    var value = parseFloat(getTextValue(cssSelector));\n    if (isNaN(value)) {\n        var message = 'Invalid number entered in ' + cssSelector + ' field';\n        alert(message);\n        throw new Error(message);\n    }\n    return value;\n}"
   ],
   "callbackDependencies": {
-    "getNumericValue": ["parseFloat", "isNaN", "alert", "Error"],
+    "getNumericValue": ["parseFloat", "isNaN", "alert"],
     "onBtExport": ["getBooleanValue", "getNumericValue", "gridOptions"]
   },
   "onGridReady": "{\n    (document.getElementById('fontSize')).checked = true;\n    (document.getElementById('rowHeight')).checked = true;\n    (document.getElementById('headerRowHeight')).checked = true;\n}",
