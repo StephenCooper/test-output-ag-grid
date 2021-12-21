@@ -9,38 +9,38 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[// different ways to define 'categories'{ field: 'athlete', width: 150, chartDataType: 'category' },{ field: 'age', chartDataType: 'category', sort: 'asc' },{ field: 'sport' },// excludes year from charts{ field: 'year', chartDataType: 'excluded' },// different ways to define 'series'{ field: 'gold', chartDataType: 'series' },{ field: 'silver', chartDataType: 'series' },{ field: 'bronze' }, // inferred as series by grid]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
     {
-      "name": "chartThemeOverrides",
-      "value": "{common: {title: {enabled: true,text: 'Medals by Age',},legend: {position: 'bottom',},},column: {axes: {category: {label: {rotation: 0,},},},},}"
-    }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'athlete',width: 150,chartDataType: 'category' },{field: 'age',chartDataType: 'category',sort: 'asc' },{ field: 'sport' },{field: 'year',chartDataType: 'excluded' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{ field: 'bronze' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [],
-  "callbackDependencies": {},
-  "data": {
-    "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
-    "callback": "{params.api.setRowData(data);}"
-  },
-  "template": "<div class=\"wrapper\">GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div></div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine",
-    "exampleHeight": 710,
-    "enterprise": true
-  }
-}
+      "name": "popupParent",
+      {
+        "name": "enableRangeSelection",
+        {
+          "name": "enableCharts",
+          {
+            "name": "chartThemeOverrides",
+          }
+        ],
+        "components": [],
+        "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+        "globalComponents": [],
+        "parsedColDefs": "[{field: 'athlete',width: 150,chartDataType: 'category' },{field: 'age',chartDataType: 'category',sort: 'asc' },{ field: 'sport' },{field: 'year',chartDataType: 'excluded' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{ field: 'bronze' }]",
+        "instanceMethods": [],
+        "externalEventHandlers": [],
+        "utils": [],
+        "callbackDependencies": {},
+        "data": {
+          "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
+          "callback": "{params.api.setRowData(data);}"
+        },
+        "template": "<div class=\"wrapper\">GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div></div>",
+        "gridSettings": {
+          "width": "100%",
+          "height": "100%",
+          "theme": "ag-theme-alpine",
+          "exampleHeight": 710,
+          "enterprise": true
+        }
+      }

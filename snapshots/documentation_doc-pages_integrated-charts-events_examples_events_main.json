@@ -24,33 +24,34 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'Month', width: 150, chartDataType: 'category' },{ field: 'Sunshine (hours)', chartDataType: 'series' },{ field: 'Rainfall (mm)', chartDataType: 'series' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'Month',width: 150,chartDataType: 'category' },{field: 'Sunshine (hours)',chartDataType: 'series' },{field: 'Rainfall (mm)',chartDataType: 'series' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [],
-  "callbackDependencies": {},
-  "data": {
-    "url": "'https://www.ag-grid.com/example-assets/weather-se-england.json'",
-    "callback": "{params.api.setRowData(data);}"
-  },
-  "template": "GRID_TEMPLATE_PLACEHOLDER",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine",
-    "enterprise": true
-  }
-}
+    {
+      "name": "popupParent",
+      {
+        "name": "enableRangeSelection",
+        {
+          "name": "enableCharts",
+        ],
+        "components": [],
+        "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+        "globalComponents": [],
+        "parsedColDefs": "[{field: 'Month',width: 150,chartDataType: 'category' },{field: 'Sunshine (hours)',chartDataType: 'series' },{field: 'Rainfall (mm)',chartDataType: 'series' }]",
+        "instanceMethods": [],
+        "externalEventHandlers": [],
+        "utils": [],
+        "callbackDependencies": {},
+        "data": {
+          "url": "'https://www.ag-grid.com/example-assets/weather-se-england.json'",
+          "callback": "{params.api.setRowData(data);}"
+        },
+        "template": "GRID_TEMPLATE_PLACEHOLDER",
+        "gridSettings": {
+          "width": "100%",
+          "height": "100%",
+          "theme": "ag-theme-alpine",
+          "enterprise": true
+        }
+      }

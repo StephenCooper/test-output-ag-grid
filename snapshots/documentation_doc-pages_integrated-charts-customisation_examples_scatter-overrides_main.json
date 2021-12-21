@@ -9,34 +9,35 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'country', width: 150, chartDataType: 'category' },{ field: 'total', chartDataType: 'series' },{ field: 'gold', chartDataType: 'series' },{ field: 'silver', chartDataType: 'series' },{ field: 'bronze', chartDataType: 'series' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "rowData", "value": "getData()" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
     {
-      "name": "chartThemeOverrides",
-      "value": "{scatter: {series: {fillOpacity: 0.7,strokeOpacity: 0.6,strokeWidth: 2,highlightStyle: {item: {fill: 'red',stroke: 'yellow',},},marker: {enabled: true,shape: 'square',size: 5,maxSize: 12,strokeWidth: 4,},tooltip: {renderer: function (params) {var label = params.datum[params.labelKey];var size = params.datum[params.sizeKey];return {content: (label != null? '<b>' +params.labelName.toUpperCase() +':</b> ' +label +'<br/>': '') +'<b>' +params.xName.toUpperCase() +':</b> ' +params.xValue +'<br/>' +'<b>' +params.yName.toUpperCase() +':</b> ' +params.yValue +(size != null? '<br/><b>' + params.sizeName.toUpperCase() + ':</b> ' + size: ''),};},},},},}"
-    }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'total',chartDataType: 'series' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [],
-  "callbackDependencies": {},
-  "template": "GRID_TEMPLATE_PLACEHOLDER",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine",
-    "enterprise": true
-  }
-}
+      "name": "popupParent",
+      {
+        "name": "rowData",
+        {
+          "name": "enableRangeSelection",
+          {
+            "name": "enableCharts",
+            {
+              "name": "chartThemeOverrides",
+            }
+          ],
+          "components": [],
+          "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+          "globalComponents": [],
+          "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'total',chartDataType: 'series' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' }]",
+          "instanceMethods": [],
+          "externalEventHandlers": [],
+          "utils": [],
+          "callbackDependencies": {},
+          "template": "GRID_TEMPLATE_PLACEHOLDER",
+          "gridSettings": {
+            "width": "100%",
+            "height": "100%",
+            "theme": "ag-theme-alpine",
+            "enterprise": true
+          }
+        }

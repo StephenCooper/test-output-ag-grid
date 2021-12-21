@@ -9,44 +9,44 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'salesRep', chartDataType: 'category' },{ field: 'handset', chartDataType: 'category' },{headerName: 'Sale Price',field: 'sale',maxWidth: 160,aggFunc: 'sum',chartDataType: 'series',},{ field: 'saleDate', chartDataType: 'category' },{field: 'quarter',maxWidth: 160,filter: 'agSetColumnFilter',chartDataType: 'category',},]"
     },
     {
       "name": "defaultColDef",
-      "value": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}"
     },
-    { "name": "rowData", "value": "getData()" },
-    { "name": "enableCharts", "value": "true" },
-    { "name": "chartThemes", "value": "['ag-default-dark']" },
     {
-      "name": "chartThemeOverrides",
-      "value": "{common: {padding: {top: 20,right: 40,bottom: 20,left: 30,},},cartesian: {axes: {category: {label: {rotation: 0,},},},},}"
-    }
-  ],
-  "components": [],
-  "defaultColDef": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'salesRep',chartDataType: 'category' },{field: 'handset',chartDataType: 'category' },{headerName: 'Sale Price',field: 'sale',maxWidth: 160,aggFunc: 'sum',chartDataType: 'series' },{field: 'saleDate',chartDataType: 'category' },{field: 'quarter',maxWidth: 160,filter: 'agSetColumnFilter',chartDataType: 'category' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [
-    "function createQuarterlySalesChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'column',cellRange: {columns: ['quarter', 'sale'],},aggFunc: 'sum',chartThemeOverrides: {common: {title: {enabled: true,text: 'Quarterly Sales ($)',},legend: {enabled: false,},axes: {category: {label: {rotation: 0,},},number: {label: {formatter: function (params) {return params.value / 1000 + 'k';},},},},},},chartContainer: document.querySelector('#columnChart'),});}",
-    "function createSalesByRefChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'pie',cellRange: {columns: ['salesRep', 'sale'],},aggFunc: 'sum',chartThemeOverrides: {common: {title: {enabled: true,text: 'Sales by Representative ($)',},},pie: {series: {title: {enabled: false,},label: {enabled: false,},},},},chartContainer: document.querySelector('#pieChart'),});}",
-    "function createHandsetSalesChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'bar',cellRange: {columns: ['handset', 'sale'],},aggFunc: 'count',chartThemeOverrides: {common: {title: {enabled: true,text: 'Handsets Sold (Units)',},legend: {enabled: false,},},},chartContainer: document.querySelector('#barChart'),});}"
-  ],
-  "callbackDependencies": {
-    "onFirstDataRendered": [
-      "createQuarterlySalesChart",
-      "createSalesByRefChart",
-      "createHandsetSalesChart"
-    ]
-  },
-  "template": "<div id=\"wrapper\"><div id=\"top\"><div id=\"columnChart\" class=\"ag-theme-alpine-dark\"></div><div id=\"pieChart\" class=\"ag-theme-alpine-dark\"></div></div><div id=\"barChart\" class=\"ag-theme-alpine-dark\"></div>GRID_TEMPLATE_PLACEHOLDER</div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine-dark",
-    "exampleHeight": 1000,
-    "enterprise": true
-  }
-}
+      "name": "rowData",
+      {
+        "name": "enableCharts",
+        {
+          "name": "chartThemes",
+          {
+            "name": "chartThemeOverrides",
+          }
+        ],
+        "components": [],
+        "defaultColDef": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}",
+        "globalComponents": [],
+        "parsedColDefs": "[{field: 'salesRep',chartDataType: 'category' },{field: 'handset',chartDataType: 'category' },{headerName: 'Sale Price',field: 'sale',maxWidth: 160,aggFunc: 'sum',chartDataType: 'series' },{field: 'saleDate',chartDataType: 'category' },{field: 'quarter',maxWidth: 160,filter: 'agSetColumnFilter',chartDataType: 'category' }]",
+        "instanceMethods": [],
+        "externalEventHandlers": [],
+        "utils": [
+          "function createQuarterlySalesChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'column',cellRange: {columns: ['quarter', 'sale'],},aggFunc: 'sum',chartThemeOverrides: {common: {title: {enabled: true,text: 'Quarterly Sales ($)',},legend: {enabled: false,},axes: {category: {label: {rotation: 0,},},number: {label: {formatter: function (params) {return params.value / 1000 + 'k';},},},},},},chartContainer: document.querySelector('#columnChart'),});}",
+          "function createSalesByRefChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'pie',cellRange: {columns: ['salesRep', 'sale'],},aggFunc: 'sum',chartThemeOverrides: {common: {title: {enabled: true,text: 'Sales by Representative ($)',},},pie: {series: {title: {enabled: false,},label: {enabled: false,},},},},chartContainer: document.querySelector('#pieChart'),});}",
+          "function createHandsetSalesChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'bar',cellRange: {columns: ['handset', 'sale'],},aggFunc: 'count',chartThemeOverrides: {common: {title: {enabled: true,text: 'Handsets Sold (Units)',},legend: {enabled: false,},},},chartContainer: document.querySelector('#barChart'),});}"
+        ],
+        "callbackDependencies": {
+          "onFirstDataRendered": [
+            "createQuarterlySalesChart",
+            "createSalesByRefChart",
+            "createHandsetSalesChart"
+          ]
+        },
+        "template": "<div id=\"wrapper\"><div id=\"top\"><div id=\"columnChart\" class=\"ag-theme-alpine-dark\"></div><div id=\"pieChart\" class=\"ag-theme-alpine-dark\"></div></div><div id=\"barChart\" class=\"ag-theme-alpine-dark\"></div>GRID_TEMPLATE_PLACEHOLDER</div>",
+        "gridSettings": {
+          "width": "100%",
+          "height": "100%",
+          "theme": "ag-theme-alpine-dark",
+          "exampleHeight": 1000,
+          "enterprise": true
+        }
+      }

@@ -1,8 +1,7 @@
 {
   "properties": [
     {
-      "name": "options",
-      "value": "{type: 'hierarchy',data,series: [{type: 'treemap',labelKey: 'orgHierarchy',colorParents: true,gradient: false,nodePadding: 5,sizeKey: undefined,colorKey: undefined,colorDomain: [0,2,4],colorRange: ['#d73027','#fee08b','#1a9850']}],title: { text: 'Organizational Chart' },subtitle: { text: 'of a top secret startup' }}"
+      "name": "options"
     }
   ],
   "externalEventHandlers": [],

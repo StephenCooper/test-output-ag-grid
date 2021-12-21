@@ -9,39 +9,39 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'country', width: 150 },{ field: 'gold' },{ field: 'silver' },{ field: 'bronze' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
-    },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
-    {
-      "name": "chartThemes",
-      "value": "['ag-pastel', 'ag-material-dark', 'ag-vivid-dark', 'ag-solar']"
     },
     {
-      "name": "chartThemeOverrides",
-      "value": "{cartesian: {axes: {category: {label: {rotation: 335,},},},},}"
-    },
-    { "name": "rowData", "value": "getData()" }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'country',width: 150 },{ field: 'gold' },{ field: 'silver' },{ field: 'bronze' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [],
-  "callbackDependencies": {},
-  "template": "<div class=\"wrapper\">GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"my-chart\"></div></div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine",
-    "exampleHeight": 690,
-    "enterprise": true
-  }
-}
+      "name": "popupParent",
+      {
+        "name": "enableRangeSelection",
+        {
+          "name": "enableCharts",
+          {
+            "name": "chartThemes",
+          },
+          {
+            "name": "chartThemeOverrides",
+          },
+          {
+            "name": "rowData",
+          ],
+          "components": [],
+          "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+          "globalComponents": [],
+          "parsedColDefs": "[{field: 'country',width: 150 },{ field: 'gold' },{ field: 'silver' },{ field: 'bronze' }]",
+          "instanceMethods": [],
+          "externalEventHandlers": [],
+          "utils": [],
+          "callbackDependencies": {},
+          "template": "<div class=\"wrapper\">GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"my-chart\"></div></div>",
+          "gridSettings": {
+            "width": "100%",
+            "height": "100%",
+            "theme": "ag-theme-alpine",
+            "exampleHeight": 690,
+            "enterprise": true
+          }
+        }

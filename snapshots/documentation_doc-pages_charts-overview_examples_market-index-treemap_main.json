@@ -1,8 +1,7 @@
 {
   "properties": [
     {
-      "name": "options",
-      "value": "{type: 'hierarchy',data,series: [{type: 'treemap',labelKey: 'name',sizeKey: 'size',colorKey: 'color',tooltip: { renderer: tooltipRenderer }}],title: { text: 'S&P 500 index stocks categorized by sectors and industries.' },subtitle: { text: 'Area represents market cap. Color represents change from the day before.' }}"
+      "name": "options"
     }
   ],
   "externalEventHandlers": [],

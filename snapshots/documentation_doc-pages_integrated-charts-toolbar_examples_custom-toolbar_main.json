@@ -9,37 +9,39 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'country', width: 150, chartDataType: 'category' },{ field: 'gold', chartDataType: 'series' },{ field: 'silver', chartDataType: 'series' },{ field: 'bronze', chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
-    { "name": "rowData", "value": "getData()" },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
     {
-      "name": "chartThemeOverrides",
-      "value": "{pie: {title: {enabled: true,text: 'Precious Metals Production',fontWeight: 'bold',fontSize: 20,color: 'rgb(100, 100, 100)',},subtitle: {enabled: true,text: 'by country',fontStyle: 'italic',fontWeight: 'bold',fontSize: 14,color: 'rgb(100, 100, 100)',},padding: {top: 25,right: 20,bottom: 55,left: 20,},legend: {enabled: false,},series: {label: {enabled: true,},callout: {length: 20,},},},}"
-    },
-    { "name": "getChartToolbarItems", "value": null }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' }]",
-  "instanceMethods": [
-    "function getChartToolbarItems() {return ['chartDownload', 'chartData', 'chartSettings'];}"
-  ],
-  "externalEventHandlers": [],
-  "utils": [],
-  "callbackDependencies": {},
-  "template": "GRID_TEMPLATE_PLACEHOLDER",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine",
-    "enterprise": true
-  }
-}
+      "name": "rowData",
+      {
+        "name": "popupParent",
+        {
+          "name": "enableRangeSelection",
+          {
+            "name": "enableCharts",
+            {
+              "name": "chartThemeOverrides",
+            },
+            {
+              "name": "getChartToolbarItems",
+            ],
+            "components": [],
+            "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+            "globalComponents": [],
+            "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' }]",
+            "instanceMethods": [
+              "function getChartToolbarItems() {return ['chartDownload', 'chartData', 'chartSettings'];}"
+            ],
+            "externalEventHandlers": [],
+            "utils": [],
+            "callbackDependencies": {},
+            "template": "GRID_TEMPLATE_PLACEHOLDER",
+            "gridSettings": {
+              "width": "100%",
+              "height": "100%",
+              "theme": "ag-theme-alpine",
+              "enterprise": true
+            }
+          }

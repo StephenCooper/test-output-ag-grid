@@ -3,44 +3,50 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'country', width: 150, chartDataType: 'category' },{ field: 'gold', chartDataType: 'series', sort: 'desc' },{ field: 'silver', chartDataType: 'series', sort: 'desc' },{ field: 'bronze', chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series',},]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
-    },
-    { "name": "rowData", "value": "getData()" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
-    { "name": "popupParent", "value": "document.body" }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series',sort: 'desc' },{field: 'silver',chartDataType: 'series',sort: 'desc' },{field: 'bronze',chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [
-    {
-      "name": "onChart1",
-      "params": "",
-      "body": "function onChart1() {var params = {cellRange: {rowStartIndex: 0,rowEndIndex: 4,columns: ['country', 'gold', 'silver'],},chartType: 'groupedColumn',chartThemeName: 'ag-vivid',chartThemeOverrides: {common: {title: {enabled: true,text: 'Top 5 Medal Winners',},},},};this.gridApi.createRangeChart(params);}"
     },
     {
-      "name": "onChart2",
-      "params": "",
-      "body": "function onChart2() {var params = {cellRange: {columns: ['country', 'bronze'],},chartType: 'groupedBar',chartThemeName: 'ag-pastel',chartThemeOverrides: {common: {title: {enabled: true,text: 'Bronze Medal by Country',},legend: {enabled: false,},},},unlinkChart: true,};this.gridApi.createRangeChart(params);}"
-    }
-  ],
-  "utils": [],
-  "callbackDependencies": {
-    "onChart1": ["gridOptions"],
-    "onChart2": ["gridOptions"]
-  },
-  "template": "<div class=\"outer-div\"><div class=\"button-bar\"><button onclick=\"onChart1()\">Top 5 Medal Winners</button><button onclick=\"onChart2()\">Bronze Medals by Country</button></div><div class=\"grid-wrapper\">GRID_TEMPLATE_PLACEHOLDER</div></div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine",
-    "enterprise": true
-  }
-}
+      "name": "rowData",
+      {
+        "name": "enableRangeSelection",
+        {
+          "name": "enableCharts",
+          {
+            "name": "popupParent",
+          ],
+          "components": [],
+          "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+          "globalComponents": [],
+          "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series',sort: 'desc' },{field: 'silver',chartDataType: 'series',sort: 'desc' },{field: 'bronze',chartDataType: 'series' },{headerName: 'A',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'B',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'C',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' },{headerName: 'D',valueGetter: 'Math.floor(Math.random()*1000)',chartDataType: 'series' }]",
+          "instanceMethods": [],
+          "externalEventHandlers": [
+            {
+              "name": "onChart1",
+              "params": "",
+              "body": "function onChart1() {var params = {cellRange: {rowStartIndex: 0,rowEndIndex: 4,columns: ['country', 'gold', 'silver'],},chartType: 'groupedColumn',chartThemeName: 'ag-vivid',chartThemeOverrides: {common: {title: {enabled: true,text: 'Top 5 Medal Winners',},},},};this.gridApi.createRangeChart(params);}"
+            },
+            {
+              "name": "onChart2",
+              "params": "",
+              "body": "function onChart2() {var params = {cellRange: {columns: ['country', 'bronze'],},chartType: 'groupedBar',chartThemeName: 'ag-pastel',chartThemeOverrides: {common: {title: {enabled: true,text: 'Bronze Medal by Country',},legend: {enabled: false,},},},unlinkChart: true,};this.gridApi.createRangeChart(params);}"
+            }
+          ],
+          "utils": [],
+          "callbackDependencies": {
+            "onChart1": [
+              "gridOptions"
+            ],
+            "onChart2": [
+              "gridOptions"
+            ]
+          },
+          "template": "<div class=\"outer-div\"><div class=\"button-bar\"><button onclick=\"onChart1()\">Top 5 Medal Winners</button><button onclick=\"onChart2()\">Bronze Medals by Country</button></div><div class=\"grid-wrapper\">GRID_TEMPLATE_PLACEHOLDER</div></div>",
+          "gridSettings": {
+            "width": "100%",
+            "height": "100%",
+            "theme": "ag-theme-alpine",
+            "enterprise": true
+          }
+        }

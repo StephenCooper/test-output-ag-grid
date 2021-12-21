@@ -1,8 +1,7 @@
 {
   "properties": [
     {
-      "name": "options",
-      "value": "{autoSize: true,data: getData(),title: {text: 'Taxed Alcohol Consumption (UK)',fontSize: 18},subtitle: { text: 'Source: HM Revenue & Customs' },series: [{type: 'line',title: 'Still wine',xKey: 'year',yKey: 'stillWine',stroke: fills[colourIndex],marker: {size: markerSize,shape: 'circle',fill: fills[colourIndex],stroke: strokes[colourIndex++]}},{type: 'line',title: 'Sparkling wine',xKey: 'year',yKey: 'sparklingWine',stroke: fills[colourIndex],marker: {size: markerSize,shape: 'cross',fill: fills[colourIndex],stroke: strokes[colourIndex++]}},{type: 'line',title: 'Made-wine',xKey: 'year',yKey: 'madeWine',stroke: fills[colourIndex],marker: {size: markerSize,shape: 'diamond',fill: fills[colourIndex],stroke: strokes[colourIndex++]}},{type: 'line',title: 'Whisky',xKey: 'year',yKey: 'whisky',stroke: fills[colourIndex],marker: {size: markerSize,shape: 'plus',fill: fills[colourIndex],stroke: strokes[colourIndex++]}},{type: 'line',title: 'Potable spirits',xKey: 'year',yKey: 'potableSpirits',stroke: fills[colourIndex],marker: {size: markerSize,shape: 'square',fill: fills[colourIndex],stroke: strokes[colourIndex++]}},{type: 'line',title: 'Beer',xKey: 'year',yKey: 'beer',stroke: fills[colourIndex],marker: {size: markerSize,shape: 'triangle',fill: fills[colourIndex],stroke: strokes[colourIndex++]}},{type: 'line',title: 'Cider',xKey: 'year',yKey: 'cider',stroke: fills[colourIndex],marker: {size: markerSize,shape: heartFactory(),fill: fills[colourIndex],stroke: strokes[colourIndex++]}}],axes: [{position: 'bottom',type: 'category',label: { rotation: -30 }},{position: 'left',type: 'number',title: { text: 'Volume (hectolitres)' },label: {formatter: function (params) {return params.value / 1000000 + 'M';}}}]}"
+      "name": "options"
     }
   ],
   "externalEventHandlers": [],

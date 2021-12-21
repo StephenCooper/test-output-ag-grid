@@ -9,34 +9,44 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'country', width: 150, chartDataType: 'category' },{ field: 'group', chartDataType: 'category' },{field: 'gold',chartDataType: 'series',editable: true,valueParser: numberValueParser,},{field: 'silver',chartDataType: 'series',editable: true,valueParser: numberValueParser,},{field: 'bronze',chartDataType: 'series',editable: true,valueParser: numberValueParser,},{field: 'a',chartDataType: 'series',editable: true,valueParser: numberValueParser,},{field: 'b',chartDataType: 'series',editable: true,valueParser: numberValueParser,},{field: 'c',chartDataType: 'series',editable: true,valueParser: numberValueParser,},{field: 'd',chartDataType: 'series',editable: true,valueParser: numberValueParser,},]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
-    { "name": "rowData", "value": "getData()" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "getChartToolbarItems", "value": null }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'group',chartDataType: 'category' },{field: 'gold',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'silver',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'bronze',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'a',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'b',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'c',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'd',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' }]",
-  "instanceMethods": ["function getChartToolbarItems(params) {return [];}"],
-  "externalEventHandlers": [],
-  "utils": [
-    "function numberValueParser(params) {var res = Number.parseInt(params.newValue);if (isNaN(res)) {return undefined;}return res;}"
-  ],
-  "callbackDependencies": { "numberValueParser": ["Number", "isNaN"] },
-  "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">GRID_TEMPLATE_PLACEHOLDER<div id=\"chart1\" style=\"flex: 1 1 auto; overflow: hidden; height: 30%;\"></div><div style=\"display: flex; flex: 1 1 auto; overflow: hidden; height: 30%;\"><div id=\"chart2\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div><div id=\"chart3\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div></div></div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "30%",
-    "theme": "ag-theme-alpine",
-    "enterprise": true,
-    "exampleHeight": 700
-  }
-}
+    {
+      "name": "rowData",
+      {
+        "name": "enableRangeSelection",
+        {
+          "name": "enableCharts",
+          {
+            "name": "popupParent",
+            {
+              "name": "getChartToolbarItems",
+            ],
+            "components": [],
+            "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+            "globalComponents": [],
+            "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'group',chartDataType: 'category' },{field: 'gold',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'silver',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'bronze',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'a',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'b',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'c',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'd',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' }]",
+            "instanceMethods": [
+              "function getChartToolbarItems(params) {return [];}"
+            ],
+            "externalEventHandlers": [],
+            "utils": [
+              "function numberValueParser(params) {var res = Number.parseInt(params.newValue);if (isNaN(res)) {return undefined;}return res;}"
+            ],
+            "callbackDependencies": {
+              "numberValueParser": [
+                "Number",
+                "isNaN"
+              ]
+            },
+            "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">GRID_TEMPLATE_PLACEHOLDER<div id=\"chart1\" style=\"flex: 1 1 auto; overflow: hidden; height: 30%;\"></div><div style=\"display: flex; flex: 1 1 auto; overflow: hidden; height: 30%;\"><div id=\"chart2\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div><div id=\"chart3\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div></div></div>",
+            "gridSettings": {
+              "width": "100%",
+              "height": "30%",
+              "theme": "ag-theme-alpine",
+              "enterprise": true,
+              "exampleHeight": 700
+            }
+          }

@@ -9,30 +9,31 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'salesRep', chartDataType: 'category' },{ field: 'handset', chartDataType: 'category' },{ field: 'sale', chartDataType: 'series' },{ field: 'saleDate', chartDataType: 'category' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{flex: 1,sortable: true,filter: 'agSetColumnFilter',floatingFilter: true,resizable: true,}"
     },
-    { "name": "rowData", "value": "getData()" },
-    { "name": "enableCharts", "value": "true" },
-    { "name": "chartThemes", "value": "['ag-default-dark']" }
-  ],
-  "components": [],
-  "defaultColDef": "{flex: 1,sortable: true,filter: 'agSetColumnFilter',floatingFilter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'salesRep',chartDataType: 'category' },{field: 'handset',chartDataType: 'category' },{field: 'sale',chartDataType: 'series' },{field: 'saleDate',chartDataType: 'category' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [],
-  "callbackDependencies": {},
-  "template": "<div id=\"wrapper\"><div id=\"pieChart\" class=\"ag-theme-alpine-dark\"></div>GRID_TEMPLATE_PLACEHOLDER</div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine-dark",
-    "exampleHeight": 680,
-    "enterprise": true
-  }
-}
+    {
+      "name": "rowData",
+      {
+        "name": "enableCharts",
+        {
+          "name": "chartThemes",
+        ],
+        "components": [],
+        "defaultColDef": "{flex: 1,sortable: true,filter: 'agSetColumnFilter',floatingFilter: true,resizable: true,}",
+        "globalComponents": [],
+        "parsedColDefs": "[{field: 'salesRep',chartDataType: 'category' },{field: 'handset',chartDataType: 'category' },{field: 'sale',chartDataType: 'series' },{field: 'saleDate',chartDataType: 'category' }]",
+        "instanceMethods": [],
+        "externalEventHandlers": [],
+        "utils": [],
+        "callbackDependencies": {},
+        "template": "<div id=\"wrapper\"><div id=\"pieChart\" class=\"ag-theme-alpine-dark\"></div>GRID_TEMPLATE_PLACEHOLDER</div>",
+        "gridSettings": {
+          "width": "100%",
+          "height": "100%",
+          "theme": "ag-theme-alpine-dark",
+          "exampleHeight": 680,
+          "enterprise": true
+        }
+      }

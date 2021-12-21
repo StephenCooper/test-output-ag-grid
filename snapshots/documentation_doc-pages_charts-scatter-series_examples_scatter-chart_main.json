@@ -1,8 +1,7 @@
 {
   "properties": [
     {
-      "name": "options",
-      "value": "{autoSize: true,title: { text: 'Mean Sea Level (mm)' },data: getData(),series: [{type: 'scatter',xKey: 'time',yKey: 'mm',showInLegend: false}],axes: [{type: 'number',position: 'bottom'},{type: 'number',position: 'left'}]}"
+      "name": "options"
     }
   ],
   "externalEventHandlers": [],

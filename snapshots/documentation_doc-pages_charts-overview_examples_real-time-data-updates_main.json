@@ -1,8 +1,7 @@
 {
   "properties": [
     {
-      "name": "options",
-      "value": "{autoSize: true,data: getData(),title: {text: 'Simulated CPU Usage',fontSize: 18},series: [{type: 'area',xKey: 'time',yKeys: ['system','user'],yNames: ['System','User'],fills: ['#ec4d3d','#4facf2'],fillOpacity: 0.5,strokes: ['#ec4d3d','#4facf2']}],axes: [{type: 'time',position: 'bottom',nice: false},{type: 'number',position: 'left',title: { text: 'Load (%)' },min: 0,max: 100}],legend: { position: 'bottom' }}"
+      "name": "options"
     }
   ],
   "externalEventHandlers": [],

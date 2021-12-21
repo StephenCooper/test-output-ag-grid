@@ -7,51 +7,68 @@
     }
   ],
   "properties": [
-    { "name": "columnDefs", "value": "getColumnDefs()" },
-    { "name": "defaultColDef", "value": "{flex: 1,resizable: true,}" },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "rowData", "value": "getRowData()" },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
     {
-      "name": "chartThemeOverrides",
-      "value": "{line: {title: {enabled: true,text: 'Average Daily Temperatures',},legend: {enabled: false,},padding: {top: 15,bottom: 25,},navigator: {enabled: true,height: 20,margin: 25,},axes: {time: {label: {rotation: 0,format: '%d %b',},},category: {label: {rotation: 0,formatter: function (params) {return moment(new Date(params.value)).format('DD MMM');},},},number: {label: {formatter: function (params) {return params.value + '°C';},},},},},}"
-    },
-    { "name": "getChartToolbarItems", "value": null }
-  ],
-  "components": [],
-  "defaultColDef": "{flex: 1,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "",
-  "instanceMethods": [
-    "function getChartToolbarItems() {return ['chartData', 'chartFormat'];}"
-  ],
-  "externalEventHandlers": [
-    {
-      "name": "toggleAxis",
-      "params": "",
-      "body": "function toggleAxis() {var axisBtn = document.querySelector('#axisBtn');axisBtn.textContent = axisBtn.value;axisBtn.value = axisBtn.value === 'time' ? 'category' : 'time';const columnDefs = getColumnDefs();columnDefs.forEach(function (colDef) {if (colDef.field === 'date') {colDef.chartDataType = axisBtn.value;}});this.gridApi.setColumnDefs(columnDefs);}"
-    }
-  ],
-  "utils": [
-    "function getColumnDefs() {return [{ field: 'date', valueFormatter: dateFormatter },{ field: 'avgTemp' },];}",
-    "var currentChartRef;",
-    "function dateFormatter(params) {return params.value? params.value.toISOString().substring(0, 10): params.value;}",
-    "function getRowData() {return [{ date: new Date(2019, 0, 1), avgTemp: 8.27 },{ date: new Date(2019, 0, 5), avgTemp: 7.22 },{ date: new Date(2019, 0, 8), avgTemp: 11.54 },{ date: new Date(2019, 0, 11), avgTemp: 8.44 },{ date: new Date(2019, 0, 22), avgTemp: 12.03 },{ date: new Date(2019, 0, 23), avgTemp: 9.68 },{ date: new Date(2019, 0, 24), avgTemp: 9.9 },{ date: new Date(2019, 0, 25), avgTemp: 8.74 },];}"
-  ],
-  "callbackDependencies": {
-    "getColumnDefs": ["dateFormatter"],
-    "onFirstDataRendered": ["currentChartRef"],
-    "toggleAxis": ["getColumnDefs", "gridOptions"],
-    "getRowData": ["Date"]
-  },
-  "template": "<label>Switch Axis to: </label><button id=\"axisBtn\" onclick=\"toggleAxis()\" value=\"time\">Category</button><div class=\"wrapper\">GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div></div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine",
-    "exampleHeight": 740,
-    "enterprise": true,
-    "extras": ["momentjs"]
-  }
-}
+      "name": "columnDefs",
+      {
+        "name": "defaultColDef",
+        {
+          "name": "popupParent",
+          {
+            "name": "rowData",
+            {
+              "name": "enableRangeSelection",
+              {
+                "name": "enableCharts",
+                {
+                  "name": "chartThemeOverrides",
+                },
+                {
+                  "name": "getChartToolbarItems",
+                ],
+                "components": [],
+                "defaultColDef": "{flex: 1,resizable: true,}",
+                "globalComponents": [],
+                "parsedColDefs": "",
+                "instanceMethods": [
+                  "function getChartToolbarItems() {return ['chartData', 'chartFormat'];}"
+                ],
+                "externalEventHandlers": [
+                  {
+                    "name": "toggleAxis",
+                    "params": "",
+                    "body": "function toggleAxis() {var axisBtn = document.querySelector('#axisBtn');axisBtn.textContent = axisBtn.value;axisBtn.value = axisBtn.value === 'time' ? 'category' : 'time';const columnDefs = getColumnDefs();columnDefs.forEach(function (colDef) {if (colDef.field === 'date') {colDef.chartDataType = axisBtn.value;}});this.gridApi.setColumnDefs(columnDefs);}"
+                  }
+                ],
+                "utils": [
+                  "function getColumnDefs() {return [{ field: 'date', valueFormatter: dateFormatter },{ field: 'avgTemp' },];}",
+                  "var currentChartRef;",
+                  "function dateFormatter(params) {return params.value? params.value.toISOString().substring(0, 10): params.value;}",
+                  "function getRowData() {return [{ date: new Date(2019, 0, 1), avgTemp: 8.27 },{ date: new Date(2019, 0, 5), avgTemp: 7.22 },{ date: new Date(2019, 0, 8), avgTemp: 11.54 },{ date: new Date(2019, 0, 11), avgTemp: 8.44 },{ date: new Date(2019, 0, 22), avgTemp: 12.03 },{ date: new Date(2019, 0, 23), avgTemp: 9.68 },{ date: new Date(2019, 0, 24), avgTemp: 9.9 },{ date: new Date(2019, 0, 25), avgTemp: 8.74 },];}"
+                ],
+                "callbackDependencies": {
+                  "getColumnDefs": [
+                    "dateFormatter"
+                  ],
+                  "onFirstDataRendered": [
+                    "currentChartRef"
+                  ],
+                  "toggleAxis": [
+                    "getColumnDefs",
+                    "gridOptions"
+                  ],
+                  "getRowData": [
+                    "Date"
+                  ]
+                },
+                "template": "<label>Switch Axis to: </label><button id=\"axisBtn\" onclick=\"toggleAxis()\" value=\"time\">Category</button><div class=\"wrapper\">GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div></div>",
+                "gridSettings": {
+                  "width": "100%",
+                  "height": "100%",
+                  "theme": "ag-theme-alpine",
+                  "exampleHeight": 740,
+                  "enterprise": true,
+                  "extras": [
+                    "momentjs"
+                  ]
+                }
+              }

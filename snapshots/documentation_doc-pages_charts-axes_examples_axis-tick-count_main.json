@@ -1,8 +1,7 @@
 {
   "properties": [
     {
-      "name": "options",
-      "value": "{data: generateSpiralData(),series: [{type: 'line',xKey: 'x',yKey: 'y',marker: { enabled: false }}],axes: [{type: 'number',position: 'bottom',tick: { count: 10 }},{type: 'number',position: 'left',tick: { count: 10 }}],legend: { enabled: false }}"
+      "name": "options"
     }
   ],
   "externalEventHandlers": [

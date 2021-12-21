@@ -9,35 +9,39 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'city', chartDataType: 'category' },{ field: 'country', chartDataType: 'category' },{ field: 'longitude', chartDataType: 'series' },{ field: 'latitude', chartDataType: 'series' },{ field: 'population', chartDataType: 'series' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}"
     },
-    { "name": "rowData", "value": "getData()" },
-    { "name": "enableCharts", "value": "true" },
-    { "name": "chartThemes", "value": "['ag-default-dark']" }
-  ],
-  "components": [],
-  "defaultColDef": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'city',chartDataType: 'category' },{field: 'country',chartDataType: 'category' },{field: 'longitude',chartDataType: 'series' },{field: 'latitude',chartDataType: 'series' },{field: 'population',chartDataType: 'series' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [
-    "function createColumnChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'column',cellRange: {columns: ['country', 'population'],},aggFunc: 'count',chartThemeOverrides: {common: {title: {enabled: true,text: 'Number of Most Populous Cities by Country',},legend: {enabled: false,},},cartesian: {axes: {category: {label: {rotation: 325,},},},},},chartContainer: document.querySelector('#barChart'),});}",
-    "function createBubbleChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'bubble',cellRange: {columns: ['longitude', 'latitude', 'population'],},chartThemeOverrides: {common: {title: {enabled: true,text: 'Latitude vs Longitude of Most Populous Cities',},legend: {enabled: false,},},},chartContainer: document.querySelector('#bubbleChart'),});}"
-  ],
-  "callbackDependencies": {
-    "onFirstDataRendered": ["createColumnChart", "createBubbleChart"]
-  },
-  "template": "<div id=\"wrapper\"><div id=\"barChart\" class=\"ag-theme-alpine-dark\"></div><div id=\"bubbleChart\" class=\"ag-theme-alpine-dark\"></div>GRID_TEMPLATE_PLACEHOLDER</div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "100%",
-    "theme": "ag-theme-alpine-dark",
-    "exampleHeight": 1000,
-    "enterprise": true
-  }
-}
+    {
+      "name": "rowData",
+      {
+        "name": "enableCharts",
+        {
+          "name": "chartThemes",
+        ],
+        "components": [],
+        "defaultColDef": "{flex: 1,editable: true,sortable: true,filter: 'agMultiColumnFilter',floatingFilter: true,resizable: true,}",
+        "globalComponents": [],
+        "parsedColDefs": "[{field: 'city',chartDataType: 'category' },{field: 'country',chartDataType: 'category' },{field: 'longitude',chartDataType: 'series' },{field: 'latitude',chartDataType: 'series' },{field: 'population',chartDataType: 'series' }]",
+        "instanceMethods": [],
+        "externalEventHandlers": [],
+        "utils": [
+          "function createColumnChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'column',cellRange: {columns: ['country', 'population'],},aggFunc: 'count',chartThemeOverrides: {common: {title: {enabled: true,text: 'Number of Most Populous Cities by Country',},legend: {enabled: false,},},cartesian: {axes: {category: {label: {rotation: 325,},},},},},chartContainer: document.querySelector('#barChart'),});}",
+          "function createBubbleChart(gridApi) {gridApi.createCrossFilterChart({chartType: 'bubble',cellRange: {columns: ['longitude', 'latitude', 'population'],},chartThemeOverrides: {common: {title: {enabled: true,text: 'Latitude vs Longitude of Most Populous Cities',},legend: {enabled: false,},},},chartContainer: document.querySelector('#bubbleChart'),});}"
+        ],
+        "callbackDependencies": {
+          "onFirstDataRendered": [
+            "createColumnChart",
+            "createBubbleChart"
+          ]
+        },
+        "template": "<div id=\"wrapper\"><div id=\"barChart\" class=\"ag-theme-alpine-dark\"></div><div id=\"bubbleChart\" class=\"ag-theme-alpine-dark\"></div>GRID_TEMPLATE_PLACEHOLDER</div>",
+        "gridSettings": {
+          "width": "100%",
+          "height": "100%",
+          "theme": "ag-theme-alpine-dark",
+          "exampleHeight": 1000,
+          "enterprise": true
+        }
+      }

@@ -9,34 +9,39 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'country', pivot: true },{ field: 'year', rowGroup: true },{ field: 'sport', rowGroup: true },{ field: 'total', aggFunc: 'sum' },{ field: 'gold', aggFunc: 'sum' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 130,filter: true,resizable: true,}"
     },
-    { "name": "autoGroupColumnDef", "value": "{minWidth: 200,}" },
-    { "name": "pivotMode", "value": "true" },
-    { "name": "popupParent", "value": "document.body" }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 130,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'country',pivot: true },{field: 'year',rowGroup: true },{field: 'sport',rowGroup: true },{field: 'total',aggFunc: 'sum' },{field: 'gold',aggFunc: 'sum' }]",
-  "instanceMethods": [],
-  "externalEventHandlers": [],
-  "utils": [],
-  "callbackDependencies": { "onFirstDataRendered": ["setTimeout"] },
-  "data": {
-    "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
-    "callback": "{params.api.setRowData(data);}"
-  },
-  "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">GRID_TEMPLATE_PLACEHOLDER<div id=\"chart\" style=\"flex: 1 1 auto; overflow: hidden; height: 60%;\"></div></div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "40%",
-    "theme": "ag-theme-alpine",
-    "enterprise": true,
-    "exampleHeight": 900
-  }
-}
+    {
+      "name": "autoGroupColumnDef",
+      {
+        "name": "pivotMode",
+        {
+          "name": "popupParent",
+        ],
+        "components": [],
+        "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 130,filter: true,resizable: true,}",
+        "globalComponents": [],
+        "parsedColDefs": "[{field: 'country',pivot: true },{field: 'year',rowGroup: true },{field: 'sport',rowGroup: true },{field: 'total',aggFunc: 'sum' },{field: 'gold',aggFunc: 'sum' }]",
+        "instanceMethods": [],
+        "externalEventHandlers": [],
+        "utils": [],
+        "callbackDependencies": {
+          "onFirstDataRendered": [
+            "setTimeout"
+          ]
+        },
+        "data": {
+          "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
+          "callback": "{params.api.setRowData(data);}"
+        },
+        "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">GRID_TEMPLATE_PLACEHOLDER<div id=\"chart\" style=\"flex: 1 1 auto; overflow: hidden; height: 60%;\"></div></div>",
+        "gridSettings": {
+          "width": "100%",
+          "height": "40%",
+          "theme": "ag-theme-alpine",
+          "enterprise": true,
+          "exampleHeight": 900
+        }
+      }

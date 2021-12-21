@@ -3,41 +3,46 @@
   "properties": [
     {
       "name": "columnDefs",
-      "value": "[{ field: 'athlete', width: 150, chartDataType: 'category' },{ field: 'gold', chartDataType: 'series' },{ field: 'silver', chartDataType: 'series' },{ field: 'bronze', chartDataType: 'series' },{ field: 'total', chartDataType: 'series' },]"
     },
     {
       "name": "defaultColDef",
-      "value": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}"
     },
-    { "name": "enableRangeSelection", "value": "true" },
-    { "name": "enableCharts", "value": "true" },
-    { "name": "popupParent", "value": "document.body" },
-    { "name": "createChartContainer", "value": null }
-  ],
-  "components": [],
-  "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-  "globalComponents": [],
-  "parsedColDefs": "[{field: 'athlete',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' },{field: 'total',chartDataType: 'series' }]",
-  "instanceMethods": [
-    "function createChartContainer(chartRef) {var eChart = chartRef.chartElement;var eTemp = document.createElement('div');eTemp.innerHTML = chartPanelTemplate;var eChartWrapper = eTemp.firstChild;var eParent = document.querySelector('#container');eParent.appendChild(eChartWrapper);eChartWrapper.querySelector('.chart-wrapper-body').appendChild(eChart);eChartWrapper.querySelector('.chart-wrapper-title').innerText ='Chart Created At ' + new Date();eChartWrapper.querySelector('.chart-wrapper-close').addEventListener('click', function () {chartRef.destroyChart();eParent.removeChild(eChartWrapper);});}"
-  ],
-  "externalEventHandlers": [],
-  "utils": [
-    "var chartPanelTemplate = '<div class=\"chart-wrapper ag-theme-alpine\">' +'<div class=\"chart-wrapper-top\">' +'<span class=\"chart-wrapper-title\"></span>' +'<button class=\"chart-wrapper-close\">Destroy Chart</button>' +'</div>' +'<div class=\"chart-wrapper-body\"></div>' +'</div>';"
-  ],
-  "callbackDependencies": {
-    "createChartContainer": ["chartPanelTemplate", "Date"]
-  },
-  "data": {
-    "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
-    "callback": "{params.api.setRowData(data);}"
-  },
-  "template": "<div id=\"container\">GRID_TEMPLATE_PLACEHOLDER</div>",
-  "gridSettings": {
-    "width": "100%",
-    "height": "300px",
-    "theme": "ag-theme-alpine",
-    "exampleHeight": 750,
-    "enterprise": true
-  }
-}
+    {
+      "name": "enableRangeSelection",
+      {
+        "name": "enableCharts",
+        {
+          "name": "popupParent",
+          {
+            "name": "createChartContainer",
+          ],
+          "components": [],
+          "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
+          "globalComponents": [],
+          "parsedColDefs": "[{field: 'athlete',width: 150,chartDataType: 'category' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{field: 'bronze',chartDataType: 'series' },{field: 'total',chartDataType: 'series' }]",
+          "instanceMethods": [
+            "function createChartContainer(chartRef) {var eChart = chartRef.chartElement;var eTemp = document.createElement('div');eTemp.innerHTML = chartPanelTemplate;var eChartWrapper = eTemp.firstChild;var eParent = document.querySelector('#container');eParent.appendChild(eChartWrapper);eChartWrapper.querySelector('.chart-wrapper-body').appendChild(eChart);eChartWrapper.querySelector('.chart-wrapper-title').innerText ='Chart Created At ' + new Date();eChartWrapper.querySelector('.chart-wrapper-close').addEventListener('click', function () {chartRef.destroyChart();eParent.removeChild(eChartWrapper);});}"
+          ],
+          "externalEventHandlers": [],
+          "utils": [
+            "var chartPanelTemplate = '<div class=\"chart-wrapper ag-theme-alpine\">' +'<div class=\"chart-wrapper-top\">' +'<span class=\"chart-wrapper-title\"></span>' +'<button class=\"chart-wrapper-close\">Destroy Chart</button>' +'</div>' +'<div class=\"chart-wrapper-body\"></div>' +'</div>';"
+          ],
+          "callbackDependencies": {
+            "createChartContainer": [
+              "chartPanelTemplate",
+              "Date"
+            ]
+          },
+          "data": {
+            "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
+            "callback": "{params.api.setRowData(data);}"
+          },
+          "template": "<div id=\"container\">GRID_TEMPLATE_PLACEHOLDER</div>",
+          "gridSettings": {
+            "width": "100%",
+            "height": "300px",
+            "theme": "ag-theme-alpine",
+            "exampleHeight": 750,
+            "enterprise": true
+          }
+        }
