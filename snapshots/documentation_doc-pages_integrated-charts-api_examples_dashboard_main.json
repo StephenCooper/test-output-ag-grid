@@ -3,50 +3,42 @@
     {
       "name": "firstDataRendered",
       "handlerName": "onFirstDataRendered",
-      "handler": "function onFirstDataRendered(event) {var eContainer1 = document.querySelector('#chart1');var params1 = {cellRange: {rowStartIndex: 0,rowEndIndex: 4,columns: ['country', 'gold', 'silver'],},chartType: 'groupedBar',chartContainer: eContainer1,};event.api.createRangeChart(params1);var eContainer2 = document.querySelector('#chart2');var params2 = {cellRange: {columns: ['group', 'gold'],},chartType: 'pie',chartContainer: eContainer2,aggFunc: 'sum',chartThemeOverrides: {common: {padding: {top: 20,left: 10,bottom: 30,right: 10,},legend: {enabled: true,position: 'bottom',},},},};event.api.createRangeChart(params2);var eContainer3 = document.querySelector('#chart3');var params3 = {cellRange: {columns: ['group', 'silver'],},chartType: 'pie',chartContainer: eContainer3,aggFunc: 'sum',chartThemeOverrides: {common: {padding: {top: 20,left: 10,bottom: 30,right: 10,},legend: {enabled: true,position: 'bottom',},},},};event.api.createRangeChart(params3);}"
+      "handler": "function onFirstDataRendered(event) {\n    var eContainer1 = document.querySelector('#chart1');\n    var params1 = {\n        cellRange: {\n            rowStartIndex: 0,\n            rowEndIndex: 4,\n            columns: ['country', 'gold', 'silver'],\n        },\n        chartType: 'groupedBar',\n        chartContainer: eContainer1,\n    };\n    event.api.createRangeChart(params1);\n    var eContainer2 = document.querySelector('#chart2');\n    var params2 = {\n        cellRange: {\n            columns: ['group', 'gold'],\n        },\n        chartType: 'pie',\n        chartContainer: eContainer2,\n        aggFunc: 'sum',\n        chartThemeOverrides: {\n            common: {\n                padding: {\n                    top: 20,\n                    left: 10,\n                    bottom: 30,\n                    right: 10,\n                },\n                legend: {\n                    enabled: true,\n                    position: 'bottom',\n                },\n            },\n        },\n    };\n    event.api.createRangeChart(params2);\n    var eContainer3 = document.querySelector('#chart3');\n    var params3 = {\n        cellRange: {\n            columns: ['group', 'silver'],\n        },\n        chartType: 'pie',\n        chartContainer: eContainer3,\n        aggFunc: 'sum',\n        chartThemeOverrides: {\n            common: {\n                padding: {\n                    top: 20,\n                    left: 10,\n                    bottom: 30,\n                    right: 10,\n                },\n                legend: {\n                    enabled: true,\n                    position: 'bottom',\n                },\n            },\n        },\n    };\n    event.api.createRangeChart(params3);\n}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
+      "value": "[\n    { field: 'country', width: 150, chartDataType: 'category' },\n    { field: 'group', chartDataType: 'category' },\n    {\n        field: 'gold',\n        chartDataType: 'series',\n        editable: true,\n        valueParser: numberValueParser,\n    },\n    {\n        field: 'silver',\n        chartDataType: 'series',\n        editable: true,\n        valueParser: numberValueParser,\n    },\n    {\n        field: 'bronze',\n        chartDataType: 'series',\n        editable: true,\n        valueParser: numberValueParser,\n    },\n    {\n        field: 'a',\n        chartDataType: 'series',\n        editable: true,\n        valueParser: numberValueParser,\n    },\n    {\n        field: 'b',\n        chartDataType: 'series',\n        editable: true,\n        valueParser: numberValueParser,\n    },\n    {\n        field: 'c',\n        chartDataType: 'series',\n        editable: true,\n        valueParser: numberValueParser,\n    },\n    {\n        field: 'd',\n        chartDataType: 'series',\n        editable: true,\n        valueParser: numberValueParser,\n    },\n]"
     },
     {
       "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
     },
-    {
-      "name": "rowData",
-      {
-        "name": "enableRangeSelection",
-        {
-          "name": "enableCharts",
-          {
-            "name": "popupParent",
-            {
-              "name": "getChartToolbarItems",
-            ],
-            "components": [],
-            "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-            "globalComponents": [],
-            "parsedColDefs": "[{field: 'country',width: 150,chartDataType: 'category' },{field: 'group',chartDataType: 'category' },{field: 'gold',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'silver',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'bronze',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'a',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'b',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'c',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' },{field: 'd',chartDataType: 'series',editable: true,valueParser: 'AG_LITERAL_numberValueParser' }]",
-            "instanceMethods": [
-              "function getChartToolbarItems(params) {return [];}"
-            ],
-            "externalEventHandlers": [],
-            "utils": [
-              "function numberValueParser(params) {var res = Number.parseInt(params.newValue);if (isNaN(res)) {return undefined;}return res;}"
-            ],
-            "callbackDependencies": {
-              "numberValueParser": [
-                "Number",
-                "isNaN"
-              ]
-            },
-            "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">GRID_TEMPLATE_PLACEHOLDER<div id=\"chart1\" style=\"flex: 1 1 auto; overflow: hidden; height: 30%;\"></div><div style=\"display: flex; flex: 1 1 auto; overflow: hidden; height: 30%;\"><div id=\"chart2\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div><div id=\"chart3\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div></div></div>",
-            "gridSettings": {
-              "width": "100%",
-              "height": "30%",
-              "theme": "ag-theme-alpine",
-              "enterprise": true,
-              "exampleHeight": 700
-            }
-          }
+    { "name": "rowData", "value": "getData()" },
+    { "name": "enableRangeSelection", "value": "true" },
+    { "name": "enableCharts", "value": "true" },
+    { "name": "popupParent", "value": "document.body" },
+    { "name": "getChartToolbarItems", "value": null }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'country',\n    width: 150,\n    chartDataType: 'category' },\n    {\n        field: 'group',\n    chartDataType: 'category' },\n    {\n        field: 'gold',\n    chartDataType: 'series',\n    editable: true,\n    valueParser: 'AG_LITERAL_numberValueParser' },\n    {\n        field: 'silver',\n    chartDataType: 'series',\n    editable: true,\n    valueParser: 'AG_LITERAL_numberValueParser' },\n    {\n        field: 'bronze',\n    chartDataType: 'series',\n    editable: true,\n    valueParser: 'AG_LITERAL_numberValueParser' },\n    {\n        field: 'a',\n    chartDataType: 'series',\n    editable: true,\n    valueParser: 'AG_LITERAL_numberValueParser' },\n    {\n        field: 'b',\n    chartDataType: 'series',\n    editable: true,\n    valueParser: 'AG_LITERAL_numberValueParser' },\n    {\n        field: 'c',\n    chartDataType: 'series',\n    editable: true,\n    valueParser: 'AG_LITERAL_numberValueParser' },\n    {\n        field: 'd',\n    chartDataType: 'series',\n    editable: true,\n    valueParser: 'AG_LITERAL_numberValueParser' }]",
+  "instanceMethods": [
+    "function getChartToolbarItems(params) {\n    return [];\n}"
+  ],
+  "externalEventHandlers": [],
+  "utils": [
+    "function numberValueParser(params) {\n    var res = Number.parseInt(params.newValue);\n    if (isNaN(res)) {\n        return undefined;\n    }\n    return res;\n}"
+  ],
+  "callbackDependencies": { "numberValueParser": ["Number", "isNaN"] },
+  "template": "<div style=\"display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden;\">\n    GRID_TEMPLATE_PLACEHOLDER\n    <div id=\"chart1\" style=\"flex: 1 1 auto; overflow: hidden; height: 30%;\"></div>\n    <div style=\"display: flex; flex: 1 1 auto; overflow: hidden; height: 30%;\">\n        <div id=\"chart2\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div>\n        <div id=\"chart3\" style=\"flex: 1 1 auto; overflow: hidden; width: 50%;\"></div>\n    </div>\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "30%",
+    "theme": "ag-theme-alpine",
+    "enterprise": true,
+    "exampleHeight": 700
+  }
+}

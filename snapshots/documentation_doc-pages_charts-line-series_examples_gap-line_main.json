@@ -1,12 +1,13 @@
 {
   "properties": [
     {
-      "name": "options"
+      "name": "options",
+      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: { text: 'People Born' },\n        subtitle: { text: '2008-2020' },\n        series: [{\n                xKey: 'year',\n                yKey: 'visitors'\n            }],\n        legend: { enabled: false }\n    }"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [],
   "init": [],
-  "template": "$$CHART$$"
+  "template": "$$CHART$$\n"
 }

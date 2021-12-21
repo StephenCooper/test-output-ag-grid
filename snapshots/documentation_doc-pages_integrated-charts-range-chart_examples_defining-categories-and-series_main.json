@@ -3,44 +3,44 @@
     {
       "name": "firstDataRendered",
       "handlerName": "onFirstDataRendered",
-      "handler": "function onFirstDataRendered(params) {var createRangeChartParams = {cellRange: {rowStartIndex: 0,rowEndIndex: 79,columns: ['age', 'gold', 'silver', 'bronze'],},chartType: 'groupedColumn',chartContainer: document.querySelector('#myChart'),aggFunc: 'sum',};params.api.createRangeChart(createRangeChartParams);}"
+      "handler": "function onFirstDataRendered(params) {\n    var createRangeChartParams = {\n        cellRange: {\n            rowStartIndex: 0,\n            rowEndIndex: 79,\n            columns: ['age', 'gold', 'silver', 'bronze'],\n        },\n        chartType: 'groupedColumn',\n        chartContainer: document.querySelector('#myChart'),\n        aggFunc: 'sum',\n    };\n    params.api.createRangeChart(createRangeChartParams);\n}"
     }
   ],
   "properties": [
     {
       "name": "columnDefs",
+      "value": "[\n    // different ways to define 'categories'\n    { field: 'athlete', width: 150, chartDataType: 'category' },\n    { field: 'age', chartDataType: 'category', sort: 'asc' },\n    { field: 'sport' },\n    // excludes year from charts\n    { field: 'year', chartDataType: 'excluded' },\n    // different ways to define 'series'\n    { field: 'gold', chartDataType: 'series' },\n    { field: 'silver', chartDataType: 'series' },\n    { field: 'bronze' }, // inferred as series by grid\n]"
     },
     {
       "name": "defaultColDef",
+      "value": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}"
     },
+    { "name": "popupParent", "value": "document.body" },
+    { "name": "enableRangeSelection", "value": "true" },
+    { "name": "enableCharts", "value": "true" },
     {
-      "name": "popupParent",
-      {
-        "name": "enableRangeSelection",
-        {
-          "name": "enableCharts",
-          {
-            "name": "chartThemeOverrides",
-          }
-        ],
-        "components": [],
-        "defaultColDef": "{editable: true,sortable: true,flex: 1,minWidth: 100,filter: true,resizable: true,}",
-        "globalComponents": [],
-        "parsedColDefs": "[{field: 'athlete',width: 150,chartDataType: 'category' },{field: 'age',chartDataType: 'category',sort: 'asc' },{ field: 'sport' },{field: 'year',chartDataType: 'excluded' },{field: 'gold',chartDataType: 'series' },{field: 'silver',chartDataType: 'series' },{ field: 'bronze' }]",
-        "instanceMethods": [],
-        "externalEventHandlers": [],
-        "utils": [],
-        "callbackDependencies": {},
-        "data": {
-          "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
-          "callback": "{params.api.setRowData(data);}"
-        },
-        "template": "<div class=\"wrapper\">GRID_TEMPLATE_PLACEHOLDER<div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div></div>",
-        "gridSettings": {
-          "width": "100%",
-          "height": "100%",
-          "theme": "ag-theme-alpine",
-          "exampleHeight": 710,
-          "enterprise": true
-        }
-      }
+      "name": "chartThemeOverrides",
+      "value": "{\n    common: {\n        title: {\n            enabled: true,\n            text: 'Medals by Age',\n        },\n        legend: {\n            position: 'bottom',\n        },\n    },\n    column: {\n        axes: {\n            category: {\n                label: {\n                    rotation: 0,\n                },\n            },\n        },\n    },\n}"
+    }
+  ],
+  "components": [],
+  "defaultColDef": "{\n    editable: true,\n    sortable: true,\n    flex: 1,\n    minWidth: 100,\n    filter: true,\n    resizable: true,\n}",
+  "globalComponents": [],
+  "parsedColDefs": "[{\n        field: 'athlete',\n    width: 150,\n    chartDataType: 'category' },\n    {\n        field: 'age',\n    chartDataType: 'category',\n    sort: 'asc' },\n    { field: 'sport' },\n    {\n        field: 'year',\n    chartDataType: 'excluded' },\n    {\n        field: 'gold',\n    chartDataType: 'series' },\n    {\n        field: 'silver',\n    chartDataType: 'series' },\n    { field: 'bronze' }]",
+  "instanceMethods": [],
+  "externalEventHandlers": [],
+  "utils": [],
+  "callbackDependencies": {},
+  "data": {
+    "url": "'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json'",
+    "callback": "{\n    params.api.setRowData(data);\n}"
+  },
+  "template": "<div class=\"wrapper\">\n    GRID_TEMPLATE_PLACEHOLDER\n    <div id=\"myChart\" class=\"ag-theme-alpine my-chart\"></div>\n</div>\n",
+  "gridSettings": {
+    "width": "100%",
+    "height": "100%",
+    "theme": "ag-theme-alpine",
+    "exampleHeight": 710,
+    "enterprise": true
+  }
+}

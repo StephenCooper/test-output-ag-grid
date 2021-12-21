@@ -1,14 +1,15 @@
 {
   "properties": [
     {
-      "name": "options"
+      "name": "options",
+      "value": "{\n        \n        title: { text: 'Fuel Spending (2019)' },\n        data: getData(),\n        series: [{\n                xKey: 'quarter',\n                yKey: 'electric',\n                title: 'Electric',\n                marker: {\n                    shape: heartFactory(),\n                    size: 16\n                }\n            }],\n        legend: { position: 'bottom' }\n    }"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [
-    "function heartFactory() {class Heart extends agCharts.Marker {rad(degree) {return degree / 180 * Math.PI;}updatePath() {let {x, path, size, rad} = this;const r = size / 4;const y = this.y + r / 2;path.clear();path.cubicArc(x - r, y - r, r, r, 0, rad(130), rad(330), 0);path.cubicArc(x + r, y - r, r, r, 0, rad(220), rad(50), 0);path.lineTo(x, y + r);path.closePath();}}return Heart;}"
+    "function heartFactory() {\n    class Heart extends agCharts.Marker {\n        rad(degree) {\n            return degree / 180 * Math.PI;\n        }\n        updatePath() {\n            let {x, path, size, rad} = this;\n            const r = size / 4;\n            const y = this.y + r / 2;\n            path.clear();\n            path.cubicArc(x - r, y - r, r, r, 0, rad(130), rad(330), 0);\n            path.cubicArc(x + r, y - r, r, r, 0, rad(220), rad(50), 0);\n            path.lineTo(x, y + r);\n            path.closePath();\n        }\n    }\n    return Heart;\n}"
   ],
   "init": [],
-  "template": "$$CHART$$"
+  "template": "$$CHART$$\n"
 }
