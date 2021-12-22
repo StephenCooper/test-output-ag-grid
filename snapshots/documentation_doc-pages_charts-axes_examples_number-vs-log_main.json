@@ -2,29 +2,29 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: [\n            {\n                os: 'A',\n                share: 10\n            },\n            {\n                os: 'B',\n                share: 100\n            },\n            {\n                os: 'C',\n                share: 1000\n            }\n        ],\n        series: [{\n                type: 'line',\n                xKey: 'os',\n                yKey: 'share'\n            }],\n        axes: [\n            {\n                type: 'category',\n                position: 'bottom'\n            },\n            {\n                type: 'number',\n                position: 'left',\n                label: { format: '.0f' },\n                tick: { count: 10 }\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{\n    \n    data: [\n        { os: 'A', share: 10 },\n        { os: 'B', share: 100 },\n        { os: 'C', share: 1000 },\n    ],\n    series: [\n        {\n            type: 'line',\n            xKey: 'os',\n            yKey: 'share',\n        },\n    ],\n    axes: [\n        {\n            type: 'category',\n            position: 'bottom',\n        },\n        {\n            type: 'number',\n            position: 'left',\n            label: {\n                format: '.0f',\n            },\n            tick: {\n                count: 10,\n            },\n        },\n    ],\n    legend: {\n        enabled: false,\n    },\n}"
     }
   ],
   "externalEventHandlers": [
     {
       "name": "useNumberAxis",
       "params": "",
-      "body": "function useNumberAxis() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom'\n        },\n        {\n            type: 'number',\n            position: 'left',\n            min: 1,\n            label: { format: '.0f' },\n            tick: { count: 10 }\n        }\n    ];\n    \n}"
+      "body": "function useNumberAxis() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom',\n        },\n        {\n            type: 'number',\n            position: 'left',\n            min: 1,\n            label: {\n                format: '.0f',\n            },\n            tick: {\n                count: 10,\n            },\n        },\n    ];\n    \n}"
     },
     {
       "name": "useLogAxis",
       "params": "",
-      "body": "function useLogAxis() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom'\n        },\n        {\n            type: 'log',\n            position: 'left',\n            min: 10,\n            label: { format: '.0f' },\n            tick: { count: 10 }\n        }\n    ];\n    \n}"
+      "body": "function useLogAxis() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom',\n        },\n        {\n            type: 'log',\n            position: 'left',\n            min: 10,\n            label: {\n                format: '.0f',\n            },\n            tick: {\n                count: 10,\n            },\n        },\n    ];\n    \n}"
     },
     {
       "name": "useBaseTwoLogAxis",
       "params": "",
-      "body": "function useBaseTwoLogAxis() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom'\n        },\n        {\n            type: 'log',\n            position: 'left',\n            min: 10,\n            label: { format: '.0f' },\n            tick: { count: 10 },\n            base: 2\n        }\n    ];\n    \n}"
+      "body": "function useBaseTwoLogAxis() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom',\n        },\n        {\n            type: 'log',\n            position: 'left',\n            min: 10,\n            label: {\n                format: '.0f',\n            },\n            tick: {\n                count: 10,\n            },\n            base: 2,\n        },\n    ];\n    \n}"
     },
     {
       "name": "useLogAxisWithFewerTicks",
       "params": "",
-      "body": "function useLogAxisWithFewerTicks() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom'\n        },\n        {\n            type: 'log',\n            position: 'left',\n            min: 10,\n            label: { format: '.0f' },\n            tick: { count: 2 }\n        }\n    ];\n    \n}"
+      "body": "function useLogAxisWithFewerTicks() {\n    options.axes = [\n        {\n            type: 'category',\n            position: 'bottom',\n        },\n        {\n            type: 'log',\n            position: 'left',\n            min: 10,\n            label: {\n                format: '.0f',\n            },\n            tick: {\n                count: 2, // a hint that we want a smaller tick count\n            },\n        },\n    ];\n    \n}"
     }
   ],
   "instanceMethods": [],

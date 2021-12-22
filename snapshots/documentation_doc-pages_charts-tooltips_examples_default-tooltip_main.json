@@ -2,14 +2,14 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: [\n            {\n                month: 'Jun',\n                value1: 50,\n                hats_made: 40\n            },\n            {\n                month: 'Jul',\n                value1: 70,\n                hats_made: 50\n            },\n            {\n                month: 'Aug',\n                value1: 60,\n                hats_made: 30\n            }\n        ],\n        series: [{\n                type: 'column',\n                xKey: 'month',\n                yKeys: [\n                    'value1',\n                    'hats_made'\n                ]\n            }]\n    }"
+      "value": "{\n    \n    data: [\n        {\n            month: 'Jun',\n            value1: 50,\n            hats_made: 40,\n        },\n        {\n            month: 'Jul',\n            value1: 70,\n            hats_made: 50,\n        },\n        {\n            month: 'Aug',\n            value1: 60,\n            hats_made: 30,\n        },\n    ],\n    series: [\n        {\n            type: 'column',\n            xKey: 'month',\n            yKeys: ['value1', 'hats_made'],\n        },\n    ],\n}"
     }
   ],
   "externalEventHandlers": [
     {
       "name": "setYNames",
       "params": "",
-      "body": "function setYNames() {\n    options.series[0].yNames = {\n        value1: 'Sweaters Made',\n        hats_made: 'Hats Made'\n    };\n    \n}"
+      "body": "function setYNames() {\n    options.series[0].yNames = {\n        value1: 'Sweaters Made',\n        hats_made: 'Hats Made',\n    };\n    \n}"
     },
     {
       "name": "resetYNames",

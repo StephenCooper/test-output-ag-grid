@@ -2,13 +2,13 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        title: { text: 'Fuel Spending (2019)' },\n        data: getData(),\n        series: [{\n                xKey: 'quarter',\n                yKey: 'electric',\n                title: 'Electric',\n                marker: {\n                    shape: heartFactory(),\n                    size: 16\n                }\n            }],\n        legend: { position: 'bottom' }\n    }"
+      "value": "{\n    \n    title: {\n        text: 'Fuel Spending (2019)',\n    },\n    data: getData(),\n    series: [\n        {\n            xKey: 'quarter',\n            yKey: 'electric',\n            title: 'Electric',\n            marker: {\n                shape: heartFactory(),\n                size: 16,\n            },\n        },\n    ],\n    legend: {\n        position: 'bottom',\n    },\n}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [],
   "globals": [
-    "function heartFactory() {\n    class Heart extends agCharts.Marker {\n        rad(degree) {\n            return degree / 180 * Math.PI;\n        }\n        updatePath() {\n            let {x, path, size, rad} = this;\n            const r = size / 4;\n            const y = this.y + r / 2;\n            path.clear();\n            path.cubicArc(x - r, y - r, r, r, 0, rad(130), rad(330), 0);\n            path.cubicArc(x + r, y - r, r, r, 0, rad(220), rad(50), 0);\n            path.lineTo(x, y + r);\n            path.closePath();\n        }\n    }\n    return Heart;\n}"
+    "function heartFactory() {\n    class Heart extends agCharts.Marker {\n        rad(degree) {\n            return degree / 180 * Math.PI;\n        }\n        updatePath() {\n            let { x, path, size, rad } = this;\n            const r = size / 4;\n            const y = this.y + r / 2;\n            path.clear();\n            path.cubicArc(x - r, y - r, r, r, 0, rad(130), rad(330), 0);\n            path.cubicArc(x + r, y - r, r, r, 0, rad(220), rad(50), 0);\n            path.lineTo(x, y + r);\n            path.closePath();\n        }\n    }\n    return Heart;\n}"
   ],
   "init": [],
   "template": "$$CHART$$\n"

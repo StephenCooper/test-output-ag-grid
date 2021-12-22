@@ -2,7 +2,7 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: { text: 'People Born' },\n        subtitle: { text: '2008-2020' },\n        series: [{\n                xKey: 'year',\n                yKey: 'visitors'\n            }],\n        legend: { enabled: false }\n    }"
+      "value": "{\n    \n    autoSize: true,\n    data: getData(),\n    title: {\n        text: 'People Born',\n    },\n    subtitle: {\n        text: '2008-2020',\n    },\n    series: [\n        {\n            xKey: 'year',\n            yKey: 'visitors',\n        },\n    ],\n    legend: {\n        enabled: false,\n    },\n}"
     }
   ],
   "externalEventHandlers": [],

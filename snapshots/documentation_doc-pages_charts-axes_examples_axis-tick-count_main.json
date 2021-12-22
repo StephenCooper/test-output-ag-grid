@@ -2,7 +2,7 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        data: generateSpiralData(),\n        series: [{\n                type: 'line',\n                xKey: 'x',\n                yKey: 'y',\n                marker: { enabled: false }\n            }],\n        axes: [\n            {\n                type: 'number',\n                position: 'bottom',\n                tick: { count: 10 }\n            },\n            {\n                type: 'number',\n                position: 'left',\n                tick: { count: 10 }\n            }\n        ],\n        legend: { enabled: false }\n    }"
+      "value": "{\n    \n    data: generateSpiralData(),\n    series: [\n        {\n            type: 'line',\n            xKey: 'x',\n            yKey: 'y',\n            marker: {\n                enabled: false,\n            },\n        },\n    ],\n    axes: [\n        {\n            type: 'number',\n            position: 'bottom',\n            tick: {\n                count: 10,\n            },\n        },\n        {\n            type: 'number',\n            position: 'left',\n            tick: {\n                count: 10,\n            },\n        },\n    ],\n    legend: {\n        enabled: false,\n    },\n}"
     }
   ],
   "externalEventHandlers": [
@@ -19,7 +19,7 @@
   ],
   "instanceMethods": [],
   "globals": [
-    "function generateSpiralData() {\n    var a = 1;\n    var b = 1;\n    var data = [];\n    var step = 0.1;\n    for (var th = 1; th < 50; th += step) {\n        var r = a + b * th;\n        var datum = {\n            x: r * Math.cos(th),\n            y: r * Math.sin(th)\n        };\n        data.push(datum);\n    }\n    return data;\n}"
+    "function generateSpiralData() {\n    var a = 1;\n    var b = 1;\n    var data = [];\n    var step = 0.1;\n    for (var th = 1; th < 50; th += step) {\n        var r = a + b * th;\n        var datum = {\n            x: r * Math.cos(th),\n            y: r * Math.sin(th),\n        };\n        data.push(datum);\n    }\n    return data;\n}"
   ],
   "init": [],
   "template": "<div class=\"wrapper\">\n    <div id=\"toolPanel\">\n        <button onclick=\"setTickCountTo5()\">Set tick count to 5</button>\n        <span class=\"spacer\"></span>\n        <button onclick=\"setTickCountTo10()\">Set tick count to 10 (default)</button>\n    </div>\n    $$CHART$$\n</div>"

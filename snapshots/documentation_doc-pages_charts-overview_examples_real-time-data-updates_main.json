@@ -2,24 +2,26 @@
   "properties": [
     {
       "name": "options",
-      "value": "{\n        \n        autoSize: true,\n        data: getData(),\n        title: {\n            text: 'Simulated CPU Usage',\n            fontSize: 18\n        },\n        series: [{\n                type: 'area',\n                xKey: 'time',\n                yKeys: [\n                    'system',\n                    'user'\n                ],\n                yNames: [\n                    'System',\n                    'User'\n                ],\n                fills: [\n                    '#ec4d3d',\n                    '#4facf2'\n                ],\n                fillOpacity: 0.5,\n                strokes: [\n                    '#ec4d3d',\n                    '#4facf2'\n                ]\n            }],\n        axes: [\n            {\n                type: 'time',\n                position: 'bottom',\n                nice: false\n            },\n            {\n                type: 'number',\n                position: 'left',\n                title: { text: 'Load (%)' },\n                min: 0,\n                max: 100\n            }\n        ],\n        legend: { position: 'bottom' }\n    }"
+      "value": "{\n    \n    autoSize: true,\n    data: getData(),\n    title: {\n        text: 'Simulated CPU Usage',\n        fontSize: 18,\n    },\n    series: [\n        {\n            type: 'area',\n            xKey: 'time',\n            yKeys: ['system', 'user'],\n            yNames: ['System', 'User'],\n            fills: ['#ec4d3d', '#4facf2'],\n            fillOpacity: 0.5,\n            strokes: ['#ec4d3d', '#4facf2'],\n        },\n    ],\n    axes: [\n        {\n            type: 'time',\n            position: 'bottom',\n            nice: false,\n        },\n        {\n            type: 'number',\n            position: 'left',\n            title: {\n                text: 'Load (%)',\n            },\n            min: 0,\n            max: 100,\n        },\n    ],\n    legend: {\n        position: 'bottom',\n    },\n}"
     }
   ],
   "externalEventHandlers": [],
   "instanceMethods": [
-    "function updateData() {\n        var now = Date.now();\n        options.data = getData();\n        \n    }"
+    "function updateData() {\n    var now = Date.now();\n    options.data = getData();\n    \n}"
   ],
   "globals": [
-    "var systemLoad = 0;",
-    "var userLoad = 0;",
-    "var data = [];",
-    "var refreshRateInMilliseconds = 50;",
-    "var millisecondsOfData = 30 * 1000;",
+    "var systemLoad = 0",
+    "var userLoad = 0",
+    "var data = []",
+    "var refreshRateInMilliseconds = 50",
+    "var millisecondsOfData = 30 * 1000",
     "function calculateRandomDelta(maxChange) {\n    return maxChange / 2 - Math.floor(Math.random() * Math.floor(maxChange + 1));\n}",
-    "function ensureBounds(load, max) {\n    if (load > max) {\n        return max;\n    } else if (load < 0) {\n        return 0;\n    }\n    return load;\n}",
+    "function ensureBounds(load, max) {\n    if (load > max) {\n        return max;\n    }\n    else if (load < 0) {\n        return 0;\n    }\n    return load;\n}",
     "function calculateCpuUsage() {\n    systemLoad = ensureBounds(systemLoad + calculateRandomDelta(2), 30);\n    userLoad = ensureBounds(userLoad + calculateRandomDelta(4), 70);\n}",
-    "function getData() {\n    var dataCount = millisecondsOfData / refreshRateInMilliseconds;\n    data.shift();\n    var timeDelta = (dataCount - data.length - 1) * refreshRateInMilliseconds;\n    var now = Date.now();\n    while (data.length < dataCount) {\n        calculateCpuUsage();\n        data.push({\n            time: now - timeDelta,\n            system: systemLoad,\n            user: userLoad\n        });\n        timeDelta -= refreshRateInMilliseconds;\n    }\n    return data;\n}"
+    "function getData() {\n    var dataCount = millisecondsOfData / refreshRateInMilliseconds;\n    data.shift();\n    var timeDelta = (dataCount - data.length - 1) * refreshRateInMilliseconds;\n    var now = Date.now();\n    while (data.length < dataCount) {\n        calculateCpuUsage();\n        data.push({ time: now - timeDelta, system: systemLoad, user: userLoad });\n        timeDelta -= refreshRateInMilliseconds;\n    }\n    return data;\n}"
   ],
-  "init": ["setInterval(this.updateData, refreshRateInMilliseconds);"],
+  "init": [
+    "//@ts-ignore\nsetInterval(this.updateData, refreshRateInMilliseconds);"
+  ],
   "template": "$$CHART$$\n"
 }
